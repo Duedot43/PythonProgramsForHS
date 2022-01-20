@@ -1,0 +1,31 @@
+#import random
+#def decryptds(cyphr):
+    #print("useless")
+    #and here it stays
+#def decrypt():
+    #file1 = open('share/keys/unshuf', 'r')
+    #count = 0
+ 
+    # Using for loop
+    #print("Using for loop")
+    #for line in file1:
+        #count += 1
+        #print("{}".format(line.strip()))
+        #thing = "{}".format(line.strip())
+        #thing = float(thing)
+        #decryptd()
+        #return thing
+#def decryptd(alphabet):
+    #random.shuffle(alphabet, decryptcyph)
+    #print(alphabet)
+    #decrypt()
+#def getalph(alphabet):
+    #decryptd(alphabet)
+    #return alphabet
+#def decryptcyph(unshuf):
+    #return unshuf
+#sivear dissapointment
+def getkeys(alphabet, alphencnum, msgencnum):
+    print (alphabet)
+    print (alphencnum)    
+    print (msgencnum)

@@ -1,0 +1,9 @@
+{
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.parameterHints.enabled": false,
+    "python.testing.pytestArgs": [
+        "Tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

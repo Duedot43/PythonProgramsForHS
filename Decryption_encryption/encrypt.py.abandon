@@ -1,0 +1,38 @@
+
+#IDEAS use the shuffle() to scramble the letters to a specific randomley generated number then then get a letter from the alphabet and generate an id for it of a set of 10 random numbers and put that id into the text then send the list of ids to the decrypter in order with the scrambled letter dict 
+
+import random
+import os
+from itertools import islice
+alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a']
+from . import decrypt
+def Convert(string):
+    list1=[]
+    list1[:0]=string
+    return list1
+def ranum():
+    rnum = random.uniform(0.00000000000000000000000000000001, 0.9999999999999999999999999999999999999999999999)
+    #print("rnum", rnum)
+    rnum = str(rnum)
+    unshuf = "-" + rnum
+    
+    #print ("unshuf" + unshuf)
+    os.system("cd share/keys/ && echo '" + rnum + "' >> rnum && echo '"+ unshuf+ "' >> unshuf");
+    rnum = float(rnum)
+    unshuf = float(unshuf)
+    #decryptds(unshuf)
+    return rnum
+message = str(input("Whats the message to encrypt? IN ALL CAPS PLEASE\n"));
+messagelist = Convert(message)
+random.shuffle(alphabet, ranum)
+print(alphabet)
+#def unshufl():
+#    unshuf = open('share/keys/unshuf', 'rt');
+#    unshuf.readlines()[cntnum].rstrip()
+#    unshuf1 = float(unshuf)
+#    return unshuf1
+#reptim = 1
+#reptim = int(reptim)
+
+
+#decryptd()

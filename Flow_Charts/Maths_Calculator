@@ -1,0 +1,34 @@
+________________________
+|                      |                       ___________________________
+| Get which calculator |
+|  the user wants      |-------True------------|Get the calculatons from that and display it|
+|                      |  |                    |                                          |------------True-------Verified
+------------------------ False                 ---------------------------   |
+                          |                                                False
+                         Die                                                 |
+                                                                            Die
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
