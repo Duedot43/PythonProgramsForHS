@@ -44,7 +44,7 @@ while game == 1:
     p2mv = int(res.text)
     p1mv = int(p1mv)
     if p1mv == p2mv:
-        print("Tie!");
+        os.system("curl http://" + srvip + "/setinfo.php?win=0")
     if p1mv == 1:
         if p2mv == 2:
             os.system("curl http://" + srvip + "/setinfo.php?win=2")
@@ -73,10 +73,15 @@ while game == 1:
             if winck == 2:
                 win = 2
                 iswin = 1
+            if winck == 0:
+                win = 0
+                iswin = 1
     if win == 1:
         print("Player 1 wins!")
     if win == 2:
         print("Player 2 wins!")
+    if win == 0:
+        print("Tie!")
     time.sleep(3)
     os.system("curl 'http://" + srvip + "/index.php?clean=2'")
     turn = 2

@@ -3,7 +3,7 @@ import requests
 import time
 def disconnect():
     os.system("curl 'http://" + srvip + "/addclient.php?client=2&connect=0'")
-srvip = "45d1-73-229-218-231.ngrok.io"
+srvip = "f07d-8-48-134-57.ngrok.io"
 os.system("curl 'http://" + srvip + "/addclient.php?client=2&connect=1'")
 cl2con = "0"
 while cl2con == "0":
@@ -54,9 +54,14 @@ while game == 1:
             if winck == 2:
                 win = 2
                 iswin = 1
+            if winck == 0:
+                win = 0
+                iswin = 1
     if win == 1:
         print("Player 1 wins!")
     if win == 2:
         print("Player 2 wins!")
+    if win == 0:
+        print("Tie!")
     os.system("curl 'http://" + srvip + "/index.php?clean=2'")
     turn = 1

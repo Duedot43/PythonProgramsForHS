@@ -53,6 +53,9 @@ if ($_GET['trdy2'] == "1") {
     exec("echo 1 > info/trdy2");
 }
 
+if ($_GET['win'] == "0") {
+    exec("echo 0 > info/win");
+}
 if ($_GET['win'] == "1") {
     exec("echo 1 > info/win");
 }
