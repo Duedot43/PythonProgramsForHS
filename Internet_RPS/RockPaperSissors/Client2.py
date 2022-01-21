@@ -3,7 +3,7 @@ import requests
 import time
 def disconnect():
     os.system("curl 'http://" + srvip + "/addclient.php?client=2&connect=0'")
-srvip = "f07d-8-48-134-57.ngrok.io"
+srvip = "127.0.0.1:8080"
 os.system("curl 'http://" + srvip + "/addclient.php?client=2&connect=1'")
 cl2con = "0"
 while cl2con == "0":
