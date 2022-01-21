@@ -166,7 +166,7 @@ while game == 1:
     print("Clients connected!")
     while turn == 1:
 
-        time.sleep(.3)
+        time.sleep(2)
         res = requests.get("http://" + srvip + "/info/turn")
         if res.status_code == 200:
             turn = int(res.text)
@@ -187,49 +187,50 @@ while game == 1:
         print(board)
         if a1 != "X":
             if a1 != "O":
-                print("(1) Place an O on A1")
+                print("Place an O on A1")
         if a2 != "X":
             if a2 != "O":
-                print("(2) Place an O on A2")
+                print("Place an O on A2")
         if a3 != "X":
             if a3 != "O":
-                print("(3) Place an O on A3")
+                print("Place an O on A3")
         if b1 != "X":
             if b1 != "O":
-                print("(4) Place an O on B1")
+                print("Place an O on B1")
         if b2 != "X":
             if b2 != "O":
-                print("(5) Place an O on B2")
+                print("Place an O on B2")
         if b3 != "X":
             if b3 != "O":
-                print("(6) Place an O on B3")
+                print("Place an O on B3")
         if c1 != "X":
             if c1 != "O":
-                print("(7) Place an O on C1")
+                print("Place an O on C1")
         if c2 != "X":
             if c2 != "O":
-                print("(8) Place an O on C2")
+                print("Place an O on C2")
         if c3 != "X":
             if c3 != "O":
-                print("(9) Place an O on C3")
-        xmv = int(input("?"))
-        if xmv == 1:
+                print("Place an O on C3")
+        amv = str(input("?"))
+        xmv = amv.upper()
+        if xmv == "A1":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=a1")
-        if xmv == 2:
+        if xmv == "A2":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=a2")
-        if xmv == 3:
+        if xmv == "A3":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=a3")
-        if xmv == 4:
+        if xmv == "B1":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=b1")
-        if xmv == 5:
+        if xmv == "B2":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=b2")
-        if xmv == 6:
+        if xmv == "B3":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=b3")
-        if xmv == 7:
+        if xmv == "C1":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=c1")
-        if xmv == 8:
+        if xmv == "C1":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=c2")
-        if xmv == 9:
+        if xmv == "C3":
             phpfetch.setval(srvip, "setinfo.php?val=O&pos=c3")
     
     
@@ -265,21 +266,21 @@ while game == 1:
                 iswin = 1
     if win == 1:
         print("Player X wins!")
-        time.sleep(.5)
+        time.sleep(3)
         os.system("curl 'http://" + srvip + "/index.php?clean=1'")
         game = 0
     if win == 2:
         print("Player O wins!")
-        time.sleep(.5)
+        time.sleep(3)
         os.system("curl 'http://" + srvip + "/index.php?clean=1'")
         game = 0
     if win == 0:
         print("Tie!")
-        time.sleep(.5)
+        time.sleep(3)
         os.system("curl 'http://" + srvip + "/index.php?clean=1'")
         game = 0
     if win == 3:
         print("Continue")
         os.system("curl 'http://" + srvip + "/setinfo.php?trdy2=0'")
-    time.sleep(.5)
+    time.sleep(3)
     turn = 1
