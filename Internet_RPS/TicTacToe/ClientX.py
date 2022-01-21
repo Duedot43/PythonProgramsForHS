@@ -6,7 +6,7 @@ srvip = "127.0.0.1:8080"
 def disconnect():
     os.system("curl 'http://" + srvip + "/addclient.php?client=1&connect=0'")
 def algor():
-        print("alg")
+        
         a1 = str(phpfetch.getval(srvip, "info/a1"))
         a2 = str(phpfetch.getval(srvip, "info/a2"))
         a3 = str(phpfetch.getval(srvip, "info/a3"))
@@ -136,24 +136,23 @@ def algor():
         if win == "T":
             win = 0
             win = int(win)
-        print("win=", win)
+        
         if win == 1:
             phpfetch.setval(srvip, "setinfo.php?win=1")
-            print("win1")
+            
         if win == 2:
             phpfetch.setval(srvip, "setinfo.php?win=2")
-            print("win2")
+            
         if win == 3:
             phpfetch.setval(srvip, "setinfo.php?win=3")
-            print("win3")
+            
         if win == 0:
             phpfetch.setval(srvip, "setinfo.php?win=0")
-            print("win0")
         return win
 os.system("curl 'http://" + srvip + "/addclient.php?client=1&connect=1'")
 cl2con = "0"
 while cl2con == "0":
-    time.sleep(1)
+    time.sleep(.3)
     res = requests.get("http://" + srvip + "/connect/p2")
     if res.status_code == 200:
         p2 = int(res.text)
@@ -173,11 +172,11 @@ phpfetch.setval(srvip, "setinfo.php?val=_&pos=c3")
 
 while game == 1:
     os.system("curl 'http://" + srvip + "/setinfo.php?turn=1'")
-    time.sleep(2)
+    time.sleep(.3)
     print("Clients connected!")
     while turn == 2:
 
-        time.sleep(1)
+        time.sleep(.3)
         res = requests.get("http://" + srvip + "/info/turn")
         if res.status_code == 200:
             turn = int(res.text)
@@ -249,7 +248,7 @@ while game == 1:
     #rdy2 = 0
     #while trdy2 == 0:
     #
-    #    time.sleep(1)
+    #    time.sleep(.5)
     #    res = requests.get("http://" + srvip + "/info/trdy2")
     #    if res.status_code == 200:
     #        trdy2 = int(res.text)
@@ -262,7 +261,7 @@ while game == 1:
     trdy2 = 0
     while trdy2 == 0:
 
-        time.sleep(1)
+        time.sleep(.3)
         res = requests.get("http://" + srvip + "/info/trdy2")
         if res.status_code == 200:
             trdy2 = int(res.text)
@@ -271,7 +270,7 @@ while game == 1:
     iswin = 0
     while iswin == 0:
 
-        time.sleep(1)
+        time.sleep(.3)
         res = requests.get("http://" + srvip + "/info/win")
         if res.status_code == 200:
             winck = int(res.text)
@@ -290,21 +289,22 @@ while game == 1:
                 iswin = 1
     if win == 1:
         print("Player X wins!")
-        time.sleep(3)
+        time.sleep(.5)
         os.system("curl 'http://" + srvip + "/index.php?clean=1'")
         game = 0
     if win == 2:
         print("Player O wins!")
-        time.sleep(3)
+        time.sleep(.5)
         os.system("curl 'http://" + srvip + "/index.php?clean=1'")
         game = 0
     if win == 0:
         print("Tie!")
-        time.sleep(3)
+        time.sleep(.5)
         os.system("curl 'http://" + srvip + "/index.php?clean=1'")
         game = 0
     if win == 3:
         print("Continue")
         os.system("curl 'http://" + srvip + "/setinfo.php?trdy1=0'")
-    time.sleep(3)
+    time.sleep(.5)
     turn = 2
+
