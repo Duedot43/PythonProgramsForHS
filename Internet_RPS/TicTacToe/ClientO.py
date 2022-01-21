@@ -2,6 +2,7 @@ import os
 import requests
 import time
 import phpfetch
+srvip = "127.0.0.1:8080"
 def algor():
         print("alg")
         a1 = str(phpfetch.getval(srvip, "info/a1"))
@@ -149,7 +150,6 @@ def algor():
         return win
 def disconnect():
     os.system("curl 'http://" + srvip + "/addclient.php?client=2&connect=0'")
-srvip = "127.0.0.1:8080"
 os.system("curl 'http://" + srvip + "/addclient.php?client=2&connect=1'")
 cl2con = "0"
 while cl2con == "0":

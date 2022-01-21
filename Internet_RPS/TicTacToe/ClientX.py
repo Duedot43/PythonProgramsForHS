@@ -2,6 +2,7 @@ import os
 import requests
 import time
 import phpfetch
+srvip = "127.0.0.1:8080"
 def disconnect():
     os.system("curl 'http://" + srvip + "/addclient.php?client=1&connect=0'")
 def algor():
@@ -149,7 +150,6 @@ def algor():
             phpfetch.setval(srvip, "setinfo.php?win=0")
             print("win0")
         return win
-srvip = "127.0.0.1:8080"
 os.system("curl 'http://" + srvip + "/addclient.php?client=1&connect=1'")
 cl2con = "0"
 while cl2con == "0":
@@ -258,7 +258,7 @@ while game == 1:
     
     #algorithm
     
-    algor()
+    #algor()
     trdy2 = 0
     while trdy2 == 0:
 
