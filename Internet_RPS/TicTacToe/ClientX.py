@@ -301,7 +301,7 @@ while game == 1:
             if c1val != 1:
                 print("You have done a great wrong fire monkey is not pleased you will die now")
                 exit()
-        if xmv == "C1":
+        if xmv == "C2":
             if c2val == 1:
                 phpfetch.setval(srvip, "setinfo.php?val=X&pos=c2")
                 yes = 1
