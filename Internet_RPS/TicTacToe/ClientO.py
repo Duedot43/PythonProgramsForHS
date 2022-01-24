@@ -2,7 +2,7 @@ import os
 import requests
 import time
 import phpfetch
-srvip = "10.240.93.104:8080"
+srvip = "127.0.0.1:8080"
 def algor():
         a1 = str(phpfetch.getval(srvip, "info/a1"))
         a2 = str(phpfetch.getval(srvip, "info/a2"))
