@@ -1,0 +1,6 @@
+p1 = str(input("What is player ones name?\n"))
+p2 = str(input("What is player twos name?\n"))
+print ("player one your turn!")
+p1mv = int(input("(1) rock\n(2) paper\n(3) sissors\n"))
+print ("Player two your turn!")
+p2mv = int(input("(1) rock\n(2) paper\n(3) sissors\n"))
