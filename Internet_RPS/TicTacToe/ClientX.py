@@ -2,7 +2,7 @@ import os
 import requests
 import time
 import phpfetch
-srvip = "127.0.0.1:8080"
+srvip = "10.240.93.104:8080"
 def disconnect():
     os.system("curl 'http://" + srvip + "/addclient.php?client=1&connect=0'")
 def algor():
