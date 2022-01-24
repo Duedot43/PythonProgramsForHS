@@ -37,17 +37,17 @@ def algor():
         if b1 == "O":
             if b2 == "O":
                 if b3 == "O":
-                    win == "O"
+                    win = "O"
         #middle left right
         if a2 == "O":
             if b2 == "O":
                 if c2 == "O":
-                    win == "O"
+                    win = "O"
         #bottom left right
         if a3 == "O":
             if b3 == "O":
                 if c3 == "O":
-                    win == "O"
+                    win = "O"
 
 
         #branch left
@@ -73,17 +73,17 @@ def algor():
         if b1 == "X":
             if b2 == "X":
                 if b3 == "X":
-                    win == "X"
+                    win = "X"
         #middle left right
         if a2 == "X":
             if b2 == "X":
                 if c2 == "X":
-                    win == "X"
+                    win = "X"
         #bottom left right
         if a3 == "X":
             if b3 == "X":
                 if c3 == "X":
-                    win == "X"
+                    win = "X"
         wincalc1 = 0
         wincalc2 = 0
         wincalc3 = 0
@@ -185,57 +185,134 @@ while game == 1:
         print("The current board")
         board = phpfetch.getboard(a1, a2, a3, b1, b2, b3, c1, c2, c3)
         print(board)
-        if a1 != "X":
-            if a1 != "O":
+        a1val = 0
+        a2val = 0
+        a3val = 0
+        b1val = 0
+        b2val = 0
+        b3val = 0
+        c1val = 0
+        c2val = 0
+        c3val = 0
+        yes = 0
+        if a1 != "O":
+            if a1 != "X":
                 print("Place an O on A1")
-        if a2 != "X":
-            if a2 != "O":
+                a1val = 1
+                
+        if a2 != "O":
+            if a2 != "X":
                 print("Place an O on A2")
-        if a3 != "X":
-            if a3 != "O":
+                a2val = 1
+                
+        if a3 != "O":
+            if a3 != "X":
                 print("Place an O on A3")
-        if b1 != "X":
-            if b1 != "O":
+                a3val = 1
+                
+        if b1 != "O":
+            if b1 != "X":
                 print("Place an O on B1")
-        if b2 != "X":
-            if b2 != "O":
+                b1val = 1
+                
+        if b2 != "O":
+            if b2 != "X":
                 print("Place an O on B2")
-        if b3 != "X":
-            if b3 != "O":
+                b2val = 1
+                
+        if b3 != "O":
+            if b3 != "X":
                 print("Place an O on B3")
-        if c1 != "X":
-            if c1 != "O":
+                b3val = 1
+                
+        if c1 != "O":
+            if c1 != "X":
                 print("Place an O on C1")
-        if c2 != "X":
-            if c2 != "O":
+                c1val = 1
+                
+        if c2 != "O":
+            if c2 != "X":
                 print("Place an O on C2")
-        if c3 != "X":
-            if c3 != "O":
+                c2val = 1
+                
+        if c3 != "O":
+            if c3 != "X":
                 print("Place an O on C3")
+                c3val = 1
+                
         amv = str(input("?"))
         xmv = amv.upper()
         if xmv == "A1":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=a1")
+            if a1val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=a1")
+                yes = 1
+            if a1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
         if xmv == "A2":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=a2")
+            if a2val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=a2")
+                yes = 1
+            if a2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
         if xmv == "A3":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=a3")
+            if a3val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=a3")
+                yes = 1
+            if a3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
         if xmv == "B1":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=b1")
+            if b1val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=b1")
+                yes = 1
+            if b1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
         if xmv == "B2":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=b2")
+            if b2val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=b2")
+                yes = 1
+            if b2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
         if xmv == "B3":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=b3")
+            if b3val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=b3")
+                yes = 1
+            if b3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
         if xmv == "C1":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=c1")
+            if c1val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=c1")
+                yes = 1
+            if c1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
         if xmv == "C1":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=c2")
+            if c2val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=c2")
+                yes = 1
+            if c2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
         if xmv == "C3":
-            phpfetch.setval(srvip, "setinfo.php?val=O&pos=c3")
+            if c3val == 1:
+                phpfetch.setval(srvip, "setinfo.php?val=O&pos=c3")
+                yes = 1
+            if c3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if yes != 1:
+            print("What?")
+            exit()
     
     
     os.system("curl 'http://" + srvip + "/setinfo.php?turn=1'")
     os.system("curl 'http://" + srvip + "/setinfo.php?trdy2=1'")
+    win = algor()
     trdy1 = 0
     while trdy1 == 0:
 
@@ -245,6 +322,7 @@ while game == 1:
             trdy1 = int(res.text)
             if trdy1 == 1:
                 trdy1 = 1
+    win = algor()
     iswin = 0
     while iswin == 0:
 

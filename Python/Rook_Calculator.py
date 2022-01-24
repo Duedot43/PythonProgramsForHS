@@ -13,6 +13,14 @@ rookumovy = int(input("Where in the y plane do you want to move your rook?\n"));
 #* - - - - - - - - *7
 #* - - - - - - - - *8
 #* * * * * * * * * *
+f = float(rookposy)
+if (f < 0):
+    print("What?")
+    exit()
+f = float(rookposx)
+if (f < 0):
+    print("What?")
+    exit()
 if rookposx > 8:
     print("Ay we got a smart one over here tryna go off the board. Invalid");
     exit();
