@@ -252,6 +252,42 @@ while game == 1:
                 
         amv = str(input("?"))
         xmv = amv.upper()
+        if a1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a1val = 1
+        if a2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a2val = 1
+        if a3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a3val = 1
+        if b1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b1val = 1
+        if b2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b2val = 1
+        if b3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b3val = 1
+        if c1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c1val = 1
+        if c2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c2val = 1
+        if c3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c3val = 1
         if xmv == "A1":
             if a1val == 1:
                 phpfetch.setval(srvip, "setinfo.php?val=X&pos=a1")

@@ -1,0 +1,5 @@
+list = ['hi', '']
+list[1] = "hi2"
+print (list)
+
+    ['hi', 'hi2']
