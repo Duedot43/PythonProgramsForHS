@@ -15,6 +15,17 @@ if(isset($_GET['val'])) {
     }
 }
 
+if(isset($_GET['shpded'])) {
+    if(isset($_GET['client'])) {
+        if(isset($_GET['shpnm'])) {
+            if(isset($_GET['shprnm'])) {
+                exec("echo -n '" . $_GET['shpded'] . "' > 'info/pinfo" . $_GET['client'] . "/ships/" . $_GET['shprnm'] . "/" . $_GET['shpnm'] . "'");
+            }
+        }
+    }
+}
+
+
 if(isset($_GET['turn'])) {
     exec("echo -n '" . $_GET['turn'] . "' > info/turn");
 }
