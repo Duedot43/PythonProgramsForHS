@@ -19,6 +19,20 @@ phpfetch.setval(srvip, "addclient.php?clientdatafoldernumber=" + clientnum)
 clients = phpfetch.getval(srvip, "connect/clients")
 clients = int(clients)
 waow = 200*clients
+people = phpfetch.getval(srvip, "connect/clients")
+people = int(people)
+count = 0
+peoplelst = []
+listgo = 0
+while listgo == 0:
+    count = count+1
+    peoplelst.append(count)
+    if count == people:
+        listgo = 1
+    count = count+1
+    peoplelst.append(count)
+    if count == people:
+        listgo = 1
 print("Hold on while I set ", waow, " variabels in the server this may take a while...")
 count = 0
 while count != 10:
@@ -360,8 +374,10 @@ print(botboard)
 
 #Destroyer
 
-Destroyerlet = str(input("Where would you like your 'Destroyer' ship? It takes up 2 spaces. Please input the first letter of the position."))
-Destroyernum = str(input("Where would you like your 'Destroyer' ship? It takes up 2 spaces. Please input the second number of the position."))
+Destroyerstr = str(input("Where would you like your 'Destroyer' ship? It takes up 2 spaces.  "))
+Destroyerlst = phpfetch.convert(Destroyerstr)
+Destroyerlet = Destroyerlst[0]
+Destroyernum = Destroyerlst[1]
 phpfetch.setval(srvip, "setinfo.php?shpded=0&client=" + clientnum + "&shpnm=destroy&shprnm=destroy")
 phpfetch.setval(srvip, "setinfo.php?val=%&client=" + clientnum + "&board=bot&pos=" + Destroyerlet + Destroyernum)
 phpfetch.setval(srvip, "setinfo.php?shpded=" + Destroyerlet + Destroyernum + "&client=" + clientnum + "&shpnm=pos1&shprnm=destroy")
@@ -605,8 +621,10 @@ print(botboard)
 
 #sub
 
-sublet = str(input("Where would you like your 'Submarine' ship? It takes up 3 spaces. Please input the first letter of the position."))
-subnum = str(input("Where would you like your 'Submarine' ship? It takes up 3 spaces. Please input the second number of the position."))
+substr = str(input("Where would you like your 'Submarine' ship? It takes up 3 spaces.  "))
+sublst = phpfetch.convert(substr)
+sublet = sublst[0]
+subnum = sublst[1]
 phpfetch.setval(srvip, "setinfo.php?shpded=0&client=" + clientnum + "&shpnm=sub&shprnm=sub")
 phpfetch.setval(srvip, "setinfo.php?val=%&client=" + clientnum + "&board=bot&pos=" + sublet + subnum)
 phpfetch.setval(srvip, "setinfo.php?shpded=" + sublet + subnum + "&client=" + clientnum + "&shpnm=pos1&shprnm=sub")
@@ -855,8 +873,10 @@ print(botboard)
 
 #battle
 
-battlelet = str(input("Where would you like your 'Battleship' ship? It takes up 3 spaces. Please input the first letter of the position."))
-battlenum = str(input("Where would you like your 'Battleship' ship? It takes up 3 spaces. Please input the second number of the position."))
+battlestr = str(input("Where would you like your 'Battleship' ship? It takes up 4 spaces.  "))
+battlelst = phpfetch.convert(battlestr)
+battlelet = battlelst[0]
+battlenum = battlelst[1]
 phpfetch.setval(srvip, "setinfo.php?shpded=0&client=" + clientnum + "&shpnm=battle&shprnm=battle")
 phpfetch.setval(srvip, "setinfo.php?val=%&client=" + clientnum + "&board=bot&pos=" + battlelet + battlenum)
 phpfetch.setval(srvip, "setinfo.php?shpded=" + battlelet + battlenum + "&client=" + clientnum + "&shpnm=pos1&shprnm=battle")
@@ -871,7 +891,7 @@ battlenum = str(battlenum)
 phpfetch.setval(srvip, "setinfo.php?val=%&client=" + clientnum + "&board=bot&pos=" + battlelet + battlenum)
 phpfetch.setval(srvip, "setinfo.php?shpded=" + battlelet + battlenum + "&client=" + clientnum + "&shpnm=pos3&shprnm=battle")
 battlenum = int(battlenum)
-battleum = battlenum-1
+battlenum = battlenum-1
 battlenum = str(battlenum)
 phpfetch.setval(srvip, "setinfo.php?val=%&client=" + clientnum + "&board=bot&pos=" + battlelet + battlenum)
 phpfetch.setval(srvip, "setinfo.php?shpded=" + battlelet + battlenum + "&client=" + clientnum + "&shpnm=pos4&shprnm=battle")
@@ -1110,9 +1130,10 @@ print(botboard)
 
 #care
 
-carelet = str(input("Where would you like your 'Carrier' ship? It takes up 5 spaces. Please input the first letter of the position."))
-carenum = str(input("Where would you like your 'Carrier' ship? It takes up 5 spaces. Please input the second number of the position."))
-phpfetch.setval(srvip, "setinfo.php?shpded=0&client=" + clientnum + "&shpnm=care&shprnm=care")
+carestr = str(input("Where would you like your 'Carrier' ship? It takes up 5 spaces.  "))
+carelst = phpfetch.convert(carestr)
+carelet = carelst[0]
+carenum = carelst[1]
 phpfetch.setval(srvip, "setinfo.php?val=%&client=" + clientnum + "&board=bot&pos=" + carelet + carenum)
 phpfetch.setval(srvip, "setinfo.php?shpded=" + carelet + carenum + "&client=" + clientnum + "&shpnm=pos1&shprnm=care")
 carenum = int(carenum)
@@ -1371,8 +1392,10 @@ print(botboard)
 
 
 
-cruselet = str(input("Where would you like your 'Cruser' ship? It takes up 3 spaces. Please input the first letter of the position."))
-crusenum = str(input("Where would you like your 'Cruser' ship? It takes up 3 spaces. Please input the second number of the position."))
+crusestr = str(input("Where would you like your 'Cruser' ship? It takes up 3 spaces.  "))
+cruselst = phpfetch.convert(crusestr)
+cruselet = cruselst[0]
+crusenum = cruselst[1]
 phpfetch.setval(srvip, "setinfo.php?shpded=0&client=" + clientnum + "&shpnm=cruse&shprnm=cruse")
 phpfetch.setval(srvip, "setinfo.php?val=%&client=" + clientnum + "&board=bot&pos=" + cruselet + crusenum)
 phpfetch.setval(srvip, "setinfo.php?shpded=" + cruselet + crusenum + "&client=" + clientnum + "&shpnm=pos1&shprnm=cruse")
@@ -1633,8 +1656,28 @@ while game == 1:
             turn = int(res.text)
             if turn == clientnum:
                 print("Your turn!")
-    move = str(input("Now Player 2 take your choice \n (1) rock \n (2) paper \n (3) sissors \n"))
-    os.system("curl 'http://" + srvip + "/setinfo.php?client=2&move=" + move + "'")
+    choicestr = str(input("Where would you like to attempt a hit?"))
+    choicelst = phpfetch.convert(choicestr)
+    choicelet = choicelst[0]
+    choicenum = choicelst[1]
+    doihit = 0
+    while doihit != 1:
+        for x in peoplelst:
+            xp = x+1
+            print(x)
+            x = str(x)
+            if xp != people:
+                choicestr = str(choicestr)
+                xp = str(xp)
+                doihitpeople = phpfetch.getval(srvip, "info/pinfo" + x + "/boardbot/" + choicestr + "")
+                if doihitpeople == "%":
+                    doihit = 1
+                    personhit = x
+                    personhit = str(personhit)
+                    phpfetch.setval(srvip, "setinfo.php?val=X&client=" + personhit + "&pos=" + choicestr + "&board=bot")
+            if xp == people:
+                doihit = 1
+    #os.system("curl 'http://" + srvip + "/setinfo.php?client=2&move=" + move + "'")
     os.system("curl 'http://" + srvip + "/setinfo.php?turn=1'")
     os.system("curl 'http://" + srvip + "/setinfo.php?trdy2=1'")
     trdy1 = 0
