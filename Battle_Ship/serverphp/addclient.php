@@ -9,5 +9,7 @@ if(isset($_GET['ammountofclients'])) {
 }
 if(isset($_GET['clientdatafoldernumber'])) {
     exec("mkdir info/pinfo" . $_GET['clientdatafoldernumber']);
+    exec("mkdir info/pinfo" . $_GET['clientdatafoldernumber'] . "/boardtop");
+    exec("mkdir info/pinfo" . $_GET['clientdatafoldernumber'] . "/boardbot");
 }
 ?>
