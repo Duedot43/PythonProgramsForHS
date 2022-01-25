@@ -1634,7 +1634,7 @@ print(topboard)
 print("The bottom board")
 print(botboard)
 
-#battle
+#care
 
 
 game = 1
