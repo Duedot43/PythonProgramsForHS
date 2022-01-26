@@ -1654,9 +1654,13 @@ while game == 1:
         res = requests.get("http://" + srvip + "/info/turn")
         if res.status_code == 200:
             turn = int(res.text)
+            print (turn)
+            print(clientnum)
+            clientnum = int(clientnum)
             if turn == clientnum:
                 print("Your turn!")
     choicestr = str(input("Where would you like to attempt a hit?"))
+    clientnum = int(clientnum)
     choicelst = phpfetch.convert(choicestr)
     choicelet = choicelst[0]
     choicenum = choicelst[1]
@@ -1678,7 +1682,13 @@ while game == 1:
             if xp == people:
                 doihit = 1
     #os.system("curl 'http://" + srvip + "/setinfo.php?client=2&move=" + move + "'")
-    os.system("curl 'http://" + srvip + "/setinfo.php?turn=1'")
+    if turn != people:
+        turn = int(turn)
+        turn = turn+1
+        turn = str(turn)
+        os.system("curl 'http://" + srvip + "/setinfo.php?turn=" + turn + "'")
+    if turn == people:
+         os.system("curl 'http://" + srvip + "/setinfo.php?turn=1'")
     os.system("curl 'http://" + srvip + "/setinfo.php?trdy2=1'")
     trdy1 = 0
     while trdy1 == 0:

@@ -1682,7 +1682,7 @@ while game == 1:
                     phpfetch.setval(srvip, "setinfo.php?val=X&client=" + personhit + "&pos=" + choicestr + "&board=bot")
             if xp == people:
                 doihit = 1
-    os.system("curl 'http://" + srvip + "/setinfo.php?client=1&move=" + p1mv + "'")
+    #os.system("curl 'http://" + srvip + "/setinfo.php?client=1&move=" + p1mv + "'")
     os.system("curl 'http://" + srvip + "/setinfo.php?turn=2'")
     os.system("curl 'http://" + srvip + "/setinfo.php?trdy1=1'")
     trdy2 = 0
