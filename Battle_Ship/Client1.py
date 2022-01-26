@@ -2,9 +2,599 @@ import os
 import requests
 import time
 import phpfetch
+srvip = "127.0.0.1:8080"
 def disconnect():
     os.system("curl 'http://" + srvip + "/addclient.php?client=1&connect=0'")
-srvip = "127.0.0.1:8080"
+os.system("curl 'http://" + srvip + "/setinfo.php?turn=1'")
+counts = 0
+def algor(placeholder, people):
+    count = 0
+    people = str(people)
+    count = str(count)
+    print("algor")
+    while count <= people:
+        #print("0", count)
+        count = int(count)
+        count = count+1
+        count = str(count)
+        #print("uno", count)
+        #print("people", people)
+        people = str(people)
+        count = str(count)
+        #x = int(x)
+        #x = x-1
+        #x = str(x)
+        #print("dos", count)
+        if count > people:
+            break
+        ba1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a1")
+        ba2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a2")
+        ba3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a3")
+        ba4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a4")
+        ba5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a5")
+        ba6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a6")
+        ba7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a7")
+        ba8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a8")
+        ba9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a9")
+        ba10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/a10")
+
+        bb1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b1")
+        bb2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b2")
+        bb3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b3")
+        bb4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b4")
+        bb5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b5")
+        bb6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b6")
+        bb7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b7")
+        bb8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b8")
+        bb9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b9")
+        bb10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/b10")
+
+        bc1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c1")
+        bc2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c2")
+        bc3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c3")
+        bc4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c4")
+        bc5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c5")
+        bc6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c6")
+        bc7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c7")
+        bc8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c8")
+        bc9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c9")
+        bc10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/c10")
+
+        bd1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d1")
+        bd2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d2")
+        bd3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d3")
+        bd4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d4")
+        bd5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d5")
+        bd6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d6")
+        bd7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d7")
+        bd8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d8")
+        bd9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d9")
+        bd10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/d10")
+
+        be1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e1")
+        be2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e2")
+        be3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e3")
+        be4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e4")
+        be5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e5")
+        be6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e6")
+        be7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e7")
+        be8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e8")
+        be9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e9")
+        be10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/e10")
+
+        bf1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f1")
+        bf2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f2")
+        bf3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f3")
+        bf4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f4")
+        bf5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f5")
+        bf6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f6")
+        bf7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f7")
+        bf8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f8")
+        bf9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f9")
+        bf10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/f10")
+
+        bg1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g1")
+        bg2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g2")
+        bg3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g3")
+        bg4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g4")
+        bg5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g5")
+        bg6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g6")
+        bg7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g7")
+        bg8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g8")
+        bg9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g9")
+        bg10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/g10")
+
+        bh1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h1")
+        bh2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h2")
+        bh3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h3")
+        bh4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h4")
+        bh5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h5")
+        bh6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h6")
+        bh7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h7")
+        bh8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h8")
+        bh9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h9")
+        bh10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/h10")
+
+        bi1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i1")
+        bi2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i2")
+        bi3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i3")
+        bi4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i4")
+        bi5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i5")
+        bi6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i6")
+        bi7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i7")
+        bi8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i8")
+        bi9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i9")
+        bi10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/i10")
+
+        bj1 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j1")
+        bj2 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j2")
+        bj3 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j3")
+        bj4 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j4")
+        bj5 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j5")
+        bj6 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j6")
+        bj7 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j7")
+        bj8 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j8")
+        bj9 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j9")
+        bj10 = phpfetch.getval(srvip, "info/pinfo" + count + "/boardbot/j10")
+        iswin = 0
+
+        #a
+
+        if ba1 == "%":
+            print("player x is alive a1")
+        if ba1 == "X":
+            iswin = iswin+1
+        if ba2 == "%":
+            print("player x is alive a2")
+        if ba2 == "X":
+            iswin = iswin+1
+        if ba3 == "%":
+            print("player x is alive a3")
+        if ba3 == "X":
+            iswin = iswin+1
+        if ba4 == "%":
+            print("player x is alive a4")
+        if ba4 == "X":
+            iswin = iswin+1
+        if ba5 == "%":
+            print("player x is alive a5")
+        if ba5 == "X":
+            iswin = iswin+1
+        if ba6 == "%":
+            print("player x is alive a6")
+        if ba6 == "X":
+            iswin = iswin+1
+        if ba7 == "%":
+            print("player x is alive a7")
+        if ba7 == "X":
+            iswin = iswin+1
+        if ba8 == "%":
+            print("player x is alive a8")
+        if ba8 == "X":
+            iswin = iswin+1
+        if ba9 == "%":
+            print("player x is alive a9")
+        if ba9 == "X":
+            iswin = iswin+1
+        if ba10 == "%":
+            print("player x is alive a10")
+        if ba10 == "X":
+            iswin = iswin+1
+            
+            #a
+
+            #b
+
+        if bb1 == "%":
+            print("player x is alive")
+        if bb1 == "X":
+            iswin = iswin+1
+        if bb2 == "%":
+            print("player x is alive")
+        if bb2 == "X":
+            iswin = iswin+1
+        if bb3 == "%":
+            print("player x is alive")
+        if bb3 == "X":
+            iswin = iswin+1
+        if bb4 == "%":
+            print("player x is alive")
+        if bb4 == "X":
+            iswin = iswin+1
+        if bb5 == "%":
+            print("player x is alive")
+        if bb5 == "X":
+            iswin = iswin+1
+        if bb6 == "%":
+            print("player x is alive")
+        if bb6 == "X":
+            iswin = iswin+1
+        if bb7 == "%":
+            print("player x is alive")
+        if bb7 == "X":
+            iswin = iswin+1
+        if bb8 == "%":
+            print("player x is alive")
+        if bb8 == "X":
+            iswin = iswin+1
+        if bb9 == "%":
+            print("player x is alive")
+        if bb9 == "X":
+            iswin = iswin+1
+        if bb10 == "%":
+            print("player x is alive")
+        if bb10 == "X":
+            iswin = iswin+1
+            
+            #b
+
+            #c
+
+        if bc1 == "%":
+            print("player x is alive")
+        if bc1 == "X":
+            iswin = iswin+1
+        if bc2 == "%":
+            print("player x is alive")
+        if bc2 == "X":
+            iswin = iswin+1
+        if bc3 == "%":
+            print("player x is alive")
+        if bc3 == "X":
+            iswin = iswin+1
+        if bc4 == "%":
+            print("player x is alive")
+        if bc4 == "X":
+            iswin = iswin+1
+        if bc5 == "%":
+            print("player x is alive")
+        if bc5 == "X":
+            iswin = iswin+1
+        if bc6 == "%":
+            print("player x is alive")
+        if bc6 == "X":
+            iswin = iswin+1
+        if bc7 == "%":
+            print("player x is alive")
+        if bc7 == "X":
+            iswin = iswin+1
+        if bc8 == "%":
+            print("player x is alive")
+        if bc8 == "X":
+            iswin = iswin+1
+        if bc9 == "%":
+            print("player x is alive")
+        if bc9 == "X":
+            iswin = iswin+1
+        if bc10 == "%":
+            print("player x is alive")
+        if bc10 == "X":
+            iswin = iswin+1
+            
+            #c
+
+            #d
+
+        if bd1 == "%":
+            print("player x is alive")
+        if bd1 == "X":
+            iswin = iswin+1
+        if bd2 == "%":
+            print("player x is alive")
+        if bd2 == "X":
+            iswin = iswin+1
+        if bd3 == "%":
+            print("player x is alive")
+        if bd3 == "X":
+            iswin = iswin+1
+        if bd4 == "%":
+            print("player x is alive")
+        if bd4 == "X":
+            iswin = iswin+1
+        if bd5 == "%":
+            print("player x is alive")
+        if bd5 == "X":
+            iswin = iswin+1
+        if bd6 == "%":
+            print("player x is alive")
+        if bd6 == "X":
+            iswin = iswin+1
+        if bd7 == "%":
+            print("player x is alive")
+        if bd7 == "X":
+            iswin = iswin+1
+        if bd8 == "%":
+            print("player x is alive")
+        if bd8 == "X":
+            iswin = iswin+1
+        if bd9 == "%":
+            print("player x is alive")
+        if bd9 == "X":
+            iswin = iswin+1
+        if bd10 == "%":
+            print("player x is alive")
+        if bd10 == "X":
+            iswin = iswin+1
+
+            #d
+
+            #e
+
+        if be1 == "%":
+            print("player x is alive")
+        if be1 == "X":
+            iswin = iswin+1
+        if be2 == "%":
+            print("player x is alive")
+        if be2 == "X":
+            iswin = iswin+1
+        if be3 == "%":
+            print("player x is alive")
+        if be3 == "X":
+            iswin = iswin+1
+        if be4 == "%":
+            print("player x is alive")
+        if be4 == "X":
+            iswin = iswin+1
+        if be5 == "%":
+            print("player x is alive")
+        if be5 == "X":
+            iswin = iswin+1
+        if be6 == "%":
+            print("player x is alive")
+        if be6 == "X":
+            iswin = iswin+1
+        if be7 == "%":
+            print("player x is alive")
+        if be7 == "X":
+            iswin = iswin+1
+        if be8 == "%":
+            print("player x is alive")
+        if be8 == "X":
+            iswin = iswin+1
+        if be9 == "%":
+            print("player x is alive")
+        if be9 == "X":
+            iswin = iswin+1
+        if be10 == "%":
+            print("player x is alive")
+        if be10 == "X":
+            iswin = iswin+1
+         
+            #e
+
+            #f
+
+        if bf1 == "%":
+            print("player x is alive")
+        if bf1 == "X":
+            iswin = iswin+1
+        if bf2 == "%":
+            print("player x is alive")
+        if bf2 == "X":
+            iswin = iswin+1
+        if bf3 == "%":
+            print("player x is alive")
+        if bf3 == "X":
+            iswin = iswin+1
+        if bf4 == "%":
+            print("player x is alive")
+        if bf4 == "X":
+            iswin = iswin+1
+        if bf5 == "%":
+            print("player x is alive")
+        if bf5 == "X":
+            iswin = iswin+1
+        if bf6 == "%":
+            print("player x is alive")
+        if bf6 == "X":
+            iswin = iswin+1
+        if bf7 == "%":
+            print("player x is alive")
+        if bf7 == "X":
+            iswin = iswin+1
+        if bf8 == "%":
+            print("player x is alive")
+        if bf8 == "X":
+            iswin = iswin+1
+        if bf9 == "%":
+            print("player x is alive")
+        if bf9 == "X":
+            iswin = iswin+1
+        if bf10 == "%":
+            print("player x is alive")
+        if bf10 == "X":
+            iswin = iswin+1
+            
+            #f
+
+            #g
+
+        if bg1 == "%":
+            print("player x is alive")
+        if bg1 == "X":
+            iswin = iswin+1
+        if bg2 == "%":
+            print("player x is alive")
+        if bg2 == "X":
+            iswin = iswin+1
+        if bg3 == "%":
+            print("player x is alive")
+        if bg3 == "X":
+            iswin = iswin+1
+        if bg4 == "%":
+            print("player x is alive")
+        if bg4 == "X":
+            iswin = iswin+1
+        if bg5 == "%":
+            print("player x is alive")
+        if bg5 == "X":
+            iswin = iswin+1
+        if bg6 == "%":
+            print("player x is alive")
+        if bg6 == "X":
+            iswin = iswin+1
+        if bg7 == "%":
+            print("player x is alive")
+        if bg7 == "X":
+            iswin = iswin+1
+        if bg8 == "%":
+            print("player x is alive")
+        if bg8 == "X":
+            iswin = iswin+1
+        if bg9 == "%":
+            print("player x is alive")
+        if bg9 == "X":
+            iswin = iswin+1
+        if bg10 == "%":
+            print("player x is alive")
+        if bg10 == "X":
+            iswin = iswin+1
+            
+            #g
+
+            #h
+
+        if bh1 == "%":
+            print("player x is alive")
+        if bh1 == "X":
+            iswin = iswin+1
+        if bh2 == "%":
+            print("player x is alive")
+        if bh2 == "X":
+            iswin = iswin+1
+        if bh3 == "%":
+            print("player x is alive")
+        if bh3 == "X":
+            iswin = iswin+1
+        if bh4 == "%":
+            print("player x is alive")
+        if bh4 == "X":
+            iswin = iswin+1
+        if bh5 == "%":
+            print("player x is alive")
+        if bh5 == "X":
+            iswin = iswin+1
+        if bh6 == "%":
+            print("player x is alive")
+        if bh6 == "X":
+            iswin = iswin+1
+        if bh7 == "%":
+            print("player x is alive")
+        if bh7 == "X":
+            iswin = iswin+1
+        if bh8 == "%":
+            print("player x is alive")
+        if bh8 == "X":
+            iswin = iswin+1
+        if bh9 == "%":
+            print("player x is alive")
+        if bh9 == "X":
+            iswin = iswin+1
+        if bh10 == "%":
+            print("player x is alive")
+        if bh10 == "X":
+            iswin = iswin+1
+            
+            #h
+
+            #i
+
+        if bi1 == "%":
+            print("player x is alive")
+        if bi1 == "X":
+            iswin = iswin+1
+        if bi2 == "%":
+            print("player x is alive")
+        if bi2 == "X":
+            iswin = iswin+1
+        if bi3 == "%":
+            print("player x is alive")
+        if bi3 == "X":
+            iswin = iswin+1
+        if bi4 == "%":
+            print("player x is alive")
+        if bi4 == "X":
+            iswin = iswin+1
+        if bi5 == "%":
+            print("player x is alive")
+        if bi5 == "X":
+            iswin = iswin+1
+        if bi6 == "%":
+            print("player x is alive")
+        if bi6 == "X":
+            iswin = iswin+1
+        if bi7 == "%":
+            print("player x is alive")
+        if bi7 == "X":
+            iswin = iswin+1
+        if bi8 == "%":
+            print("player x is alive")
+        if bi8 == "X":
+            iswin = iswin+1
+        if bi9 == "%":
+            print("player x is alive")
+        if bi9 == "X":
+            iswin = iswin+1
+        if bi10 == "%":
+            print("player x is alive")
+        if bi10 == "X":
+            iswin = iswin+1
+            
+            #i
+
+            #j
+
+        if bj1 == "%":
+            print("player x is alive")
+        if bj1 == "X":
+            iswin = iswin+1
+        if bj2 == "%":
+            print("player x is alive")
+        if bj2 == "X":
+            iswin = iswin+1
+        if bj3 == "%":
+            print("player x is alive")
+        if bj3 == "X":
+            iswin = iswin+1
+        if bj4 == "%":
+            print("player x is alive")
+        if bj4 == "X":
+            iswin = iswin+1
+        if bj5 == "%":
+            print("player x is alive")
+        if bj5 == "X":
+            iswin = iswin+1
+        if bj6 == "%":
+            print("player x is alive")
+        if bj6 == "X":
+            iswin = iswin+1
+        if bj7 == "%":
+            print("player x is alive")
+        if bj7 == "X":
+            iswin = iswin+1
+        if bj8 == "%":
+            print("player x is alive")
+        if bj8 == "X":
+            iswin = iswin+1
+        if bj9 == "%":
+            print("player x is alive")
+        if bj9 == "X":
+            iswin = iswin+1
+        if bj10 == "%":
+            print("player x is alive")
+        if bj10 == "X":
+            iswin = iswin+1
+
+            #j
+
+        if iswin == 17:
+            phpfetch.setval(srvip, "setinfo.php?trdy=0&client=" + count)
+        if iswin != 17:
+            phpfetch.setval(srvip, "setinfo.php?trdy=1&client=" + count)
+        win = phpfetch.getval(srvip, "info/pinfo" + count + "/win")
+        if win == 0:
+            phpfetch.setval(srvip, "setinfo.php?ded=1&client=" + count)
 os.system("curl 'http://" + srvip + "/addclient.php?client=1&connect=1'")
 people = int(input("How many people are there:"))
 count = 0
@@ -1649,8 +2239,12 @@ print(botboard)
 
 game = 1
 turn = 2
+phpfetch.setval(srvip, "setinfo.php?ded=0&client=1")
 while game == 1:
-    os.system("curl 'http://" + srvip + "/setinfo.php?turn=1'")
+    ded = phpfetch.getval(srvip, "info/pinfo1/ded")
+    if ded == 1:
+        game = 0
+        break
     time.sleep(2)
     print("Clients connected!")
     while turn != 1:
@@ -1671,71 +2265,22 @@ while game == 1:
             xp = x+1
             print(x)
             x = str(x)
-            if xp != people:
-                choicestr = str(choicestr)
-                xp = str(xp)
-                doihitpeople = phpfetch.getval(srvip, "info/pinfo" + x + "/boardbot/" + choicestr + "")
-                if doihitpeople == "%":
-                    doihit = 1
-                    personhit = x
-                    personhit = str(personhit)
-                    phpfetch.setval(srvip, "setinfo.php?val=X&client=" + personhit + "&pos=" + choicestr + "&board=bot")
+            if xp == "1":
+                print("no")
+            else:
+                if xp != people:
+                    choicestr = str(choicestr)
+                    xp = str(xp)
+                    doihitpeople = phpfetch.getval(srvip, "info/pinfo" + x + "/boardbot/" + choicestr + "")
+                    if doihitpeople == "%":
+                        doihit = 1
+                        personhit = x
+                        personhit = str(personhit)
+                        phpfetch.setval(srvip, "setinfo.php?val=X&client=" + personhit + "&pos=" + choicestr + "&board=bot")
             if xp == people:
                 doihit = 1
     #os.system("curl 'http://" + srvip + "/setinfo.php?client=1&move=" + p1mv + "'")
-    os.system("curl 'http://" + srvip + "/setinfo.php?turn=2'")
-    os.system("curl 'http://" + srvip + "/setinfo.php?trdy1=1'")
-    trdy2 = 0
-    while trdy2 == 0:
-
-        time.sleep(1)
-        res = requests.get("http://" + srvip + "/info/trdy2")
-        if res.status_code == 200:
-            trdy2 = int(res.text)
-            if trdy2 == 1:
-                trdy2 = 1
-    res = requests.get("http://" + srvip + "/info/p2mv")
-    p2mv = int(res.text)
-    p1mv = int(p1mv)
-    if p1mv == p2mv:
-        os.system("curl http://" + srvip + "/setinfo.php?win=0")
-    if p1mv == 1:
-        if p2mv == 2:
-            os.system("curl http://" + srvip + "/setinfo.php?win=2")
-        if p2mv == 3:
-            os.system("curl http://" + srvip + "/setinfo.php?win=1")
-    if p1mv == 2:
-        if p2mv == 1:
-            os.system("curl http://" + srvip + "/setinfo.php?win=1")
-        if p2mv == 3:
-            os.system("curl http://" + srvip + "/setinfo.php?win=2")
-    if p1mv == 3:
-        if p2mv == 1:
-            os.system("curl http://" + srvip + "/setinfo.php?win=2")
-        if p2mv == 2:
-            os.system("curl http://" + srvip + "/setinfo.php?win=1")
-    iswin = 0
-    while iswin == 0:
-
-        time.sleep(1)
-        res = requests.get("http://" + srvip + "/info/win")
-        if res.status_code == 200:
-            winck = int(res.text)
-            if winck == 1:
-                win = 1
-                iswin = 1
-            if winck == 2:
-                win = 2
-                iswin = 1
-            if winck == 0:
-                win = 0
-                iswin = 1
-    if win == 1:
-        print("Player 1 wins!")
-    if win == 2:
-        print("Player 2 wins!")
-    if win == 0:
-        print("Tie!")
-    time.sleep(3)
-    os.system("curl 'http://" + srvip + "/index.php?clean=2'")
+    algor(counts, people)
+    phpfetch.setval(srvip, "setinfo.php?turn=2")
+    #os.system("curl 'http://" + srvip + "/index.php?clean=2'")
     turn = 2

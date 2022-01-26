@@ -1645,7 +1645,13 @@ print(botboard)
 #phpfetch.setval(srvip, "setinfo.php?val=")
 game = 1
 turn = 1
+phpfetch.setval(srvip, "setinfo.php?ded=0&client=" + clientnum)
 while game == 1:
+    clientnumstr = str(clientnum) 
+    ded = phpfetch.getval(srvip, "info/pinfo" + clientnumstr + "/ded")
+    if ded == 1:
+        game = 0
+        break
     time.sleep(2)
     print("Clients connected!")
     while turn != clientnum:
@@ -1686,42 +1692,9 @@ while game == 1:
         turn = int(turn)
         turn = turn+1
         turn = str(turn)
+        #people = str(people)
         os.system("curl 'http://" + srvip + "/setinfo.php?turn=" + turn + "'")
     if turn == people:
          os.system("curl 'http://" + srvip + "/setinfo.php?turn=1'")
-    os.system("curl 'http://" + srvip + "/setinfo.php?trdy2=1'")
-    trdy1 = 0
-    while trdy1 == 0:
-
-        time.sleep(1)
-        res = requests.get("http://" + srvip + "/info/trdy1")
-        if res.status_code == 200:
-            trdy1 = int(res.text)
-            if trdy1 == 1:
-                trdy1 = 1
-    res = requests.get("http://" + srvip + "/info/p1mv")
-    p1mv = int(res.text)
-    iswin = 0
-    while iswin == 0:
-
-        time.sleep(1)
-        res = requests.get("http://" + srvip + "/info/win")
-        if res.status_code == 200:
-            winck = int(res.text)
-            if winck == 1:
-                win = 1
-                iswin = 1
-            if winck == 2:
-                win = 2
-                iswin = 1
-            if winck == 0:
-                win = 0
-                iswin = 1
-    if win == 1:
-        print("Player 1 wins!")
-    if win == 2:
-        print("Player 2 wins!")
-    if win == 0:
-        print("Tie!")
-    os.system("curl 'http://" + srvip + "/index.php?clean=2'")
+    #os.system("curl 'http://" + srvip + "/index.php?clean=2'")
     turn = 1
