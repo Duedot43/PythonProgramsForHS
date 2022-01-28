@@ -8,7 +8,7 @@ if(isset($_GET['trdy'])) {
 
 if(isset($_GET['ded'])) {
     if(isset($_GET['client'])) {
-        exec("echo -n '" . $_GET['win'] . "' > 'info/pinfo" . $_GET['client'] . "/ded'");
+        exec("echo -n '" . $_GET['ded'] . "' > 'info/pinfo" . $_GET['client'] . "/ded'");
     }
 }
 
@@ -32,6 +32,13 @@ if(isset($_GET['shpded'])) {
     }
 }
 
+if(isset($_GET['in'])) {
+    exec("echo -n '" . $_GET['in'] . "' > 'connect/in'");
+}
+
+if(isset($_GET['out'])) {
+    exec("echo -n '" . $_GET['in'] . "' > 'connect/out'");
+}
 
 if(isset($_GET['turn'])) {
     exec("echo -n '" . $_GET['turn'] . "' > info/turn");

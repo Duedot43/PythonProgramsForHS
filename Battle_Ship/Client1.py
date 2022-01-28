@@ -587,11 +587,14 @@ def algor(placeholder, people):
             iswin = iswin+1
 
             #j
-
+        print(iswin)
         if iswin == 17:
             phpfetch.setval(srvip, "setinfo.php?trdy=0&client=" + count)
+            print("Player " + count + "is ded")
+            phpfetch.setval(srvip, "setinfo.php?ded=1&client=" + count)
         if iswin != 17:
             phpfetch.setval(srvip, "setinfo.php?trdy=1&client=" + count)
+            print("Player " + count + "is alive")
         win = phpfetch.getval(srvip, "info/pinfo" + count + "/win")
         if win == 0:
             phpfetch.setval(srvip, "setinfo.php?ded=1&client=" + count)
@@ -622,6 +625,9 @@ for x in peoplelst:
                     cl2con = "1"
 phpfetch.setval(srvip, "setinfo.php?all=1")
 phpfetch.setval(srvip, "addclient.php?clientdatafoldernumber=1")
+peoplestr = phpfetch.listToString(peoplelst)
+phpfetch.setval(srvip, "setinfo.php?in=" + peoplestr)
+phpfetch.setval(srvip, "setinfo.php?out=_")
 clients = phpfetch.getval(srvip, "connect/clients")
 clients = int(clients)
 waow = 200*clients
@@ -2239,6 +2245,7 @@ print(botboard)
 
 game = 1
 turn = 2
+os.system("clear")
 phpfetch.setval(srvip, "setinfo.php?ded=0&client=1")
 while game == 1:
     ta1 = phpfetch.getval(srvip, "info/pinfo1/boardtop/a1")
@@ -2471,8 +2478,11 @@ while game == 1:
     print("The bottom board")
     print(botboard)
     ded = phpfetch.getval(srvip, "info/pinfo1/ded")
+    turnstr = phpfetch.getval(srvip, "connect/in")
+    turnlst = phpfetch.convert(turnstr)
     if ded == 1:
         game = 0
+        turnlst.remove(1)
         break
     time.sleep(2)
     print("Clients connected!")
@@ -2485,6 +2495,7 @@ while game == 1:
             if turn == 1:
                 print("Your turn!")
     choicestr = str(input("Where would you like to attempt a hit?"))
+    choicestr.lower()
     choicelst = phpfetch.convert(choicestr)
     choicelet = choicelst[0]
     choicenum = choicelst[1]
@@ -2492,8 +2503,11 @@ while game == 1:
     while doihit != 1:
         for x in peoplelst:
             xp = x+1
-            print(x)
+            print("x" ,x)
+            print("xp", xp)
             x = str(x)
+            xp = str(xp)
+            people = str(people)
             if xp == "1":
                 print("no")
             else:
@@ -2510,6 +2524,10 @@ while game == 1:
                 doihit = 1
     #os.system("curl 'http://" + srvip + "/setinfo.php?client=1&move=" + p1mv + "'")
     algor(counts, people)
-    phpfetch.setval(srvip, "setinfo.php?turn=2")
+    turnstr = phpfetch.getval(srvip, "connect/in")
+    turnlst = phpfetch.convert(turnstr)
+    goturn = turnlst[1]
+    phpfetch.setval(srvip, "setinfo.php?turn=" + goturn)
     #os.system("curl 'http://" + srvip + "/index.php?clean=2'")
+    #os.system("clear")
     turn = 2

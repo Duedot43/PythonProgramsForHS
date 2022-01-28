@@ -44,3 +44,15 @@ def convert(string):
     list1=[]
     list1[:0]=string
     return list1
+def listToString(s): 
+    
+    # initialize an empty string
+    str1 = "" 
+    str1 = str(str1)
+    # traverse in the string  
+    for ele in s: 
+        ele = str(ele)
+        str1 += ele  
+    
+    # return string  
+    return str1
