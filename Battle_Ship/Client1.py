@@ -2,6 +2,8 @@ import os
 import requests
 import time
 import phpfetch
+import tracemalloc
+tracemalloc.start()
 srvip = "127.0.0.1:8080"
 def disconnect():
     os.system("curl 'http://" + srvip + "/addclient.php?client=1&connect=0'")
@@ -2530,4 +2532,9 @@ while game == 1:
     phpfetch.setval(srvip, "setinfo.php?turn=" + goturn)
     #os.system("curl 'http://" + srvip + "/index.php?clean=2'")
     #os.system("clear")
+    snapshot = tracemalloc.take_snapshot()
+    top_stats = snapshot.statistics('lineno')
+    for stat in top_stats:
+        stat = str(stat)
+        os.system("echo '" + stat + "' >> MEM_LEAK")
     turn = 2
