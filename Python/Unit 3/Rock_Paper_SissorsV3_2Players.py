@@ -34,8 +34,8 @@ def close(lst, rnum):
     return tf
 def mklst(num1, num2):
     lst = []
-    lst.append = num1
-    lst.append = num2
+    lst.append(num1)
+    lst.append(num2)
     return lst
 print("You will guess the random number from 1 through 100 you will have till 5 points")
 name = str(input("Player 1 what is your name?\n"))
@@ -57,8 +57,8 @@ while game == 1:
             lst = mklst(p1guess, p2guess)
             win = close(lst, ranum)
             
-            #p1win = algor1(p1guess, ranum, p1win)
-            #p2win = algor2(p2guess, ranum, p2win)
+            p1win = algor1(p1guess, p1win, win)
+            p2win = algor2(p2guess, p2win, win)
             if p1win == 5:
                 print("Player 1 won!")
                 again = int(input("Play again? \n (1) Yes\n(2) No\n?"))
@@ -83,24 +83,28 @@ while game == 1:
         print("Player 1 its your turn!")
         p1guess = int(input("Guess the number: "))
         os.system("clear")
-        p1win = algor1(p1guess, ranum, p1win)
-        p2win = algor2(p2guess, ranum, p2win)
-        if p1win == 5:
-            print("Player 1 won!")
-            again = int(input("Play again? \n (1) Yes\n(2) No\n?"))
-            if again == 1:
-                p1win = 0
-                p2win = 0
-            if again == 2:
-                game = 0
-                exit()
-        if p2win == 5:
-            print("Player 2 won!")
-            again = int(input("Play again? \n (1) Yes\n(2) No\n?"))
-            if again == 1:
-                p1win = 0
-                p2win = 0
-            if again == 2:
-                game = 0
-                exit()
+        if p1guess != p2guess:
+            lst = mklst(p1guess, p2guess)
+            win = close(lst, ranum)
+            
+            p1win = algor1(p1guess, p1win, win)
+            p2win = algor2(p2guess, p2win, win)
+            if p1win == 5:
+                print("Player 1 won!")
+                again = int(input("Play again? \n (1) Yes\n(2) No\n?"))
+                if again == 1:
+                    p1win = 0
+                    p2win = 0
+                if again == 2:
+                    game = 0
+                    exit()
+            if p2win == 5:
+                print("Player 2 won!")
+                again = int(input("Play again? \n (1) Yes\n(2) No\n?"))
+                if again == 1:
+                    p1win = 0
+                    p2win = 0
+                if again == 2:
+                    game = 0
+                    exit()
     
