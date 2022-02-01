@@ -55,6 +55,8 @@ while game == 1:
         if play == "Y":
             p1scr = 0
             p2scr = 0
+        if play == "N":
+            exit()
         if play != "Y":
             if play.upper() != "N":
                 print("Invalid!")
@@ -65,6 +67,9 @@ while game == 1:
         play = play.upper()
         if play == "N":
             exit()
+        if play == "Y":
+            p1scr = 0
+            p2scr = 0
         if play != "N":
             if play.upper() != "Y":
                 print("Invalid!")
