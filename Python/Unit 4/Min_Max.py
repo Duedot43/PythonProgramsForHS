@@ -5,9 +5,9 @@ peoplelst = []
 listgo = 0
 while listgo == 0:
     count = count+1
-    ranum = random.randint(-100,100)
+    ranum = int(input("Please input your number:"))
     peoplelst.append(ranum)
-    if count == numbers+1:
+    if count == numbers:
         listgo = 1
 sortedd = peoplelst.sort(reverse=False)
 counts = count-1
