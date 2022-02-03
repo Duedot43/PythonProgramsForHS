@@ -122,6 +122,7 @@ def algor(a1,a2,a3,b1,b2,b3,c1,c2,c3):
         if win == "T":
             win = 0
             win = int(win)
+        return win
 def getboard(a1, a2, a3, b1, b2, b3, c1, c2, c3):
 #    A     B     C  
 #       |     |     
@@ -140,26 +141,519 @@ def getboard(a1, a2, a3, b1, b2, b3, c1, c2, c3):
     return board
 
 
-Xa1 = "_"
-Xa2 = "_"
-Xa3 = "_"
-Xb1 = "_"
-Xb2 = "_"
-Xb3 = "_"
-Xc1 = "_"
-Xc2 = "_"
-Xc3 = "_"
+a1 = "_"
+a2 = "_"
+a3 = "_"
+b1 = "_"
+b2 = "_"
+b3 = "_"
+c1 = "_"
+c2 = "_"
+c3 = "_"
 
-Oa1 = "_"
-Oa2 = "_"
-Oa3 = "_"
-Ob1 = "_"
-Ob2 = "_"
-Ob3 = "_"
-Oc1 = "_"
-Oc2 = "_"
-Oc3 = "_"
+
 game = 1
 while game == 1:
+    if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 3:
+        print("The current board")
+        board = getboard(a1, a2, a3, b1, b2, b3, c1, c2, c3)
+        print(board)
+        a1val = 0
+        a2val = 0
+        a3val = 0
+        b1val = 0
+        b2val = 0
+        b3val = 0
+        c1val = 0
+        c2val = 0
+        c3val = 0
+        yes = 0
+        if a1 != "O":
+            if a1 != "X":
+                print("Place an X on A1")
+                a1val = 1
+                
+        if a2 != "O":
+            if a2 != "X":
+                print("Place an X on A2")
+                a2val = 1
+                
+        if a3 != "O":
+            if a3 != "X":
+                print("Place an X on A3")
+                a3val = 1
+                
+        if b1 != "O":
+            if b1 != "X":
+                print("Place an X on B1")
+                b1val = 1
+                
+        if b2 != "O":
+            if b2 != "X":
+                print("Place an X on B2")
+                b2val = 1
+                
+        if b3 != "O":
+            if b3 != "X":
+                print("Place an X on B3")
+                b3val = 1
+                
+        if c1 != "O":
+            if c1 != "X":
+                print("Place an X on C1")
+                c1val = 1
+                
+        if c2 != "O":
+            if c2 != "X":
+                print("Place an X on C2")
+                c2val = 1
+                
+        if c3 != "O":
+            if c3 != "X":
+                print("Place an X on C3")
+                c3val = 1
+                
+        amv = str(input("?"))
+        xmv = amv.upper()
+        if a1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a1val = 1
+        if a2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a2val = 1
+        if a3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a3val = 1
+        if b1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b1val = 1
+        if b2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b2val = 1
+        if b3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b3val = 1
+        if c1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c1val = 1
+        if c2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c2val = 1
+        if c3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c3val = 1
+        if xmv == "A1":
+            if a1val == 1:
+                a1 = "X"
+                yes = 1
+            if a1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "A2":
+            if a2val == 1:
+                a2 = "X"
+                yes = 1
+            if a2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "A3":
+            if a3val == 1:
+                a3 = "X"
+                yes = 1
+            if a3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "B1":
+            if b1val == 1:
+                b1 = "X"
+                yes = 1
+            if b1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "B2":
+            if b2val == 1:
+                b2 = "X"
+                yes = 1
+            if b2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "B3":
+            if b3val == 1:
+                b3 = "X"
+                yes = 1
+            if b3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "C1":
+            if c1val == 1:
+                c1 = "X"
+                yes = 1
+            if c1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "C2":
+            if c2val == 1:
+                c2 = "X"
+                yes = 1
+            if c2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "C3":
+            if c3val == 1:
+                c3 = "X"
+                yes = 1
+            if c3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if yes != 1:
+            print("What?")
+            exit()
+    else:
+        if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 1:
+            print("Player X wins!")
+            playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+            if playag != 1:
+                if playag != 2:
+                    thing = 1
+                    while thing == 1:
+                        playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+                        if playag != 1:
+                            if playag != 2:
+                                print("Invalid!")
+                        if playag == 1:
+                            thing = 0
+                        if playag == 2:
+                            thing = 0
+            if playag == 1:
+                a1 = "_"
+                a2 = "_"
+                a3 = "_"
+                b1 = "_"
+                b2 = "_"
+                b3 = "_"
+                c1 = "_"
+                c2 = "_"
+                c3 = "_"
+            if playag == 2:
+                exit()
+        if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 2:
+            print("Player O wins!")
+            playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+            if playag != 1:
+                if playag != 2:
+                    thing = 1
+                    while thing == 1:
+                        playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+                        if playag != 1:
+                            if playag != 2:
+                                print("Invalid!")
+                        if playag == 1:
+                            thing = 0
+                        if playag == 2:
+                            thing = 0
+            if playag == 1:
+                a1 = "_"
+                a2 = "_"
+                a3 = "_"
+                b1 = "_"
+                b2 = "_"
+                b3 = "_"
+                c1 = "_"
+                c2 = "_"
+                c3 = "_"
+            if playag == 2:
+                exit()
+        if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 0:
+            print("Tie!")
+            playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+            if playag != 1:
+                if playag != 2:
+                    thing = 1
+                    while thing == 1:
+                        playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+                        if playag != 1:
+                            if playag != 2:
+                                print("Invalid!")
+                        if playag == 1:
+                            thing = 0
+                        if playag == 2:
+                            thing = 0
+            if playag == 1:
+                a1 = "_"
+                a2 = "_"
+                a3 = "_"
+                b1 = "_"
+                b2 = "_"
+                b3 = "_"
+                c1 = "_"
+                c2 = "_"
+                c3 = "_"
+            if playag == 2:
+                exit()
+        if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 3:
+            print("Continue")
 
-        print("PLaceholder")
+
+    os.system("clear")
+
+######PLAYER 2######
+
+
+
+    if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 3:
+        print("The current board")
+        board = getboard(a1, a2, a3, b1, b2, b3, c1, c2, c3)
+        print(board)
+        a1val = 0
+        a2val = 0
+        a3val = 0
+        b1val = 0
+        b2val = 0
+        b3val = 0
+        c1val = 0
+        c2val = 0
+        c3val = 0
+        yes = 0
+        if a1 != "O":
+            if a1 != "X":
+                print("Place an O on A1")
+                a1val = 1
+                
+        if a2 != "O":
+            if a2 != "X":
+                print("Place an O on A2")
+                a2val = 1
+                
+        if a3 != "O":
+            if a3 != "X":
+                print("Place an O on A3")
+                a3val = 1
+                
+        if b1 != "O":
+            if b1 != "X":
+                print("Place an O on B1")
+                b1val = 1
+                
+        if b2 != "O":
+            if b2 != "X":
+                print("Place an O on B2")
+                b2val = 1
+                
+        if b3 != "O":
+            if b3 != "X":
+                print("Place an O on B3")
+                b3val = 1
+                
+        if c1 != "O":
+            if c1 != "X":
+                print("Place an O on C1")
+                c1val = 1
+                
+        if c2 != "O":
+            if c2 != "X":
+                print("Place an O on C2")
+                c2val = 1
+                
+        if c3 != "O":
+            if c3 != "X":
+                print("Place an O on C3")
+                c3val = 1
+                
+        amv = str(input("?"))
+        xmv = amv.upper()
+        if a1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a1val = 1
+        if a2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a2val = 1
+        if a3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            a3val = 1
+        if b1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b1val = 1
+        if b2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b2val = 1
+        if b3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            b3val = 1
+        if c1val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c1val = 1
+        if c2val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c2val = 1
+        if c3val != 1:
+            amv = str(input("?"))
+            xmv = amv.upper()
+            c3val = 1
+        if xmv == "A1":
+            if a1val == 1:
+                a1 = "O"
+                yes = 1
+            if a1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "A2":
+            if a2val == 1:
+                a2 = "O"
+                yes = 1
+            if a2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "A3":
+            if a3val == 1:
+                a3 = "O"
+                yes = 1
+            if a3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "B1":
+            if b1val == 1:
+                b1 = "O"
+                yes = 1
+            if b1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "B2":
+            if b2val == 1:
+                b2 = "O"
+                yes = 1
+            if b2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "B3":
+            if b3val == 1:
+                b3 = "O"
+                yes = 1
+            if b3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "C1":
+            if c1val == 1:
+                c1 = "O"
+                yes = 1
+            if c1val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "C2":
+            if c2val == 1:
+                c2 = "O"
+                yes = 1
+            if c2val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if xmv == "C3":
+            if c3val == 1:
+                c3 = "O"
+                yes = 1
+            if c3val != 1:
+                print("You have done a great wrong fire monkey is not pleased you will die now")
+                exit()
+        if yes != 1:
+            print("What?")
+            exit()
+    else:
+        if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 1:
+            print("Player X wins!")
+            playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+            if playag != 1:
+                if playag != 2:
+                    thing = 1
+                    while thing == 1:
+                        playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+                        if playag != 1:
+                            if playag != 2:
+                                print("Invalid!")
+                        if playag == 1:
+                            thing = 0
+                        if playag == 2:
+                            thing = 0
+            if playag == 1:
+                a1 = "_"
+                a2 = "_"
+                a3 = "_"
+                b1 = "_"
+                b2 = "_"
+                b3 = "_"
+                c1 = "_"
+                c2 = "_"
+                c3 = "_"
+            if playag == 2:
+                exit()
+        if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 2:
+            print("Player O wins!")
+            playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+            if playag != 1:
+                if playag != 2:
+                    thing = 1
+                    while thing == 1:
+                        playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+                        if playag != 1:
+                            if playag != 2:
+                                print("Invalid!")
+                        if playag == 1:
+                            thing = 0
+                        if playag == 2:
+                            thing = 0
+            if playag == 1:
+                a1 = "_"
+                a2 = "_"
+                a3 = "_"
+                b1 = "_"
+                b2 = "_"
+                b3 = "_"
+                c1 = "_"
+                c2 = "_"
+                c3 = "_"
+            if playag == 2:
+                exit()
+        if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 0:
+            print("Tie!")
+            playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+            if playag != 1:
+                if playag != 2:
+                    thing = 1
+                    while thing == 1:
+                        playag = int(input("Play again?\n(1)Yes\n(2)No\n"))
+                        if playag != 1:
+                            if playag != 2:
+                                print("Invalid!")
+                        if playag == 1:
+                            thing = 0
+                        if playag == 2:
+                            thing = 0
+            if playag == 1:
+                a1 = "_"
+                a2 = "_"
+                a3 = "_"
+                b1 = "_"
+                b2 = "_"
+                b3 = "_"
+                c1 = "_"
+                c2 = "_"
+                c3 = "_"
+            if playag == 2:
+                exit()
+        if algor(a1,a2,a3,b1,b2,b3,c1,c2,c3) == 3:
+            print("Continue")
+    os.system("clear")
