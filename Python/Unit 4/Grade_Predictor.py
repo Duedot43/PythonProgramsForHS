@@ -1,4 +1,6 @@
 import os
+
+#Old code from like 4 years ago
 def grade(precent):
     precent = float(precent)
     if precent >float(92):
@@ -25,6 +27,8 @@ def grade(precent):
         return ("D-")
     elif precent <float(58):
         return ("F")
+
+    #Old code from like 4 years ago
 count = 0
 tstlst = []
 listgo = 0
