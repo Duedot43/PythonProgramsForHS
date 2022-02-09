@@ -32,13 +32,11 @@ tur.up()
 tur.goto(-40,40)
 tur.right(90*3)
 tur.down()
-tur.forward(20*4)
-tur.left(90)
-tur.forward(20)
-tur.left(90)
-tur.forward(20*4)
-tur.left(90)
-tur.forward(20)
+for x in range(0,2):
+    tur.left(90)
+    tur.forward(20*4)
+    tur.left(90)
+    tur.forward(20)
 
 count = 0
 while count != 5:
