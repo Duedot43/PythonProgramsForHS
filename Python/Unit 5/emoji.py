@@ -22,6 +22,13 @@ for x in range(0,3):
 tur.forward(15.35)
 tur.up()
 tur.goto(0,0)
+tur.goto(-50-80,70)
+tur.down()
+tur.circle(15)
+tur.up()
+tur.goto(-50+15,70)
+tur.down()
+tur.circle(15)
 while True:
     count= 0
 
