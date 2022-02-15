@@ -12,5 +12,3 @@ for z in range(100):
         t.pencolor( colors [x % 8])
         t.forward(2*x)
         t.left(91)
-
-    

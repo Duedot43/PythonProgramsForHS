@@ -1,6 +1,22 @@
 import turtle as tur
 import random as ran
 from tkinter import messagebox
+def mkboard(t1b,t2b,t3b,t4b,t5b,t6b,t1n,t2n,t3n,t4n,t5n,t6n):
+#_________________
+#|1
+#|----------------
+#|2
+#|----------------
+#|3
+#|----------------
+#|4
+#|----------------
+#|5
+#|----------------
+#|6
+#|----------------
+#
+    print("place")
 while True:
     tur.speed(100)
     tur.setheading(0)
@@ -139,7 +155,7 @@ while True:
         cpos5 = cpos5+random5
         cpos6 = cpos6+random6
         if int(cpos1) >= 400 or int(cpos2) >= 400 or int(cpos3) >= 400 or int(cpos4) >= 400 or int(cpos5) >= 400 or int(cpos6) >= 400:
-            winners = ['','','','','','',]
+            winners = ['','','','','','']
             winners[0] = cpos1
             winners[1] = cpos2
             winners[2] = cpos3
@@ -147,6 +163,22 @@ while True:
             winners[4] = cpos5
             winners[5] = cpos6
             winners.sort()
+            count = -1
+            winatlis = ['','','','','','']
+            for x in winners:
+                count = count+1
+                if x == cpos1:
+                    winatlis[count] = "pink"
+                if x == cpos2:
+                    winatlis[count] = "green"
+                if x == cpos3:
+                    winatlis[count] = "blue"
+                if x == cpos4:
+                    winatlis[count] = "red"
+                if x == cpos5:
+                    winatlis[count] = "purple"
+                if x == cpos6:
+                    winatlis[count] = "orange"
             messagebox.showinfo('information', 'Hi!')
             tur.reset()
             t1.reset()
