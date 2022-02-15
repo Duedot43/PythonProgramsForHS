@@ -2,7 +2,7 @@ import turtle as tur
 game = 1
 while game == 1:
     n = int(input("How many sides would you like?\n"))
-    while n < 2:
+    while n <= 2:
         print("Invalid!")
         n = int(input("How many sides would you like?\n"))
     angle = ((n-2)*180)/n
