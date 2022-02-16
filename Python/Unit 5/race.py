@@ -2,21 +2,22 @@ import turtle as tur
 import random as ran
 from tkinter import messagebox
 def mkboard(t1b,t2b,t3b,t4b,t5b,t6b,t1n,t2n,t3n,t4n,t5n,t6n):
-#_________________
-#|1
-#|----------------
-#|2
-#|----------------
-#|3
-#|----------------
-#|4
-#|----------------
-#|5
-#|----------------
-#|6
-#|----------------
+#_________________\n
+#|1|{t1n}|{t1b}|\n
+#|----------------\n
+#|2|{t2n}|{t2b}|\n
+#|---------------\n
+#|3|{t3n}|{t3b}|\n
+#|----------------\n
+#|4|{t4n}|{t4b}|\n
+#|----------------\n
+#|5|{t5n}|{t5b}|\n
+#|----------------\n
+#|6|{t6n}|{t6b}|\n
+#|----------------\n
 #
-    print("place")
+    board = (f"_________________\n|1|{t1n}|{t1b}|\n|----------------\n|2|{t2n}|{t2b}|\n|---------------\n|3|{t3n}|{t3b}|\n|----------------\n|4|{t4n}|{t4b}|\n|----------------\n|5|{t5n}|{t5b}|\n|----------------\n|6|{t6n}|{t6b}|\n|----------------\n")
+    return board
 while True:
     tur.speed(100)
     tur.setheading(0)
@@ -162,7 +163,7 @@ while True:
             winners[3] = cpos4
             winners[4] = cpos5
             winners[5] = cpos6
-            winners.sort()
+            winners.sort(reverse = True)
             count = -1
             winatlis = ['','','','','','']
             for x in winners:
@@ -179,18 +180,22 @@ while True:
                     winatlis[count] = "purple"
                 if x == cpos6:
                     winatlis[count] = "orange"
-            messagebox.showinfo('information', 'Hi!')
-            tur.reset()
-            t1.reset()
-            t2.reset()
-            t3.reset()
-            t4.reset()
-            t5.reset()
-            t6.reset()
-            t1.up()
-            t2.up()
-            t3.up()
-            t4.up()
-            t5.up()
-            t6.up()
-            break
+            messagebox.showinfo('information', mkboard(winners[0],winners[1],winners[2],winners[3],winners[4],winners[5],winatlis[0],winatlis[1],winatlis[2],winatlis[3],winatlis[4],winatlis[5]))
+            yn = messagebox.askyesno('Play again?', 'Play again?')
+            if yn == True:
+                tur.reset()
+                t1.reset()
+                t2.reset()
+                t3.reset()
+                t4.reset()
+                t5.reset()
+                t6.reset()
+                t1.up()
+                t2.up()
+                t3.up()
+                t4.up()
+                t5.up()
+                t6.up()
+                break
+            if yn == False:
+                exit()
