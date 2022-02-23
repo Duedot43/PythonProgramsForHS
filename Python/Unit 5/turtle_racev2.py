@@ -76,6 +76,7 @@ blue = 0
 red = 0
 purple = 0
 orange = 0
+numu = int(input("How many wins would you like there to be before the round ends?\n"))
 while True:
     tur.speed(100)
     tur.setheading(0)
@@ -274,18 +275,18 @@ while True:
                 purple = purple+1
             if winatlis[0] == "orange":
                 orange = orange+1
-            if int(pink) == 10 or int(green) == 10 or int(blue) == 10 or int(red) == 10 or int(purple) == 10 or int(orange) == 10:
-                if int(pink) == 10:
+            if int(pink) == numu or int(green) == numu or int(blue) == numu or int(red) == numu or int(purple) == numu or int(orange) == numu:
+                if int(pink) == numu:
                     win = "pink"
-                if int(green) == 10:
+                if int(green) == numu:
                     win = "green"
-                if int(blue) == 10:
+                if int(blue) == numu:
                     win = "blue"
-                if int(red) == 10:
+                if int(red) == numu:
                     win = "red"
-                if int(purple) == 10:
+                if int(purple) == numu:
                     win = "purple"
-                if int(orange) == 10:
+                if int(orange) == numu:
                     win = "orange"
                 
                 messagebox.showinfo('information', win + " won!")
