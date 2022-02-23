@@ -275,8 +275,20 @@ while True:
             if winatlis[0] == "orange":
                 orange = orange+1
             if int(pink) == 10 or int(green) == 10 or int(blue) == 10 or int(red) == 10 or int(purple) == 10 or int(orange) == 10:
-
-                messagebox.showinfo('information', mkboard(winners[0],winners[1],winners[2],winners[3],winners[4],winners[5],winatlis[0],winatlis[1],winatlis[2],winatlis[3],winatlis[4],winatlis[5]))
+                if int(pink) == 10:
+                    win = "pink"
+                if int(green) == 10:
+                    win = "green"
+                if int(blue) == 10:
+                    win = "blue"
+                if int(red) == 10:
+                    win = "red"
+                if int(purple) == 10:
+                    win = "purple"
+                if int(orange) == 10:
+                    win = "orange"
+                
+                messagebox.showinfo('information', win + " won!")
                 yn = messagebox.askyesno('Play again?', 'Play again?')
                 if yn == True:
                     tur.reset()
@@ -296,4 +308,26 @@ while True:
                 if yn == False:
                     exit()
             else:
-                break
+                messagebox.showinfo('information', mkboard(winners[0],winners[1],winners[2],winners[3],winners[4],winners[5],winatlis[0],winatlis[1],winatlis[2],winatlis[3],winatlis[4],winatlis[5]))
+                yn = True
+                if yn == True:
+                    pink = 0
+                    green = 0
+                    blue = 0
+                    red = 0
+                    purple = 0
+                    orange = 0
+                    tur.reset()
+                    t1.reset()
+                    t2.reset()
+                    t3.reset()
+                    t4.reset()
+                    t5.reset()
+                    t6.reset()
+                    t1.up()
+                    t2.up()
+                    t3.up()
+                    t4.up()
+                    t5.up()
+                    t6.up()
+                    break
