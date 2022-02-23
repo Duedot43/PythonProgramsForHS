@@ -18,199 +18,49 @@ def mkboard(t1b,t2b,t3b,t4b,t5b,t6b,t1n,t2n,t3n,t4n,t5n,t6n):
 #
     board = (f"_________________\n|1|{t1n}|{t1b}|\n|----------------\n|2|{t2n}|{t2b}|\n|---------------\n|3|{t3n}|{t3b}|\n|----------------\n|4|{t4n}|{t4b}|\n|----------------\n|5|{t5n}|{t5b}|\n|----------------\n|6|{t6n}|{t6b}|\n|----------------\n")
     return board
-def determper(ranum, personal, turtle):
+def determper(ranum, personal, turtle, ranum2, rl):
     if int(turtle) == 1:
-        #normal
-        if int(personal) == 1:
+        if rl == 1:
+            t1.right(ranum2)
             t1.forward(ranum)
-            #normal
-        if int(personal) == 2:
-            #speed
-            t1.forward(ranum+40)
-            #speed
-        if int(personal) == 3:
-            #wander
-            t1.right(90)
-            t1.forward(20)
-            t1.left(180)
-            t1.forward(20)
-            t1.right(90)
-            #wander
-        if int(personal) == 4:
-            #go back 20
-            t1.right(180)
-            t1.forward(20)
-            t1.right(180)
-            #go back 20
-        if int(personal) == 5:
-            #speed penelty
-            t1.speed(10)
+        if rl == 2:
+            t1.left(ranum2)
             t1.forward(ranum)
-            #speed penelty
-        if int(personal) == 6:
-            #speen
-            t1.right(360)
-            #speen
     if int(turtle) == 2:
-        #normal
-        if int(personal) == 1:
+        if rl == 1:
+            t2.right(ranum2)
             t2.forward(ranum)
-            #normal
-        if int(personal) == 2:
-            #speed
-            t2.forward(ranum+40)
-            #speed
-        if int(personal) == 3:
-            #wander
-            t2.right(90)
-            t2.forward(20)
-            t2.left(180)
-            t2.forward(20)
-            t2.right(90)
-            #wander
-        if int(personal) == 4:
-            #go back 20
-            t2.right(180)
-            t2.forward(20)
-            t2.right(180)
-            #go back 20
-        if int(personal) == 5:
-            #speed penelty
-            t2.speed(10)
+        if rl == 2:
+            t2.left(ranum2)
             t2.forward(ranum)
-            #speed penelty
-        if int(personal) == 6:
-            #speen
-            t2.right(360)
-            #speen
     if int(turtle) == 3:
-        #normal
-        if int(personal) == 1:
+        if rl == 1:
+            t3.right(ranum2)
             t3.forward(ranum)
-            #normal
-        if int(personal) == 2:
-            #speed
-            t3.forward(ranum+40)
-            #speed
-        if int(personal) == 3:
-            #wander
-            t3.right(90)
-            t3.forward(20)
-            t3.left(180)
-            t3.forward(20)
-            t3.right(90)
-            #wander
-        if int(personal) == 4:
-            #go back 20
-            t3.right(180)
-            t3.forward(20)
-            t3.right(180)
-            #go back 20
-        if int(personal) == 5:
-            #speed penelty
-            t3.speed(10)
+        if rl == 2:
+            t3.left(ranum2)
             t3.forward(ranum)
-            #speed penelty
-        if int(personal) == 6:
-            #speen
-            t3.right(360)
-            #speen
     if int(turtle) == 4:
-        #normal
-        if int(personal) == 1:
+        if rl == 1:
+            t4.right(ranum2)
             t4.forward(ranum)
-            #normal
-        if int(personal) == 2:
-            #speed
-            t4.forward(ranum+40)
-            #speed
-        if int(personal) == 3:
-            #wander
-            t4.right(90)
-            t4.forward(20)
-            t4.left(180)
-            t4.forward(20)
-            t4.right(90)
-            #wander
-        if int(personal) == 4:
-            #go back 20
-            t4.right(180)
-            t4.forward(20)
-            t4.right(180)
-            #go back 20
-        if int(personal) == 5:
-            #speed penelty
-            t4.speed(10)
+        if rl == 2:
+            t4.left(ranum2)
             t4.forward(ranum)
-            #speed penelty
-        if int(personal) == 6:
-            #speen
-            t4.right(360)
-            #speen
     if int(turtle) == 5:
-        #normal
-        if int(personal) == 1:
+        if rl == 1:
+            t5.right(ranum2)
             t5.forward(ranum)
-            #normal
-        if int(personal) == 2:
-            #speed
-            t5.forward(ranum+40)
-            #speed
-        if int(personal) == 3:
-            #wander
-            t5.right(90)
-            t5.forward(20)
-            t5.left(180)
-            t5.forward(20)
-            t5.right(90)
-            #wander
-        if int(personal) == 4:
-            #go back 20
-            t5.right(180)
-            t5.forward(20)
-            t5.right(180)
-            #go back 20
-        if int(personal) == 5:
-            #speed penelty
-            t5.speed(10)
+        if rl == 2:
+            t5.left(ranum2)
             t5.forward(ranum)
-            #speed penelty
-        if int(personal) == 6:
-            #speen
-            t5.right(360)
-            #speen
     if int(turtle) == 6:
-        #normal
-        if int(personal) == 1:
+        if rl == 1:
+            t6.right(ranum2)
             t6.forward(ranum)
-            #normal
-        if int(personal) == 2:
-            #speed
-            t6.forward(ranum+40)
-            #speed
-        if int(personal) == 3:
-            #wander
-            t6.right(90)
-            t6.forward(20)
-            t6.left(180)
-            t6.forward(20)
-            t6.right(90)
-            #wander
-        if int(personal) == 4:
-            #go back 20
-            t6.right(180)
-            t6.forward(20)
-            t6.right(180)
-            #go back 20
-        if int(personal) == 5:
-            #speed penelty
-            t6.speed(10)
+        if rl == 2:
+            t6.left(ranum2)
             t6.forward(ranum)
-            #speed penelty
-        if int(personal) == 6:
-            #speen
-            t6.right(360)
-            #speen
         
 
 while True:
@@ -332,24 +182,30 @@ while True:
     t5.speed(50)
     t6.speed(50)
     while game == 1:
-        random1 = ran.randint(1,30)
-        random2 = ran.randint(1,30)
-        random3 = ran.randint(1,30)
-        random4 = ran.randint(1,30)
-        random5 = ran.randint(1,30)
-        random6 = ran.randint(1,30)
-        person = ran.randint(1,6)
-        determper(random1, person, 1)
-        person = ran.randint(1,6)
-        determper(random2, person, 2)
-        person = ran.randint(1,6)
-        determper(random3, person, 3)
-        person = ran.randint(1,6)
-        determper(random4, person, 4)
-        person = ran.randint(1,6)
-        determper(random5, person, 5)
-        person = ran.randint(1,6)
-        determper(random6, person, 6)
+        random1 = ran.randint(1,20)
+        random2 = ran.randint(1,10)
+        random3 = ran.randint(1,10)
+        random4 = ran.randint(1,10)
+        random5 = ran.randint(1,10)
+        random6 = ran.randint(1,10)
+        person = ran.randint(0,2)
+        rl = ran.randint(1,2)
+        determper(random1, person, 1, person, rl)
+        person = ran.randint(0,2)
+        rl = ran.randint(1,2)
+        determper(random1, person, 2, person, rl)
+        person = ran.randint(0,2)
+        rl = ran.randint(1,2)
+        determper(random1, person, 3, person, rl)
+        person = ran.randint(0,2)
+        rl = ran.randint(1,2)
+        determper(random1, person, 4, person, rl)
+        person = ran.randint(0,2)
+        rl = ran.randint(1,2)
+        determper(random1, person, 5, person, rl)
+        person = ran.randint(0,2)
+        rl = ran.randint(1,2)
+        determper(random1, person, 6, person, rl)
         
         cpos1 = t1.xcor()
         cpos2 = t2.xcor()
