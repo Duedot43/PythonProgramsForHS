@@ -1,7 +1,7 @@
 import turtle as tur
 import random as ran
 from tkinter import messagebox
-    
+spd = 99999
 def clean():
     pink = 0
     green = 0
@@ -189,12 +189,12 @@ while True:
     t4.color("red")
     t5.color("purple")
     t6.color("orange")
-    t1.speed(50)
-    t2.speed(50)
-    t3.speed(50)
-    t4.speed(50)
-    t5.speed(50)
-    t6.speed(50)
+    t1.speed(spd)
+    t2.speed(spd)
+    t3.speed(spd)
+    t4.speed(spd)
+    t5.speed(spd)
+    t6.speed(spd)
     while game == 1:
         random1 = ran.randint(1,20)
         random2 = ran.randint(1,20)
@@ -277,7 +277,12 @@ while True:
                 orange = orange+1
             if int(pink) == int(storeto) or int(green) == int(storeto) or int(blue) == int(storeto) or int(red) == int(storeto) or int(purple) == int(storeto) or int(orange) == int(storeto):
                 wincol = []
-                wincol.append(pink,green,blue,red,purple,orange)
+                wincol.append(pink)
+                wincol.append(green)
+                wincol.append(blue)
+                wincol.append(red)
+                wincol.append(purple)
+                wincol.append(orange)
                 wincol.sort()
                 wincolatlis = []
                 for x in wincol:
@@ -294,7 +299,7 @@ while True:
                     if x == orange:
                         wincolatlis.append("Orange")
                     
-                messagebox.showinfo('information', mkboard(winners[0],winners[1],winners[2],winners[3],winners[4],winners[5],winatlis[0],winatlis[1],winatlis[2],winatlis[3],winatlis[4],winatlis[5]))
+                messagebox.showinfo('information', mkboard(wincol[0],wincol[1],wincol[2],wincol[3],wincol[4],wincol[5],wincolatlis[0],wincolatlis[1],wincolatlis[2],wincolatlis[3],wincolatlis[4],wincolatlis[5]))
                 yn = messagebox.askyesno('Play again?', 'Play again?')
                 if yn == True:
                     tur.reset()

@@ -7,6 +7,11 @@ def listToString(s):
     for ele in s: 
         str1 += str(ele)
     return str1
+def lts(s): 
+    str1 = "" 
+    for ele in s: 
+        str1 += str(ele + " + ")
+    return str1
 numbers = int(input("How many numbers?\n"))
 topnumlstreal = []
 count = 0
@@ -63,38 +68,64 @@ while solve == 1:
             nums.append(ranum)
             yes = yes+1
     if yes == len(equatnumreal):
-        print("The GCF is ", mins)
-        print(equatnumreal)
-        print(nums)
-        equation = [mins]
-        solves = 1
-        solvedxlst = []
-        while solves == 1:
-            countss = -1
-            for x in topnumlstreal:
-                countss = countss+1
-                minx = min(x)
-                for y in x:
-                    solvedxlst.append(int(y)-int(minx))
+        #print("The GCF is ", mins)
+        #print(equatnumreal)
+        #print(nums)
+        if len(topnumlst) != 0:
+            equation = [mins]
+            solves = 1
+            solvedxlst = []
+            while solves == 1:
+                countss = -1
+                for x in topnumlstreal:
+                    countss = countss+1
+                    minx = min(x)
+                    for y in x:
+                        solvedxlst.append(int(y)-int(minx))
+                        if int(len(solvedxlst)) == int(len(topnumlst)):
+                            break
                     if int(len(solvedxlst)) == int(len(topnumlst)):
                         break
                 if int(len(solvedxlst)) == int(len(topnumlst)):
                     break
             if int(len(solvedxlst)) == int(len(topnumlst)):
+                print(mins," | ",lts(ogequat))
+                second_step = []
+                countssss = 0
+                while countssss != len(nums):
+                    second_step.append(listToString(str(nums[countssss])))
+                    let1 = equatnumletreal[countssss]
+                    let = listToString(let1)
+                    second_step.append(let)
+                    second_step.append("^")
+                    second_step.append(topnumlst[countssss])
+                    countssss = countssss+1
+                    if countssss != len(nums):
+                        second_step.append(" + ")
+                print(minx," | ",listToString(second_step))
+                newequat = []
+                #for x in range(0,int(len(equatnumreal)+int(len(equatnumletreal)+int(len(topnumlst)*2)))):
+                #    print()
+                fineq = []
+                countsss = 0
+                while countsss != len(nums):
+                    fineq.append(listToString(str(nums[countsss])))
+                    let1 = equatnumletreal[countsss]
+                    let = listToString(let1)
+                    fineq.append(let)
+                    fineq.append("^")
+                    fineq.append(listToString(str(solvedxlst[countsss])))
+                    countsss = countsss+1
+                    if countsss != len(nums):
+                        fineq.append(" + ")
+                print(listToString(fineq))
+                #print(f"I cant re-organize this data so here you go: \n New numbers before the letter {nums}\n letters {equatnumletreal}\n New exponents {solvedxlst}")
                 break
-        if int(len(solvedxlst)) == int(len(topnumlst)):
-            print(mins," | ",ogequat)
-            newequat = []
-            for x in range(0,int(len(equatnumreal)+int(len(equatnumletreal)+int(len(topnumlst)*2)))):
-                print()
-            fineq = []
-            countsss = -1
-            while countsss != len(nums)+1:
-                countsss = countsss+1
-                fineq.append(nums[countsss])
-                fineq.append(equatnumletreal[countsss])
-                fineq.append(solvedxlst[countsss])
-            print(f"I cant re-organize this data so here you go: \n New numbers before the letter {nums}\n letters {equatnumletreal}\n New exponents {solvedxlst}")
+        else:
+            print("The GCF is ", mins)
+            print(equatnumreal)
+            print(nums)
+            solve = 0
             break
 
         
