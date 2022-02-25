@@ -8,9 +8,13 @@ def listToString(s):
         str1 += str(ele)
     return str1
 def lts(s): 
-    str1 = "" 
+    str1 = ""
+    con = 0 
     for ele in s: 
-        str1 += str(ele + " + ")
+        str1 += str(ele)
+        con = con+1
+        if con != len(s):
+            str1 += str(" + ")
     return str1
 numbers = int(input("How many numbers?\n"))
 topnumlstreal = []
@@ -118,7 +122,7 @@ while solve == 1:
                     countsss = countsss+1
                     if countsss != len(nums):
                         fineq.append(" + ")
-                print(listToString(fineq))
+                print(str(mins) + str(let) + "^" + str(minx), "|", listToString(fineq))
                 #print(f"I cant re-organize this data so here you go: \n New numbers before the letter {nums}\n letters {equatnumletreal}\n New exponents {solvedxlst}")
                 break
         else:
