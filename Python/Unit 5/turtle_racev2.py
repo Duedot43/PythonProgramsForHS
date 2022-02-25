@@ -76,7 +76,7 @@ blue = 0
 red = 0
 purple = 0
 orange = 0
-numu = int(input("How many wins would you like there to be before the round ends?\n"))
+storeto = int(input("What score would you like the turtles to go too?\n"))
 while True:
     tur.speed(100)
     tur.setheading(0)
@@ -275,21 +275,26 @@ while True:
                 purple = purple+1
             if winatlis[0] == "orange":
                 orange = orange+1
-            if int(pink) == numu or int(green) == numu or int(blue) == numu or int(red) == numu or int(purple) == numu or int(orange) == numu:
-                if int(pink) == numu:
-                    win = "pink"
-                if int(green) == numu:
-                    win = "green"
-                if int(blue) == numu:
-                    win = "blue"
-                if int(red) == numu:
-                    win = "red"
-                if int(purple) == numu:
-                    win = "purple"
-                if int(orange) == numu:
-                    win = "orange"
-                
-                messagebox.showinfo('information', win + " won!")
+            if int(pink) == int(storeto) or int(green) == int(storeto) or int(blue) == int(storeto) or int(red) == int(storeto) or int(purple) == int(storeto) or int(orange) == int(storeto):
+                wincol = []
+                wincol.append(pink,green,blue,red,purple,orange)
+                wincol.sort()
+                wincolatlis = []
+                for x in wincol:
+                    if x == pink:
+                        wincolatlis.append("Pink")
+                    if x == green:
+                        wincolatlis.append("Green")
+                    if x == blue:
+                        wincolatlis.append("Blue")
+                    if x == red:
+                        wincolatlis.append("Red")
+                    if x == purple:
+                        wincolatlis.append("Purple")
+                    if x == orange:
+                        wincolatlis.append("Orange")
+                    
+                messagebox.showinfo('information', mkboard(winners[0],winners[1],winners[2],winners[3],winners[4],winners[5],winatlis[0],winatlis[1],winatlis[2],winatlis[3],winatlis[4],winatlis[5]))
                 yn = messagebox.askyesno('Play again?', 'Play again?')
                 if yn == True:
                     tur.reset()
@@ -309,26 +314,17 @@ while True:
                 if yn == False:
                     exit()
             else:
-                messagebox.showinfo('information', mkboard(winners[0],winners[1],winners[2],winners[3],winners[4],winners[5],winatlis[0],winatlis[1],winatlis[2],winatlis[3],winatlis[4],winatlis[5]))
-                yn = True
-                if yn == True:
-                    pink = 0
-                    green = 0
-                    blue = 0
-                    red = 0
-                    purple = 0
-                    orange = 0
-                    tur.reset()
-                    t1.reset()
-                    t2.reset()
-                    t3.reset()
-                    t4.reset()
-                    t5.reset()
-                    t6.reset()
-                    t1.up()
-                    t2.up()
-                    t3.up()
-                    t4.up()
-                    t5.up()
-                    t6.up()
-                    break
+                tur.reset()
+                t1.reset()
+                t2.reset()
+                t3.reset()
+                t4.reset()
+                t5.reset()
+                t6.reset()
+                t1.up()
+                t2.up()
+                t3.up()
+                t4.up()
+                t5.up()
+                t6.up()
+                break
