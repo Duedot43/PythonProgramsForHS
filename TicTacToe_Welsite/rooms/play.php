@@ -202,6 +202,7 @@ function algor(){
     return $win;
 }
 function ckwin(){
+    $selection = $_GET['selection'];
     $win = exec("cat " . $selection . "/win");
     if ($win == "1"){
         echo("Player X wins!");
@@ -223,32 +224,41 @@ function ckwin(){
     }
     if ($win == "3"){
         echo("Continue");
-        exec("echo 0 >> " . $selection . "/trdy" . $_GET['client']);
+        exec("rm " . $selection . "/trdy" . $_GET['client'] . " && echo 0 >> " . $selection . "/trdy" . $_GET['client']);
     }
 }
 function ckfrtrn(){
+    $selection = $_GET['selection'];
     if ($_GET['client'] == "1"){
         $dot = ".";
         $turn = exec("cat " . $selection . "/trdy2");
-        while ($turn != "1"){
             $turn = exec("cat " . $selection . "/trdy2");
-            $dot = ($dot . ".");
-            echo("Wating for Player 2" . $dot);
-        }
-        echo("Player 2 moved!");
+            echo("Wating for Player 2");
+            exec("sleep 1s");
+            if ($turn == "1"){
+                return "1";
+            } else{
+                return "0";
+            }
+        //echo("Player 2 moved!");
     }else{
         if ($_GET['client'] == "2"){
             $turn = exec("cat " . $selection . "/trdy1");
-            while ($turn != "1"){
+            
                 $turn = exec("cat " . $selection . "/trdy1");
-                $dot = ($dot . ".");
-                echo("Wating for Player 1" . $dot);
-            }
-            echo("Player 1 moved!");
+                echo("Wating for Player 1");
+                exec("sleep 1s");
+                if ($turn == "1"){
+                    return "1";
+                } else{
+                    return "0";
+                }
+            //echo("Player 1 moved!");
         }
     }
 }
 function mkboard(){
+    $selection = $_GET['selection'];
     $a1 = exec("cat " . $selection . "/moves/a1");
     $a2 = exec("cat " . $selection . "/moves/a2");
     $a3 = exec("cat " . $selection . "/moves/a3");
@@ -261,9 +271,43 @@ function mkboard(){
     $board = ("    A     B     C  \n       |     |     \n1   " . $a1 . "  |  " . $b1 . "  |  " . $c1 . "  \n  _____|_____|_____\n       |     |     \n2   " . $a2 . "  |  " . $b2 . "  |  " . $c2 . "   \n  _____|_____|_____\n       |     |     \n3   " . $a3 . "  |  " . $b3 . "  |  " . $c3 . "  \n       |     |     ");
     return $board;
 }
+function ckfrusr(){
+    $selection = $_GET['selection'];
+    if ($_GET['client'] == "1"){
+        $dot = ".";
+        $turn = "0";
+        //$turn = exec("cat " . $selection . "/trdy2");
+            //$turn = exec("cat " . $selection . "/trdy2");
+            if (file_exists($selection . "/trdy2")){
+                echo("Wating for Player 2");
+                exec("sleep 1s");   
+            } else{
+                $turn = "0";
+            }
+        
+        echo("Player 2 moved!");
+        return "1";
+    }else{
+        if ($_GET['client'] == "2"){
+            $dot = ".";
+            $turn = "0";
+                //$turn = exec("cat " . $selection . "/trdy2");
+                if (file_exists($selection . "/trdy1")){
+                    echo("Wating for Player 1");
+                    exec("sleep 1s");   
+                } else{
+                    $turn = "0";
+                }
+            
+            echo("Player 1 moved!");
+            return "1";
+        }
+    }
+}
 if (isset($_GET['setup'])) {
     $setup = $_GET['setup'];
     if ($setup == "1"){
+        //exec("ls setup triggered");
         exec("mkdir '" . $_GET['selection'] . "/players/" . $_GET['uname'] . "'");
         exec("cd " . $_GET['selection'] . "/moves && echo _ >> a1 && echo _ >> a2 && echo _ >> a3");
         exec("cd " . $_GET['selection'] . "/moves && echo _ >> b1 && echo _ >> b2 && echo _ >> b3");
@@ -277,15 +321,21 @@ if (isset($_GET['setup'])) {
     } else{
         exit;
     }
-} else{
-    exit;
-}
+} 
 if (isset($_GET['uname'])){
     if (isset($_GET['selection'])){
         if (isset($_GET['client'])) {
+            $selection = $_GET['selection'];
+            exec("sleep 2s");
+            $cktrn = ckfrtrn();
+            exec($cktrn);
+            if ($cktrn != "1"){
+                echo("reload");
+                header("Location: /rooms/play.php?uname=" . $_GET['uname'] . "&selection=" . $_GET['selection'] . "&client=" . $_GET['client']);
+            }
+            echo("skip reload");
             algor();
-            ckwin();
-            ckfrtrn();
+            //ckwin();
             $board = mkboard();
             echo($board);
         } 
