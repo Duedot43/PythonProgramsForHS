@@ -138,12 +138,12 @@ def sleep(stat, bot, stat2):
             ret =  [stat, stat2]
             return ret
     if bot == 1:
-        if int(stat2[3]) <= 30:
+        if int(stat[3]) <= 30:
             do_sleep = 1
         else:
             do_sleep = 0
         if do_sleep == 1:
-            stat2[3] = str(int(stat2[3]) + 30)
+            stat[3] = str(int(stat[3]) + 30)
             statz = [1, stat, stat2]
             return statz
         if do_sleep == 0:
@@ -218,4 +218,6 @@ while game == 0:
             enm_stat = enm_stat1[1]
         else:
             enm_stat = enm_stat1
+    else:
+        skip = 0
     ckwin(plr_stat, enm_stat)
