@@ -10,11 +10,13 @@ def drink(stat, bot):
     if stat[1] == "0":
         if bot == 0:
             print("You cannot drink water!")
+            plr_choose(stat,bot,stat)
         value = value+1
         return stat
     elif stat[2] == "0":
         if bot == 0:
             print("You are out of water!")
+            plr_choose(stat,bot,stat)
         value = value+1
         return stat
     elif int(stat[1]) <= int(drinkval):
@@ -29,6 +31,7 @@ def drink(stat, bot):
         stat[1] = str(int(stat[1]) - int(stat[2]))
         if bot == 0:
             print("You are out of water!")
+            plr_choose(stat,bot,stat)
         value = value+1
         return stat
 
@@ -52,10 +55,12 @@ def forward(stat, speed, bot):
         elif int(int(stat[1])+int(thirst_slow)) >= 97:
             if bot == 0:
                 print("You are too thirsty to walk!")
+                plr_choose(stat,bot,stat)
             return stat
         elif int(int(stat[3])-int(enegry_slow)) <= 0:
             if bot == 0:
                 print("You do not have enough enegry to continue!")
+                plr_choose(stat,bot,stat)
             return stat
         elif int(stat[3]) >= int(enegry_slow) and int(stat[1]) <= 97 and int(stat[0]) <= 500:
             stat[0] = str(int(stat[0])+int(speed_slow))
@@ -73,10 +78,12 @@ def forward(stat, speed, bot):
         elif int(int(stat[1])+int(thirst_slow)) >= 85:
             if bot == 0:
                 print("You are too thirsty to walk!")
+                plr_choose(stat,bot,stat)
             return stat
         elif int(int(stat[3])-int(enegry_slow)) <= 0:
             if bot == 0:
                 print("You do not have enough enegry to continue!")
+                plr_choose(stat,bot,stat)
             return stat
         elif int(stat[3]) >= int(enegry_slow) and int(stat[1]) <= 85 and int(stat[0]) <= 500:
             stat[0] = str(int(stat[0])+int(speed_slow))
@@ -94,10 +101,12 @@ def forward(stat, speed, bot):
         elif int(int(stat[1])+int(thirst_slow)) >= 75:
             if bot == 0:
                 print("You are too thirsty to walk!")
+                plr_choose(stat,bot,stat)
             return stat
         elif int(int(stat[3])-int(enegry_slow)) <= 0:
             if bot == 0:
                 print("You do not have enough enegry to continue!")
+                plr_choose(stat,bot,stat)
             return stat
         elif int(stat[3]) >= int(enegry_slow) and int(stat[1]) <= 75 and int(stat[0]) <= 500:
             stat[0] = str(int(stat[0])+int(speed_slow))
