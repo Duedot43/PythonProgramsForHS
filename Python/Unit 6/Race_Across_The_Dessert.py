@@ -106,26 +106,64 @@ def forward(stat, speed, bot):
             return stat
 def sleep(stat, bot, stat2):
     if bot == 0:
+        if int(stat[3]) == 100:
+            print("You cannot sleep!")
+            plr_choose(stat, bot, stat2)
         if int(int(stat[0])-int(stat2[0])) >= 30:
             is_enemy_move = 1
         else:
             is_enemy_move = 0
-        stat2[0] = str(int(stat[0])-2)
-        if int(stat[3])+30 >= 100:
-            stat[3] = 100-int(stat[3])
+        if int(stat[3])+30 <= 100:
+            stat[3] = str(int(stat[3])+30)
             print("You have had a full rest!")
-        else:
-            stat[3] = str(int(stat[3])+30) 
-        if is_enemy_move == 1:
-            print("The enemy has decided to skip the night they are very close!!")
             ret =  [stat, stat2]
             return ret
+        if int(stat[3])+30 >= 100:
+            #stat[3] = str(int(stat[3])+30) 
+            stat[3] = str(int(stat[3])+int(100-int(stat[3])))
+            ret =  [stat, stat2]
+            return ret
+        if is_enemy_move == 1:
+            print("The enemy has decided to skip the night they are very close!!")
+            stat2[0] = str(int(stat[0])-2)
+            ret =  [stat, stat2]
+            return ret
+    if bot == 1:
+        if int(stat2[3]) <= 30:
+            do_sleep = 1
+        else:
+            do_sleep = 0
+        if do_sleep == 1:
+            stat2[3] = str(int(stat2[3]) + 30)
+            statz = [1, stat, stat2]
+            return statz
+        if do_sleep == 0:
+            statz = [0, stat, stat2]
+            return stat
+
+def ckwin(stat, stat2):
+    if int(stat2[0]) >= int(stat[0]):
+        print("You lost!")
+        exit()
+    if int(stat[0]) >= 200:
+        print("You win!")
+        exit()
 def plr_choose(stat, bot, stat2):
     if bot == 0:
         choice = str(input("(1) Drink water.\n(2) Forward slow.\n(3) Forward moderate.\n(4) Forward fast.\n(5) Sleep for the night.\n(6) Quit\n?"))
     if bot == 1:
         choice = random.randint(1,5)
-
+        if int(stat[3]) <= 50:
+            choice = 5
+        elif int(stat[1]) >= 60:
+            choice = 1
+        elif int(stat2[0]) == int(int(stat[0]) - 2):
+            choice = 0
+            return stat
+        elif int(stat[0])-int(stat2[0]) <= 40:
+            choice = 4
+        elif int(stat[0])-int(stat2[0]) <= 30:
+             choice = random.randint(2,4)
         #choice = 2
         #might want to improve the bot later lol
     if str(choice) == "1":
@@ -135,12 +173,13 @@ def plr_choose(stat, bot, stat2):
         statz = forward(stat, str(choice), bot)
         return statz
     if str(choice) == "5":
-        sleep(stat, bot, stat2)
+        statz = sleep(stat, bot, stat2)
+        return statz
 def start(plr_stat):
     os.system("clear")
     print("You have stolen a camel to make your way across the dessert to your home.\nBut the Natives you stole the camel from want it back, as its a racing camel!\n Use your resources and out run the Natives to make it home!\nYou have been given a head start of " + str(plr_stat[0]) + ". Good luck!\n")
 def reset(who):
-    random_head_start = random.randint(10, 20)
+    random_head_start = random.randint(30, 40)
     thirst_start = random.randint(0,10)
     plr_stat = [str(random_head_start), str(thirst_start), "100", "100"]
     enm_stat = ["0", "0", "100", "100"]
@@ -151,13 +190,23 @@ def reset(who):
 plr_stat = reset(1)
 enm_stat = reset(0)
 start(plr_stat)
+skip = 0
 while game == 0:
 
     print(display_board(plr_stat, enm_stat))
     plr_stat1 = plr_choose(plr_stat, 0, enm_stat)
     if int(len(plr_stat1)) == 2:
-        plr_stat = plr_stat[0]
-        enm_stat = plr_stat[1]
+        plr_stat = plr_stat1[0]
+        enm_stat = plr_stat1[1]
     else:
         plr_stat = plr_stat1
-    enm_stat = plr_choose(enm_stat, 1, enm_stat)
+    if skip == 0:
+        skip = 0
+        enm_stat1 = plr_choose(enm_stat, 1, plr_stat)
+        if int(len(enm_stat1)) == 3:
+            skip = enm_stat1[0]
+            plr_stat = enm_stat1[1]
+            enm_stat = enm_stat1[2]
+        else:
+            enm_stat = enm_stat1
+    ckwin(plr_stat, enm_stat)
