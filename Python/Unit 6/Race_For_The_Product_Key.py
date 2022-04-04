@@ -147,6 +147,7 @@ def gen_anim():
 def win_anim():
     pass
 setup()
+print("You have stolen a Windows product key from Microsoft HQ. You are racing across the internet to activate your computer.")
 game = 1
 while game == 1:
     os.system("clear")
