@@ -135,7 +135,8 @@ def ai(a1, a2, a3, b1, b2, b3, c1, c2, c3):
     places_i_can_win_list = []
     places_i_can_win = 0
     for x in blank_spaces:
-        new_board_list = orig_board_list
+        new_board_list = []
+        new_board_list = [a1, a2, a3, b1, b2, b3, c1, c2, c3]
         if x == 1:
             new_board_list[count] = "X"
             win = algor(new_board_list[0], new_board_list[1], new_board_list[2], new_board_list[3], new_board_list[4], new_board_list[5], new_board_list[6], new_board_list[7], new_board_list[8])
@@ -144,7 +145,7 @@ def ai(a1, a2, a3, b1, b2, b3, c1, c2, c3):
                 places_i_can_win = places_i_can_win+1
             if win != 1:
                 places_i_can_win_list.append(0)
-            count = count+1
+        count = count+1
     if places_i_can_win >= 1:
         #see if i can already win this round in the first layer and submit my turn if i can
         count = 0
@@ -159,7 +160,8 @@ def ai(a1, a2, a3, b1, b2, b3, c1, c2, c3):
         places_i_can_win_list = []
         places_i_can_win = 0
         for x in blank_spaces:
-            new_board_list = orig_board_list
+            new_board_list = []
+            new_board_list = [a1, a2, a3, b1, b2, b3, c1, c2, c3]
             if x == 1:
                 new_board_list[count] = "O"
                 win = algor(new_board_list[0], new_board_list[1], new_board_list[2], new_board_list[3], new_board_list[4], new_board_list[5], new_board_list[6], new_board_list[7], new_board_list[8])
@@ -180,6 +182,4 @@ def ai(a1, a2, a3, b1, b2, b3, c1, c2, c3):
                 count = count+1
                 #block there move
             return orig_board_list
-        if places_i_can_win == 0:
-            #my god i dont want to write 9 layers of AI
-            pass
+    
