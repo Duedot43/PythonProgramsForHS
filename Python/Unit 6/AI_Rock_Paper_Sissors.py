@@ -175,8 +175,41 @@ while game == 1:
     plr_choice_all.append(choice)
     os.system("clear")
     algor()
+    print("Your win count: ", plr_win_ct, "\n")
+    print("Bot win count: ", bot_win_ct, "\n")
     if round_ct >= 3:
         round_ct = 1
     else:
         round_ct = round_ct+1
-    
+    if plr_win_ct >= 20:
+        os.system("clear")
+        print("You win! Play again?")
+        ch = int(input("(1) Yes\n(2) No\n? "))
+        if ch == 1:
+            plr_choice_all = []
+            game = 1
+            plr_win_ct = 0
+            bot_win_ct = 0
+            round_ct = 1
+            trainer_mode = 0
+            one_ten = [0,0,0]
+            two_ten = [0,0,0]
+            three_ten = [0,0,0]
+        elif ch == 2:
+            exit()
+    elif bot_win_ct >= 20:
+        os.system("clear")
+        print("The bot wins! Play again?")
+        ch = int(input("(1) Yes\n(2) No\n? "))
+        if ch == 1:
+            plr_choice_all = []
+            game = 1
+            plr_win_ct = 0
+            bot_win_ct = 0
+            round_ct = 1
+            trainer_mode = 0
+            one_ten = [0,0,0]
+            two_ten = [0,0,0]
+            three_ten = [0,0,0]
+        elif ch == 2:
+            exit()
