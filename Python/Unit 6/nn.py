@@ -128,4 +128,4 @@ def ai(a1, a2, a3, b1, b2, b3, c1, c2, c3):
     for x in orig_board_list:
         if x == "_":
             blank_spaces = blank_spaces+1
-    
+            
