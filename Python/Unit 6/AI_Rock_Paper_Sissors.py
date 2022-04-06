@@ -158,8 +158,15 @@ game = 1
 plr_win_ct = 0
 bot_win_ct = 0
 round_ct = 1
+trainer_mode = 0
+one_ten = [0,0,0]
+two_ten = [0,0,0]
+three_ten = [0,0,0]
 while game == 1:
-    choice = int(input(("Make a choice...\n(1) Rock\n(2) Paper\n(3) Sissors\n? ")))
+    if trainer_mode == 0:
+        choice = int(input(("Make a choice...\n(1) Rock\n(2) Paper\n(3) Sissors\n? ")))
+    else:
+        pass
     if int(len(plr_choice_all)) <= 5:
         bot_choice = random.randint(1,3)
     else:
