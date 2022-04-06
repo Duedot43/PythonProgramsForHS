@@ -133,5 +133,6 @@ while game == 1:
         win_decode()
         player = 1
     if player == 1:
-        nn.ai(a1, a2, a3, b1, b2, b3, c1, c2, c3)
+        orig_board_list = nn.ai(a1, a2, a3, b1, b2, b3, c1, c2, c3)
+        a1 = orig_board_list[0]
         player = 0

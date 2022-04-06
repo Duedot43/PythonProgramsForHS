@@ -124,8 +124,62 @@ def algor(a1, a2, a3, b1, b2, b3, c1, c2, c3):
         return win
 def ai(a1, a2, a3, b1, b2, b3, c1, c2, c3):
     orig_board_list = [a1, a2, a3, b1, b2, b3, c1, c2, c3]
-    blank_spaces = 0
+    blank_spaces = []
     for x in orig_board_list:
         if x == "_":
-            blank_spaces = blank_spaces+1
-            
+            blank_spaces .append(1)
+        else:
+            blank_spaces.append(0)
+    #look for how many spaces i can win agenst
+    count = 0
+    places_i_can_win_list = []
+    places_i_can_win = 0
+    for x in blank_spaces:
+        new_board_list = orig_board_list
+        if x == 1:
+            new_board_list[count] = "X"
+            win = algor(new_board_list[0], new_board_list[1], new_board_list[2], new_board_list[3], new_board_list[4], new_board_list[5], new_board_list[6], new_board_list[7], new_board_list[8])
+            if win == 1:
+                places_i_can_win_list.append(1)
+                places_i_can_win = places_i_can_win+1
+            if win != 1:
+                places_i_can_win_list.append(0)
+            count = count+1
+    if places_i_can_win >= 1:
+        #see if i can already win this round in the first layer and submit my turn if i can
+        count = 0
+        for x in places_i_can_win_list:
+            if x == 1:
+                orig_board_list[count] = "X"
+            count = count+1
+        return orig_board_list
+    if places_i_can_win == 0:
+        #determin the players next move
+        count = 0
+        places_i_can_win_list = []
+        places_i_can_win = 0
+        for x in blank_spaces:
+            new_board_list = orig_board_list
+            if x == 1:
+                new_board_list[count] = "O"
+                win = algor(new_board_list[0], new_board_list[1], new_board_list[2], new_board_list[3], new_board_list[4], new_board_list[5], new_board_list[6], new_board_list[7], new_board_list[8])
+                if win == 1:
+                    places_i_can_win_list.append(1)
+                    places_i_can_win = places_i_can_win+1
+                if win != 1:
+                    places_i_can_win_list.append(0)
+                count = count+1
+        if places_i_can_win >= 2:
+            print("Screw you.")
+            return 0
+        if places_i_can_win == 1:
+            count = 0
+            for x in places_i_can_win_list:
+                if x == 1:
+                    orig_board_list[count] = "X"
+                count = count+1
+                #block there move
+            return orig_board_list
+        if places_i_can_win == 0:
+            #my god i dont want to write 9 layers of AI
+            pass
