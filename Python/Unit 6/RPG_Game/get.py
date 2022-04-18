@@ -27,3 +27,8 @@ def price(location, item, ck_what, main_list):
     #ck_what should be 0 for cost 1 for sellable 2 quant_per_price
     output = item_list[ck_what]
     return output
+def validate(goto_out, usr_input):
+    for x in goto_out:
+        if usr_input.lower() == x[0]:
+            return [1, x[1]]
+    return [0,0]
