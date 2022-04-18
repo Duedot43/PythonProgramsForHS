@@ -102,4 +102,6 @@ def vinyard():
     os.system("clear")
 def milbase():
     os.system("clear")
+def river():
+    os.system("clear")
 #locked locationss
