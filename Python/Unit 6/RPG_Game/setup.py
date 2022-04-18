@@ -3,7 +3,7 @@ def load_game():
     # outpost [ocupied, how_much_loot ,banoculard included]
     #5 bases
     #this is the main list
-    memory_be_gone = ["","","",""]
+    memory_be_gone = ["","","","",""]
     outpost = ["","","","",""]
     #base format [ocupied, loot]
     #base 1 is always occupied
@@ -91,3 +91,9 @@ def load_game():
     price_city[5] = bow
     price_city[6] = arrows
     price_city[7] = banoculars
+    memory_be_gone[0] = outpost
+    memory_be_gone[1] = barn
+    memory_be_gone[2] = tree
+    memory_be_gone[3] = price_outland
+    memory_be_gone[4] = price_city
+    return memory_be_gone
