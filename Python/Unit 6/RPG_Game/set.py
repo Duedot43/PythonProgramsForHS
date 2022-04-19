@@ -11,5 +11,6 @@ def item(usr_list, item, quant):
     return usr_list
 def pos(usr_list, place_out):
     pos_list = usr_list[0]
-    pos_list[0] = [place_out[1]]
+    pos_list[0] = place_out[1]
     usr_list[0] = pos_list
+    return usr_list
