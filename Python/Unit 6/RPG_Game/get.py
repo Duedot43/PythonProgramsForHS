@@ -27,8 +27,17 @@ def price(location, item, ck_what, main_list):
     #ck_what should be 0 for cost 1 for sellable 2 quant_per_price
     output = item_list[ck_what]
     return output
-def validate(goto_out, usr_input):
+def place(goto_out, usr_input):
     for x in goto_out:
         if usr_input.lower() == x[0]:
             return [1, x[1]]
     return [0,0]
+def inventory(user_list, ck_what):
+    inventory_list = user_list[1]
+    #ck_what should be 0 = bread 1 = corn 2 = wheat 3 = tnt 4 = fresh_water 5 = bow 6 = arrows 7 = banoculars
+    output = inventory_list[ck_what]
+    return output
+def pos(user_list):
+    pos_list = user_list[0]
+    output = pos_list[0]
+    return output

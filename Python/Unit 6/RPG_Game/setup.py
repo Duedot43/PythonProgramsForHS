@@ -97,3 +97,9 @@ def load_game():
     memory_be_gone[3] = price_outland
     memory_be_gone[4] = price_city
     return memory_be_gone
+def load_player_info():
+    cpos = [26]
+    #[bread,corn,wheat,tnt,fresh_water,bow,arrows,banoculars]
+    inventory = [0,0,0,0,0,0,0,0]
+    player = [cpos,inventory]
+    return player
