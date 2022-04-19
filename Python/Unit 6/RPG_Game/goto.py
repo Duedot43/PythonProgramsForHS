@@ -22,7 +22,7 @@ def disp(cpos):
         return ava
     #NEoutpost1
     if cpos == 4:
-        print("You are at a military outpost\n To the northeast of you is a barn\nTo the northwest of you is the military base")
+        print("You are at a military outpost\nTo the northeast of you is a barn\nTo the northwest of you is the military base")
         ava = [["northeast", 5], ["northwest", 29]]
         return ava
     #NEbarn
@@ -77,7 +77,7 @@ def disp(cpos):
         return ava
     #West Gate
     if cpos == 15:
-        print("You are at the West City Gates\nTo the east is a barn\nTo the northeast is a outpost\nTo the south is a river\n To the west is the Housing District")
+        print("You are at the West City Gates\nTo the east is a barn\nTo the northeast is a outpost\nTo the south is a river\nTo the west is the Housing District")
         ava = [["west",14],["east",16],["northeast",9],["south",21]]
         return ava
     #Ebarn
@@ -112,7 +112,7 @@ def disp(cpos):
         ava = [["north",18],["east",23],["south",25],["southeast",26]]
         return ava
     if cpos == 23:
-        print("You are at a barn\nTo the south is the ditch you woke up in\nTo the southwest is another barn\nTo the west is a outpost\nTo the east is a 3rd barn\n To the southeast is a 4th barn")
+        print("You are at a barn\nTo the south is the ditch you woke up in\nTo the southwest is another barn\nTo the west is a outpost\nTo the east is a 3rd barn\nTo the southeast is a 4th barn")
         ava = [["south",26],["southwest",25],["west",22],["east",24],["southeast",27]]
         return ava
     if cpos == 24:
@@ -124,7 +124,7 @@ def disp(cpos):
         ava = [["north",22],["east",26],["northeast",23]]
         return ava
     if cpos == 26:
-        print("You are at a ditch\nTo the west there is a barn\nTo the northwest there is a outpost\nTo the north there is another barn\nTo the northeast there is a 3rd barn\n To the east there is a 4th barn")
+        print("You are at a ditch\nTo the west there is a barn\nTo the northwest there is a outpost\nTo the north there is another barn\nTo the northeast there is a 3rd barn\nTo the east there is a 4th barn")
         ava = [["west",25],["northwest",22],["north",23],["northeast",24],["east",27]]
         return ava
     if cpos == 27:
@@ -132,6 +132,6 @@ def disp(cpos):
         ava = [["west",26],["north",24],["northwest",23]]
         return ava
     if cpos == 28:
-        print("You are at a hidden outlaws camp\n To the west there is the forest")
+        print("You are at a hidden outlaws camp\nTo the west there is the forest")
         ava == [["west",17]]
         return ava
