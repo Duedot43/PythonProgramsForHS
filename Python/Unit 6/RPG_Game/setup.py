@@ -99,7 +99,7 @@ def load_game():
     return memory_be_gone
 def load_player_info():
     cpos = [26]
-    #[bread,corn,wheat,tnt,fresh_water,bow,arrows,banoculars]
-    inventory = [0,0,0,0,0,0,0,0]
+    #[bread,corn,wheat,tnt,fresh_water,bow,arrows,banoculars,money]
+    inventory = [0,0,0,0,0,0,0,0,80]
     player = [cpos,inventory]
     return player

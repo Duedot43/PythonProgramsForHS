@@ -34,7 +34,7 @@ def place(goto_out, usr_input):
     return [0,0]
 def inventory(user_list, ck_what):
     inventory_list = user_list[1]
-    #ck_what should be 0 = bread 1 = corn 2 = wheat 3 = tnt 4 = fresh_water 5 = bow 6 = arrows 7 = banoculars
+    #ck_what should be 0 = bread 1 = corn 2 = wheat 3 = tnt 4 = fresh_water 5 = bow 6 = arrows 7 = banoculars 8 = money
     output = inventory_list[ck_what]
     return output
 def pos(user_list):
