@@ -15,3 +15,7 @@ def user_input(var_list, player_list):
             return 0
         else:
             return 1
+    if raw_input[0] == "sell":
+        pass
+    if raw_input[0] == "buy" or raw_input[0] == "purchase":
+        pass
