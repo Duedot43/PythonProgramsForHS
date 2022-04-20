@@ -41,3 +41,21 @@ def pos(user_list):
     pos_list = user_list[0]
     output = pos_list[0]
     return output
+def pos2outpost(user_list):
+    posi = pos(user_list)
+    if posi == 3:
+        output = 0
+        return output
+    if posi == 4:
+        output = 1
+        return output
+    if posi == 7:
+        output = 2
+        return output
+    if posi == 9:
+        output = 3
+        return output
+    if posi == 22:
+        output = 4
+        return output
+    return None

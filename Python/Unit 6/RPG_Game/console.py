@@ -1,4 +1,4 @@
-import get, goto, set
+import get, goto, set, at
 def Convert(string):
     li = list(string.split(" "))
     return li
@@ -18,4 +18,7 @@ def user_input(var_list, player_list):
     if raw_input[0] == "sell":
         pass
     if raw_input[0] == "buy" or raw_input[0] == "purchase":
-        pass
+        if at.outpost(player_list) == True:
+            pass
+        else:
+            print("You cannot buy anything here")

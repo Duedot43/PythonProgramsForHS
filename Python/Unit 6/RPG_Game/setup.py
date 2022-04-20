@@ -54,7 +54,7 @@ def load_game():
     tree[4] = tree5
     #Price for everything in the outlands
     #bread, corn,wheat, TNT, fresh_water, bow, arrows, banoculars
-    price_outland = ["","","","","","","", ""]
+    price_outland = ["","","","","","","", "","","","","",""]
     #template [cost, sellable, quant_per_price]
     bread = [random.randint(10,30), 1, 5]
     corn = [random.randint(10,20), 1, 10]
@@ -64,6 +64,11 @@ def load_game():
     bow = [random.randint(50,60), 0, 1]
     arrows = [random.randint(3,7), 1, 20]
     banoculars = [random.randint(100,150), 0, 1]
+    sword = [random.randint(50,60), 0, 1]
+    spear = [random.randint(50,60), 0, 1]
+    mace = [random.randint(50,60), 0, 1]
+    dagger = [random.randint(50,60), 0, 1]
+    axe = [random.randint(50,60), 0, 1]
     price_outland[0] = bread
     price_outland[1] = corn
     price_outland[2] = wheat
@@ -72,9 +77,14 @@ def load_game():
     price_outland[5] = bow
     price_outland[6] = arrows
     price_outland[7] = banoculars
+    price_outland[8]  = sword
+    price_outland[9]  = spear
+    price_outland[10]  = mace
+    price_outland[11]  = dagger
+    price_outland[12]  = axe
     #Price for everything in the city
     #template [cost, sellable, quant_per_prce]
-    price_city = ["","","","","","","", ""]
+    price_city = ["","","","","","","", "","","","","",""]
     bread = [random.randint(5,25), 1, 5]
     corn = [random.randint(5,10), 1, 10]
     wheat = [random.randint(5,15), 1, 15]
@@ -82,7 +92,11 @@ def load_game():
     fresh_water = [random.randint(1,3), 0, 5]
     bow = [random.randint(5,30), 0, 1]
     arrows = [random.randint(2,5), 1, 20]
-    banoculars = [random.randint(40,50), 0, 1]
+    sword = [random.randint(5,30), 0, 1]
+    spear = [random.randint(5,30), 0, 1]
+    mace = [random.randint(5,30), 0, 1]
+    dagger = [random.randint(5,30), 0, 1]
+    axe = [random.randint(5,30), 0, 1]
     price_city[0] = bread
     price_city[1] = corn
     price_city[2] = wheat
@@ -91,6 +105,11 @@ def load_game():
     price_city[5] = bow
     price_city[6] = arrows
     price_city[7] = banoculars
+    price_city[8] = sword
+    price_city[9] = spear
+    price_city[10] = mace
+    price_city[11] = dagger
+    price_city[12] = axe
     memory_be_gone[0] = outpost
     memory_be_gone[1] = barn
     memory_be_gone[2] = tree
@@ -99,8 +118,8 @@ def load_game():
     return memory_be_gone
 def load_player_info():
     cpos = [26]
-    #[bread,corn,wheat,tnt,fresh_water,bow,arrows,banoculars,money]
-    inventory = [0,0,0,0,0,0,0,0,80]
+    #[bread,corn,wheat,tnt,fresh_water,bow,arrows,banoculars,sword,spear,mace,dagger,axe,wood,money]
+    inventory =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,80]
     player = [cpos,inventory]
     return player
 

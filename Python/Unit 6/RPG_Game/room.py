@@ -2,11 +2,17 @@ import random,os,time,get
 #unlocked locations
 def desc(plr_list, var_list):
     pos = get.pos(plr_list)
+    if pos == 1:
+        pier(plr_list, var_list)
+    if pos == 2 or pos == 5 or pos == 10 or pos == 23 or pos == 24 or pos == 25 or pos == 27:
+        barn(plr_list, var_list)
+    if pos == 3 or pos == 4 or pos == 7 or pos == 9 or pos == 22:
+        outpost(plr_list, var_list)
     if pos == 26:
         spawn(plr_list, var_list)
 def spawn(plr_list, var_list):
     print("You wake up in a ditch, with farms surrounding you. You can feel a note inside of your pocket.")
-def outpost():
+def outpost(plr_list, var_list):
     outpostrand = random.randint(1,6)
     if outpostrand == 1:
         print("You wander into an outpost, it is filled with weapons and tools of war.")
@@ -20,7 +26,7 @@ def outpost():
         print("You come across an outpost, it seems as if it is ready for war.")
     elif outpostrand == 6:
         print("You find an outpost, maybe the tools it holds could be of use.")
-def barn():
+def barn(plr_list, var_list):
     barnrand = random.randint(1,5)
     if barnrand == 1:
         print("You discover a barn, the animals seem delighted to see sunlight.")
@@ -32,7 +38,7 @@ def barn():
         print("You find a barn, it looks greatly used.")
     elif barnrand == 5:
         print("You exit a field to a barn, the sound of life calms you.")
-def pier():
+def pier(plr_list, var_list):
     pierrand = random.randint(1,3)
     if pierrand == 1:
         print("You find a pier, it sticks out from the surrounding coast.")
@@ -40,7 +46,7 @@ def pier():
         print("You walk onto a pier, it seems as if a fishermans paradise.")
     elif pierrand == 3:
         print("You see a pier, the sight of food makes you hungry.")
-def forest():
+def forest(plr_list, var_list):
     forestrand = random.randint(1,3)
     if forestrand == 1:
         print("You find a forest, trees consume your eyesight.")
@@ -48,14 +54,14 @@ def forest():
         print("You run into a forest, all you can see is trees for miles.")
     elif forestrand == 3:
         print("You wander into a forest, quickly getting lost in its trees.")
-def outlaw():
+def outlaw(plr_list, var_list):
     pass
 def vinyard():
     pass
-def milbase():
+def milbase(plr_list, var_list):
     pass
-def river():
+def river(plr_list, var_list):
     pass
-def mineshaft():
+def mineshaft(plr_list, var_list):
     pass
 #locked locationss
