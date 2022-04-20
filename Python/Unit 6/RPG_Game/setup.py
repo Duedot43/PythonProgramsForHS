@@ -103,3 +103,6 @@ def load_player_info():
     inventory = [0,0,0,0,0,0,0,0,80]
     player = [cpos,inventory]
     return player
+
+#sword,spear,mace,dagger,axe
+#cut down trees and sell wood with axe, build fire with wood
