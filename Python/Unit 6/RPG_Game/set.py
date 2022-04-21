@@ -1,3 +1,4 @@
+import get
 def money(usr_list, money_var):
     inventory_list = usr_list[1]
     inventory_list[14] = money_var
@@ -14,3 +15,15 @@ def pos(usr_list, place_out):
     pos_list[0] = place_out[1]
     usr_list[0] = pos_list
     return usr_list
+def advantage(usr_list, advantage_int, value):
+    advantage_list = usr_list[2]
+    #advantage_int should be 0 for guard suit
+    advantage_list[advantage_int] = value
+    usr_list[2] = advantage_list
+    return usr_list
+def lock(usr_list, var_list, value):
+    lock_list = var_list[5]
+    posi = get.pos(usr_list)
+    lock_list[posi] = value
+    var_list[5] = lock_list
+    return var_list

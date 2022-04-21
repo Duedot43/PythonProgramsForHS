@@ -59,3 +59,12 @@ def pos2outpost(user_list):
         output = 4
         return output
     return None
+def lock(usr_list, main_list):
+    lock_list = main_list[5]
+    output = lock_list[pos(usr_list)]
+    return output
+def advantages(usr_list, advantage):
+    advantages_list = usr_list[2]
+    #advantages 0 for guard armour
+    output = advantages_list[advantage]
+    return output

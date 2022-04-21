@@ -42,7 +42,11 @@ def user_input(var_list, player_list):
         usr_input = raw_input[1]
         place_out = get.place(ava, usr_input)
         if place_out[0] == 1:
-            player_list = set.pos(player_list, place_out)
+            locked = get.lock(player_list, var_list)
+            if locked == 0:
+                player_list = set.pos(player_list, place_out)
+            if locked == 1:
+                print("You cannot enter this room it is locked")
             return 0
         else:
             print("You cannot walk " + raw_input[1])

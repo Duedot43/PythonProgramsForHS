@@ -25,4 +25,3 @@ def cityorout(user_list):
         return 4
 def fight(user_list):
     pos = get.pos(user_list)
-    
