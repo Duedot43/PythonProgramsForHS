@@ -8,4 +8,4 @@ while game == 1:
         print("That is not a verb I know...")
         yes = console.user_input(var_list, player_list)
 
-#TODO Fighting system,   selling system,    seeing system,     eating system,     looting system,    blowing up system,    locking system
+#TODO Fighting system,   selling system,    seeing system,     eating system,     looting system,    blowing up system,    unlocking system
