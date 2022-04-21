@@ -37,7 +37,7 @@ def disp(cpos):
         return ava
     #NWoutpost
     if cpos == 7:
-        print("You are at a military base\nTo the north of you is a barn\nTo the west of you is the pier\nTo the south of you is the East City Gates")
+        print("You are at a military outpost\nTo the north of you is a barn\nTo the west of you is the pier\nTo the south of you is the East City Gates")
         ava = [["north", 2], ["west", 1],["south", 11]]
         return ava
     #Military District
@@ -68,7 +68,7 @@ def disp(cpos):
     #castle
     if cpos == 13:
         print("You are at the Castle\nTo the north is the Military District\nTo the southeast is the Political District")
-        ava = [["north",8],["southeast",19]]
+        ava = [["were_doin_it_boys!",None]]
         return ava
     #housing district
     if cpos == 14:
@@ -133,5 +133,5 @@ def disp(cpos):
         return ava
     if cpos == 28:
         print("You are at a hidden outlaws camp\nTo the west there is the forest")
-        ava == [["west",17]]
+        ava = [["west",17]]
         return ava
