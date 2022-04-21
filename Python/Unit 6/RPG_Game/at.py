@@ -23,3 +23,6 @@ def cityorout(user_list):
         return 3
     if pos == 20:
         return 4
+def fight(user_list):
+    pos = get.pos(user_list)
+    

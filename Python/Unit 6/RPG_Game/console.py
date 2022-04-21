@@ -48,11 +48,18 @@ def user_input(var_list, player_list):
     if raw_input[0] == "buy" or raw_input[0] == "purchase":
         if at.shop(player_list) == True:
             cityorout = at.cityorout(player_list)
-            if cityorout == 3:
+            if cityorout == 3 or cityorout == 4:
                 #outpost
+                if int(len(raw_input)) == 1:
+                    print("You must provide something to buy or type " + raw_input[0] + " list to get a list of items to buy")
+                    return 0
                 item_num = raw_item(raw_input[1])
                 if item_num == False:
-                    return 1
+                    if raw_input[1] == "list":
+                        print("You can buy bread,  corn,  wheat,  tnt,  water,  bow,  arrows,  banoculars,  sword,  spear,  mace,  dagger,  axe")
+                        return 0
+                    print("You cannot buy " + raw_input[1])
+                    return 0
                 price = get.item(cityorout, item_num, 0, var_list)
                 usr_money = get.inventory(player_list, 14)
                 if usr_money >= price:
@@ -62,9 +69,10 @@ def user_input(var_list, player_list):
                         player_list = set.item(player_list, item_num, get.item(cityorout, item_num, 2, var_list))
                         return 0
                     else:
-                        return 2
+                        return 0
                 else:
                     print("You cannot afford this!")
                     return 0
         else:
             print("You cannot buy anything here")
+            return 0
