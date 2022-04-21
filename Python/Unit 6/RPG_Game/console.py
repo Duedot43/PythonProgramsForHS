@@ -1,4 +1,4 @@
-import get, goto, set, at
+import get, goto, set, at, enemy
 def Convert(string):
     li = list(string.split(" "))
     return li
@@ -30,9 +30,14 @@ def raw_item(user_input):
     if user_input.lower() == "axe":
         return 12
     return False
+def ck_fight(var_list, player_list):
+    if at.fight(player_list, var_list) != False:
+        make_out = enemy.make(at.fight(player_list, var_list))
+        enemy.fight(make_out, player_list, var_list)
 def user_input(var_list, player_list):
     cpos = get.pos(player_list)
     ava = goto.disp(cpos)
+    ck_fight(var_list, player_list)
     raw_raw_input = input("\n\n> ").lower()
     raw_input = Convert(raw_raw_input)
     if raw_input[0] == "walk" or raw_input[0] == "go" or raw_input[0] == "move" or raw_input[0] == "run":

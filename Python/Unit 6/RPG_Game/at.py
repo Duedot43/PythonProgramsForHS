@@ -23,5 +23,13 @@ def cityorout(user_list):
         return 3
     if pos == 20:
         return 4
-def fight(user_list):
+def fight(user_list, main_list):
     pos = get.pos(user_list)
+    if outpost(user_list) == True:
+        if get.outpost(0, get.pos2outpost(user_list), main_list) == 1:
+            return [0,1]
+    if pos == 17:
+        return True
+    if pos == 16 or pos == 15 or pos ==  11 or pos == 18 or pos ==29:
+        return [0,1]
+    return False
