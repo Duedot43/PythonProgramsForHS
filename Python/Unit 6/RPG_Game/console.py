@@ -2,6 +2,34 @@ import get, goto, set, at
 def Convert(string):
     li = list(string.split(" "))
     return li
+def raw_item(user_input):
+    if user_input.lower() == "bread":
+        return 0
+    if user_input.lower() == "corn":
+        return 1
+    if user_input.lower() == "wheat":
+        return 2
+    if user_input.lower() == "tnt":
+        return 3
+    if user_input.lower() == "water":
+        return 4
+    if user_input.lower() == "bow":
+        return 5
+    if user_input.lower() == "arrows":
+        return 6
+    if user_input.lower() == "banoculars":
+        return 7
+    if user_input.lower() == "sword":
+        return 8
+    if user_input.lower() == "spear":
+        return 9
+    if user_input.lower() == "mace":
+        return 10
+    if user_input.lower() == "dagger":
+        return 11
+    if user_input.lower() == "axe":
+        return 12
+    return False
 def user_input(var_list, player_list):
     cpos = get.pos(player_list)
     ava = goto.disp(cpos)
@@ -18,7 +46,25 @@ def user_input(var_list, player_list):
     if raw_input[0] == "sell":
         pass
     if raw_input[0] == "buy" or raw_input[0] == "purchase":
-        if at.outpost(player_list) == True:
-            pass
+        if at.shop(player_list) == True:
+            cityorout = at.cityorout(player_list)
+            if cityorout == 3:
+                #outpost
+                item_num = raw_item(raw_input[1])
+                if item_num == False:
+                    return 1
+                price = get.item(cityorout, item_num, 0, var_list)
+                usr_money = get.inventory(player_list, 14)
+                if usr_money >= price:
+                    choice = input("The price of " + str(raw_input[1]) + " is " + str(price) + " You have " + str(usr_money) + " money on you you will have " + str(usr_money-price) + " after this. You will get " + str(get.item(cityorout, item_num, 2, var_list)) + " " + str(raw_input[1]) + "\nWould you like to buy this?\n> ")
+                    if choice.lower() == "y" or choice.lower() == "yes":
+                        set.money(player_list, usr_money-price)
+                        player_list = set.item(player_list, item_num, get.item(cityorout, item_num, 2, var_list))
+                        return 0
+                    else:
+                        return 2
+                else:
+                    print("You cannot afford this!")
+                    return 0
         else:
             print("You cannot buy anything here")

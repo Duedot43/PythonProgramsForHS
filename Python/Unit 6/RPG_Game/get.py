@@ -19,7 +19,7 @@ def tree(ck_what, what_tree, main_list):
     #ck_what should be either 0 for dead or 1 for size
     output = what_tree_list[ck_what]
     return output
-def price(location, item, ck_what, main_list):
+def item(location, item, ck_what, main_list):
     #location should be 3 for price_outland or 4 for price_city
     location_list = main_list[location]
     #item should be 0 = bread 1 = corn 2 = wheat 3 = tnt 4 = fresh_water 5 = bow 6 = arrows 7 = banoculars
@@ -34,7 +34,7 @@ def place(goto_out, usr_input):
     return [0,0]
 def inventory(user_list, ck_what):
     inventory_list = user_list[1]
-    #ck_what should be 0 = bread 1 = corn 2 = wheat 3 = tnt 4 = fresh_water 5 = bow 6 = arrows 7 = banoculars 8 = money
+    #[0 = bread,1 = corn,2 = wheat,3 = tnt,4 = fresh_water,5 = bow,6 = arrows,7 = banoculars,8 = sword,9 = spear,10 = mace,11 = dagger,12 = axe,13 = wood,14 = money]
     output = inventory_list[ck_what]
     return output
 def pos(user_list):
