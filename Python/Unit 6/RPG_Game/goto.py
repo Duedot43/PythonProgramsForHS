@@ -32,8 +32,8 @@ def disp(cpos):
         return ava
     #vinyard
     if cpos == 6:
-        print("You are at a mountan village you can buy things here\nTo the southeast of you is a military outpost\nTo the west of you is a barn")
-        ava = [["southeast", 9], ["west", 5]]
+        print("You are at a mountan village you can buy things here\nTo the west of you is a barn")
+        ava = [["west", 5]]
         return ava
     #NWoutpost
     if cpos == 7:
