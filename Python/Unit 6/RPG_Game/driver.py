@@ -11,3 +11,4 @@ while game == 1:
 #TODO **Fighting system,   **selling system,    *seeing system - binoc system done, need to get a inventory seeing system,     *eating system,     *looting system,     **unlocking system
 #**Jack
 #* Eli
+#buy what? you cannot buy bread!!!!
