@@ -123,6 +123,7 @@ def load_player_info():
     cpos = [26]
     #[bread,corn,wheat,tnt,fresh_water,bow,arrows,banoculars,sword,spear,mace,dagger,axe,wood,money]
     inventory =  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,80]
+    #advantages format [guard_suit, health]
     advantages = [0, 100]
     player = [cpos,inventory,advantages]
     return player

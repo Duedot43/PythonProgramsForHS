@@ -62,6 +62,12 @@ def user_input(var_list, player_list):
         pass
     if raw_input[0] == "loot":
         pass
+    if raw_input[0] == "see":
+        if len(raw_input) == 1:
+            print("You must provide somewhere to see.")
+            return 0
+        output = room.see(player_list, var_list, raw_input[1], ava)
+        return output
     if raw_input[0] == "buy" or raw_input[0] == "purchase":
         if at.shop(player_list) == True:
             cityorout = at.cityorout(player_list)

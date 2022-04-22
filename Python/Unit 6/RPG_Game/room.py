@@ -1,4 +1,4 @@
-import random,os,time,get
+import random,os,time,get,at
 #unlocked locations
 def desc(plr_list, var_list):
     pos = get.pos(plr_list)
@@ -26,6 +26,40 @@ def desc(plr_list, var_list):
         mineshaft(plr_list, var_list)
     if pos == 16 or pos ==  15 or pos ==11:
         gate(plr_list, var_list)
+def see(plr_list, var_list, see_what, ava):
+    #binocular system
+    num_pos = get.place(ava, see_what)
+    if get.inventory(plr_list, 7) >= 1:
+        if num_pos[0] == 1:
+            if at.city_raw == False:
+                if at.outpost_raw(num_pos[1]) == True:
+                    #outpost thing here
+                    pass
+                elif at.barn_raw(num_pos[1]):
+                    print("You see a barn in the distance")
+                elif at.mil_raw(num_pos[1]):
+                    print("You see a military base in the distance")
+                elif at.gate_raw(num_pos[1]):
+                    print("You cannot see into the city")
+                elif at.forest_raw(num_pos[1]):
+                    print("You see a forest in the distance")
+                elif at.river_raw(num_pos[1]):
+                    print("You see a river in the distance")
+                elif at.mineshaft_raw(num_pos[1]):
+                    print("You see a mineshaft in the distance")
+                elif at.outlaw_raw(num_pos[1]):
+                    print("You see a outlaw camp in the distance")
+                elif at.vinyard_raw(num_pos[1]):
+                    print("You see a vinyard in the distance")
+                elif at.pier_raw(num_pos[1]):
+                    print("You see the pier in the distance")
+            else:
+                print("You cannot use binoculars in the city.")
+        else:
+            print("Invalid Direction")
+            return 0
+    else:
+        print("You do not have binoculars")
 def spawn(plr_list, var_list):
     print("You wake up in a ditch, with farms surrounding you. You can feel a note inside of your pocket.")
 def outpost(plr_list, var_list):

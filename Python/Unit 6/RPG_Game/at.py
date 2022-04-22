@@ -33,3 +33,18 @@ def fight(user_list, main_list):
     if pos == 16 or pos == 15 or pos ==  11 or pos == 18 or pos ==29:
         return [0,1]
     return False
+def outpost_raw(pos):
+    if pos == 3 or pos == 4 or pos == 7 or pos == 9 or pos == 22:
+        return True
+    else:
+        return False
+def barn_raw(pos):
+    if pos == 2 or pos == 5 or pos == 10 or pos == 23 or pos == 24 or pos == 25 or pos == 27:
+        return True
+    else:
+        return False
+def city_raw(pos):
+    if pos == 8 or pos == 12 or pos == 13 or pos == 14 or pos == 18 or pos == 20:
+        return True
+    else:
+        return False
