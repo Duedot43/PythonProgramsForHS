@@ -24,6 +24,8 @@ def desc(plr_list, var_list):
         river(plr_list, var_list)
     if pos == 18:
         mineshaft(plr_list, var_list)
+    if pos == 16 or pos ==  15 or pos ==11:
+        gate(plr_list, var_list)
 def spawn(plr_list, var_list):
     print("You wake up in a ditch, with farms surrounding you. You can feel a note inside of your pocket.")
 def outpost(plr_list, var_list):
@@ -77,5 +79,7 @@ def milbase(plr_list, var_list):
 def river(plr_list, var_list):
     pass
 def mineshaft(plr_list, var_list):
+    pass
+def gate(plr_list, var_list):
     pass
 #locked locationss
