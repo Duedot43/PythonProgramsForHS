@@ -71,15 +71,33 @@ def forest(plr_list, var_list):
     elif forestrand == 3:
         print("You wander into a forest, quickly getting lost in its trees.")
 def outlaw(plr_list, var_list):
-    pass
+    outloowrand = random.randint(1,3)
+    if outloowrand == 1:
+        print("You find an outpost through a clearing, bandits seem to inhabit it.")
+    elif outloowrand == 2:
+        print("You exit the forest to a band of outlaws, they seem to inhabit a village nearby.")
+    elif outloowrand == 3:
+        print("You exit the forest to a outpost, no guard could ever get here.")
 def vinyard():
-    pass
+    vinyardrand = random.randint(1,3)
+    if vinyardrand == 1:
+        print("You enter a vinyard, the smell of grapes is powerful.")
+    elif vinyardrand == 2:
+        print("You enter a vinyard, it is surrounded riches.")
+    elif vinyardrand == 3:
+        print("You enter a vinyard, nights of fun must have happened here before.")
 def milbase(plr_list, var_list):
-    pass
+    milbaserand = random.randint(1,3)
+    if milbaserand == 1:
+        print("You come across a Military Base, the heart of the army.")
+    elif milbaserand == 2:
+        print("You walk into a Military Base, ready for war as ever.")
+    elif milbaserand == 3:
+        print("You wander into a Military Base, there is hundreds of pieces of gear.")
 def river(plr_list, var_list):
-    pass
+    print("You come upon a river, the tide takes anything it can.")
 def mineshaft(plr_list, var_list):
-    pass
+    print("You walk to the entrance of a mineshaft, it has been boarded up for years.")
 def gate(plr_list, var_list):
-    pass
+    print("You walk into the gate to the city, it hangs suspended from above.")
 #locked locationss
