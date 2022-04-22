@@ -1,4 +1,4 @@
-import get, goto, set, at, enemy
+import get, goto, set, at, enemy, room
 def Convert(string):
     li = list(string.split(" "))
     return li
@@ -50,6 +50,7 @@ def user_input(var_list, player_list):
             locked = get.lock(player_list, var_list)
             if locked == 0:
                 player_list = set.pos(player_list, place_out)
+                room.desc(player_list, var_list)
             if locked == 1:
                 print("You cannot enter this room it is locked")
             return 0

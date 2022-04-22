@@ -10,6 +10,20 @@ def desc(plr_list, var_list):
         outpost(plr_list, var_list)
     if pos == 26:
         spawn(plr_list, var_list)
+    if pos == 1:
+        pier(plr_list, var_list)
+    if pos == 17:
+        forest(plr_list, var_list)
+    if pos == 28:
+        outlaw(plr_list, var_list)
+    if pos == 6:
+        vinyard(plr_list, var_list)
+    if pos == 29:
+        milbase(plr_list, var_list)
+    if pos == 21:
+        river(plr_list, var_list)
+    if pos == 18:
+        mineshaft(plr_list, var_list)
 def spawn(plr_list, var_list):
     print("You wake up in a ditch, with farms surrounding you. You can feel a note inside of your pocket.")
 def outpost(plr_list, var_list):
