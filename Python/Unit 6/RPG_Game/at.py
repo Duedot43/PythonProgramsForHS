@@ -88,3 +88,8 @@ def pier_raw(pos):
         return True
     else:
         return False
+def wepon(usr_list):
+    if get.inventory(usr_list, 5) >= 1 or get.inventory(usr_list, 8) >= 1 or get.inventory(usr_list, 9) >= 1 or get.inventory(usr_list, 10) >= 1 or get.inventory(usr_list, 11) >= 1 or get.inventory(usr_list, 12) >= 1:
+        return True
+    else:
+        return False

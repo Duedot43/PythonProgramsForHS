@@ -8,7 +8,7 @@ while game == 1:
         print("That is not a verb I know...")
         yes = console.user_input(var_list, player_list)
 
-#TODO **Fighting system,   **selling systemDONE!,    *seeing system - binoc system done, need to get a inventory seeing system,     *eating system,     *looting system,     **unlocking system
+#TODO **Fighting system,   **selling systemDONE!,    *seeing system - binoc system done, need to get a inventory seeing system,     *eating system,     *looting system,     **unlocking system *** TREE SYSTEM
 #**Jack
 #* Eli
 #buy what? you cannot buy bread!!!!
