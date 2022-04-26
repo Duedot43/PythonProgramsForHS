@@ -91,7 +91,7 @@ def outpost(plr_list, var_list):
         print("You see some TNT falling out of a closet.")
         #TNT
     if get.outpost(1,get.pos2outpost(plr_list), var_list) == 4:
-        print("You see some of the soldiers frsh water in a cabinent.")
+        print("You see some of the soldiers fresh water in a cabinent.")
         #fresh water?
     if get.outpost(1,get.pos2outpost(plr_list), var_list) == 5:
         print("You see a soldiers bow hanging on the wall.")
@@ -132,6 +132,45 @@ def barn(plr_list, var_list):
         print("You find a barn, it looks greatly used.")
     elif barnrand == 5:
         print("You exit a field to a barn, the sound of life calms you.")
+    if get.barn(get.pos2barn(plr_list), var_list) == 1:
+        print("You see some corn on the table.")
+        #corn
+    if get.barn(get.pos2barn(plr_list), var_list) == 2:
+        print("You see some wheat on the table.")
+        #wheat
+    if get.barn(get.pos2barn(plr_list), var_list) == 3:
+        print("You see some TNT falling out of a closet.")
+        #TNT
+    if get.barn(get.pos2barn(plr_list), var_list) == 4:
+        print("You see some fresh water in a cabinent.")
+        #fresh water?
+    if get.barn(get.pos2barn(plr_list), var_list) == 5:
+        print("You see a bow hanging on the wall.")
+        #bow
+    if get.barn(get.pos2barn(plr_list), var_list) == 6:
+        print("You see a arrow stash falling out of a bin.")
+        #arrows
+    if get.barn(get.pos2barn(plr_list), var_list) == 7:
+        print("You see some binoculars resting on the ground.")
+        #binoculars
+    if get.barn(get.pos2barn(plr_list), var_list) == 8:
+        print("You find a sword hanging on the wall.")
+        #sword
+    if get.barn(get.pos2barn(plr_list), var_list) == 9:
+        print("You see a spear leaning on the wall.")
+        #spear
+    if get.barn(get.pos2barn(plr_list), var_list) == 10:
+        print("You see a mace leaning on a cabinet.")
+        #mace
+    if get.barn(get.pos2barn(plr_list), var_list) == 11:
+        print("You see a dagger lying on the table.")
+        #dagger
+    if get.barn(get.pos2barn(plr_list), var_list) == 12:
+        print("You see a axe hanging on the wall.")
+        #axe
+    if get.barn(get.pos2barn(plr_list), var_list) == 13:
+        print("You see some firewood next to a firepit.")
+        #wood
 def pier(plr_list, var_list):
     pierrand = random.randint(1,3)
     if pierrand == 1:
