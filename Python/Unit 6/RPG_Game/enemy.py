@@ -31,6 +31,7 @@ def fight(make_out, plr_list, var_list):
                     hit = randint(10,15)
                     print("You deal " + hit + " damage!")
                     make_out[1] = make_out[1]-hit
+                enm_hit = randint(10,20)
     else:
         print("You do not have a weapon! You cannot fight")
         return 0
