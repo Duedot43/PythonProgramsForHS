@@ -59,6 +59,22 @@ def pos2outpost(user_list):
         output = 4
         return output
     return None
+def pos2barn(user_list):
+    posi = pos(user_list)
+    if posi == 2:
+        return 0
+    if posi == 5:
+        return 1
+    if posi == 10:
+        return 2
+    if posi == 23:
+        return 3
+    if posi == 24:
+        return 4
+    if posi == 25:
+        return 5
+    if posi == 27:
+        return 6
 def lock(usr_list, main_list):
     lock_list = main_list[5]
     output = lock_list[pos(usr_list)]
