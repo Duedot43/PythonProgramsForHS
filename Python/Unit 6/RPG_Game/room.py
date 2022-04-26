@@ -76,6 +76,50 @@ def outpost(plr_list, var_list):
         print("You come across an outpost, it seems as if it is ready for war.")
     elif outpostrand == 6:
         print("You find an outpost, maybe the tools it holds could be of use.")
+    if get.outpost(0,get.pos2outpost(plr_list), var_list) == 1:
+        print("The outpost is occupied by soldiers, you must tread lightly.")
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 0:
+        print("You see some of the soldiers bread on the table.")
+        #bread
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 1:
+        print("You see some of the soldiers corn on the table.")
+        #corn
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 2:
+        print("You see some of the soldiers wheat on the table.")
+        #wheat
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 3:
+        print("You see some TNT falling out of a closet.")
+        #TNT
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 4:
+        print("You see some of the soldiers frsh water in a cabinent.")
+        #fresh water?
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 5:
+        print("You see a soldiers bow hanging on the wall.")
+        #bow
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 6:
+        print("You see a arrow stash falling out of a bin.")
+        #arrows
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 7:
+        print("You see some binoculars resting on the ground.")
+        #binoculars
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 8:
+        print("You find a sword hanging on the wall.")
+        #sword
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 9:
+        print("You see a spear leaning on the wall.")
+        #spear
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 10:
+        print("You see a mace leaning on a cabinet.")
+        #mace
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 11:
+        print("You see a dagger lying on the table.")
+        #dagger
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 12:
+        print("You see a axe hanging on the wall.")
+        #axe
+    if get.outpost(1,get.pos2outpost(plr_list), var_list) == 13:
+        print("You see some firewood next to a firepit.")
+        #wood
 def barn(plr_list, var_list):
     barnrand = random.randint(1,5)
     if barnrand == 1:
@@ -133,5 +177,9 @@ def river(plr_list, var_list):
 def mineshaft(plr_list, var_list):
     print("You walk to the entrance of a mineshaft, it has been boarded up for years.")
 def gate(plr_list, var_list):
-    print("You walk into the gate to the city, it hangs suspended from above.")
+    pos = get.pos(plr_list)
+    if pos == 15 or pos == 11:
+        print("You walk into the gate to the city, it hangs suspended from above.")
+    if pos == 16:
+        print("You are at the outer city gates, it leads to the towering city above")
 #locked locationss
