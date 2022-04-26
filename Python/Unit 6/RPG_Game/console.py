@@ -30,6 +30,36 @@ def raw_item(user_input):
     if user_input.lower() == "axe":
         return 12
     return False
+def raw_item_sell(user_input):
+    if user_input.lower() == "bread":
+        return 0
+    if user_input.lower() == "corn":
+        return 1
+    if user_input.lower() == "wheat":
+        return 2
+    if user_input.lower() == "tnt":
+        return False
+    if user_input.lower() == "water":
+        return False
+    if user_input.lower() == "bow":
+        return False
+    if user_input.lower() == "arrows":
+        return 6
+    if user_input.lower() == "banoculars":
+        return False
+    if user_input.lower() == "sword":
+        return False
+    if user_input.lower() == "spear":
+        return False
+    if user_input.lower() == "mace":
+        return False
+    if user_input.lower() == "dagger":
+        return False
+    if user_input.lower() == "axe":
+        return False
+    if user_input.lower() == "wood":
+        return 13
+    return False
 def ck_fight(var_list, player_list):
     if at.fight(player_list, var_list) != False:
         make_out = enemy.make(at.fight(player_list, var_list))
@@ -59,7 +89,25 @@ def user_input(var_list, player_list):
             return 0
     
     if raw_input[0] == "sell":
-        pass
+        if at.shop(player_list):
+            cityout = at.cityorout(player_list)
+            if int(len(raw_input)) == 1:
+                print("You must provide something to sell or type " + raw_input[0] + " list to get a list of items to buy")
+                return 0
+            if raw_item_sell(raw_input[1]):
+                item_num = raw_item_sell(raw_input[1])
+                if item_num == False and raw_input[1] == "list":
+                    print("You can sell bread,  corn,  wheat, arrows, wood")
+                    return 0
+                price = get.item(cityout, item_num, 0, var_list)
+                usr_money = get.inventory(player_list, 14)
+                choice = input("You can sell " + str(raw_input[1]) + " for " + str(price) + " you have " + str(usr_money) + " after this you will have " + str(usr_money+price) + " money. Are you sure you want to sell this?\n> ")
+                if choice.lower() == "y" or choice.lower() == "yes":
+                    set.money(player_list, usr_money+price)
+                    player_list = set.item(player_list, item_num, get.inventory(player_list, item_num)-get.item(cityout, item_num, 2, var_list))
+                    return 0
+                else:
+                    return 0
     if raw_input[0] == "loot":
         pass
     if raw_input[0] == "see":
@@ -79,7 +127,7 @@ def user_input(var_list, player_list):
                 item_num = raw_item(raw_input[1])
                 if item_num == False:
                     if raw_input[1] == "list":
-                        print("You can buy bread,  corn,  wheat,  tnt,  water,  bow,  arrows,  banoculars,  sword,  spear,  mace,  dagger,  axe")
+                        print("You can buy wheat,  corn,  wheat,  tnt,  water,  bow,  arrows,  banoculars,  sword,  spear,  mace,  dagger,  axe")
                         return 0
                     print("You cannot buy " + raw_input[1])
                     return 0
