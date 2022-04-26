@@ -48,3 +48,43 @@ def city_raw(pos):
         return True
     else:
         return False
+def mil_raw(pos):
+    if pos == 29:
+        return True
+    else:
+        return False
+def gate_raw(pos):
+    if pos == 11 or pos ==15 or pos ==16:
+        return True
+    else:
+        return False
+def forest_raw(pos):
+    if pos == 17:
+        return True
+    else:
+        return False
+def river_raw(pos):
+    if pos == 21:
+        return True
+    else:
+        return False
+def mineshaft_raw(pos):
+    if pos == 18:
+        return True
+    else:
+        return False
+def outlaw_raw(pos):
+    if pos == 28:
+        return True
+    else:
+        return False
+def vinyard_raw(pos):
+    if pos == 6:
+        return True
+    else:
+        return False
+def pier_raw(pos):
+    if pos == 1:
+        return True
+    else:
+        return False
