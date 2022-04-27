@@ -63,11 +63,17 @@ def raw_item_sell(user_input):
 def ck_fight(var_list, player_list):
     if at.fight(player_list, var_list) != False:
         make_out = enemy.make(at.fight(player_list, var_list))
-        enemy.fight(make_out, player_list, var_list)
+        plr_list = enemy.fight(make_out, player_list, var_list)
+        if plr_list != 0:
+            return plr_list
+        else:
+            return 0
 def user_input(var_list, player_list):
     cpos = get.pos(player_list)
     ava = goto.disp(cpos)
-    ck_fight(var_list, player_list)
+    ck_fit = ck_fight(var_list, player_list)
+    if ck_fit != 0:
+        ck_fit = player_list
     raw_raw_input = input("\n\n> ").lower()
     raw_input = Convert(raw_raw_input)
     if raw_input[0] == "walk" or raw_input[0] == "go" or raw_input[0] == "move" or raw_input[0] == "run":
