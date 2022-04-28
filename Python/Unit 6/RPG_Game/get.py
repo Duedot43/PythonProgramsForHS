@@ -84,6 +84,6 @@ def lock(usr_list, main_list, usr_input, ava):
     return output
 def advantages(usr_list, advantage):
     advantages_list = usr_list[2]
-    #advantages 0 for guard armour 1 for health
+    #advantages 0 for guard armour 1 for health 3 for hunger
     output = advantages_list[advantage]
     return output
