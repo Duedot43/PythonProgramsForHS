@@ -61,7 +61,15 @@ def raw_item_sell(user_input):
         return 13
     return False
 def ck_fight(var_list, player_list):
-    if at.fight(player_list, var_list) != False:
+    if at.fight(player_list, var_list) != False or at.outpost(player_list):
+        if at.outpost(player_list):
+            if get.outpost(0, get.pos2outpost(player_list), var_list) == 1:
+                make_out = enemy.make(at.fight(player_list, var_list))
+                plr_list = enemy.fight(make_out, player_list, var_list)
+                if plr_list != 0:
+                    return plr_list
+                else:
+                    return 0
         make_out = enemy.make(at.fight(player_list, var_list))
         plr_list = enemy.fight(make_out, player_list, var_list)
         if plr_list != 0:
