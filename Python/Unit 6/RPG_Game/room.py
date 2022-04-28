@@ -32,26 +32,27 @@ def see(plr_list, var_list, see_what, ava):
     if get.inventory(plr_list, 7) >= 1:
         if num_pos[0] == 1:
             if at.city_raw == False:
-                if at.outpost_raw(num_pos[1]) == True:
-                    #outpost thing here
-                    pass
+                if at.outpost_raw(num_pos[1]):
+                    print("You see an outpost in the distance")
+                    if get.outpost(0,get.pos2outpost(plr_list), var_list) == 1:
+                        print("The outpost is occupied by Guards.")
                 elif at.barn_raw(num_pos[1]):
                     print("You see a barn in the distance")
                 elif at.mil_raw(num_pos[1]):
                     print("You see a military base in the distance")
-                elif at.gate_raw(num_pos[1]):
+                elif at.gate_raw(num_pos[1]) :
                     print("You cannot see into the city")
-                elif at.forest_raw(num_pos[1]):
+                elif at.forest_raw(num_pos[1]) :
                     print("You see a forest in the distance")
-                elif at.river_raw(num_pos[1]):
+                elif at.river_raw(num_pos[1]) :
                     print("You see a river in the distance")
-                elif at.mineshaft_raw(num_pos[1]):
+                elif at.mineshaft_raw(num_pos[1]) :
                     print("You see a mineshaft in the distance")
-                elif at.outlaw_raw(num_pos[1]):
+                elif at.outlaw_raw(num_pos[1]) :
                     print("You see a outlaw camp in the distance")
-                elif at.vinyard_raw(num_pos[1]):
+                elif at.vinyard_raw(num_pos[1]) :
                     print("You see a vinyard in the distance")
-                elif at.pier_raw(num_pos[1]):
+                elif at.pier_raw(num_pos[1]) :
                     print("You see the pier in the distance")
             else:
                 print("You cannot use binoculars in the city.")

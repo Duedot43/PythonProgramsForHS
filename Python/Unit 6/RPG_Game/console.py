@@ -128,7 +128,13 @@ def user_input(var_list, player_list):
         if len(raw_input) == 1:
             print("You must provide somewhere to see.")
             return 0
-        output = room.see(player_list, var_list, raw_input[1], ava)
+        if raw_input[1] != "inventory":
+            output = room.see(player_list, var_list, raw_input[1], ava)
+        else:
+            for x in 4:
+                ogbogyessir = 0
+                get.inventory[player_list,ogbogyessir]
+                ogbogyessir = ogbogyessir + 1
         return output
     if raw_input[0] == "buy" or raw_input[0] == "purchase":
         if at.shop(player_list) == True:
