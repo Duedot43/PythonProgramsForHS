@@ -91,7 +91,7 @@ def user_input(var_list, player_list):
         usr_input = raw_input[1]
         place_out = get.place(ava, usr_input)
         if place_out[0] == 1:
-            locked = get.lock(player_list, var_list)
+            locked = get.lock(player_list, var_list, raw_input[1], ava)
             if locked == 0:
                 player_list = set.pos(player_list, place_out)
                 room.desc(player_list, var_list)
