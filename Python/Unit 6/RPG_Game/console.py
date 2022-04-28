@@ -141,6 +141,17 @@ def user_input(var_list, player_list):
             print("You have " + str(invtry_list[0]) + " bread(s), " + str(invtry_list[1]) + " corn(s), " + str(invtry_list[2]) + " wheat(s), " + str(invtry_list[3]) + " TNT(s), " + str(invtry_list[4]) + " water(s), " + str(invtry_list[5]) + " bow(s), " + str(invtry_list[6]) + " arrow(s), " + str(invtry_list[7]) + " binoculars, " + str(invtry_list[8]) + " sword(s), " + str(invtry_list[9]) + " spear(s), " + str(invtry_list[9] + " mace(s) " + str(invtry_list[10] + " dagger(s), " + str(invtry_list[11] + " axe(s)" + str(invtry_list[12]) + " wood, " + str(invtry_list[13]) + " money."))))
 
         return output
+    if raw_input[0] == "eat":
+        if len(raw_input) == 1:
+            print("You must provide something to eat.")
+            return 0
+    else:
+        foodnumlist = []
+        for x in 3:
+            foodnumlist.append(get.inventory(player_list,x))
+        if raw_input[1] == "corn":
+            set.item()
+            set.advantage() #FINISH CODE
     if raw_input[0] == "buy" or raw_input[0] == "purchase":
         if at.shop(player_list) == True:
             cityorout = at.cityorout(player_list)
