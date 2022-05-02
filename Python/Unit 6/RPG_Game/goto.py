@@ -58,7 +58,7 @@ def disp(cpos):
     #Egate
     if cpos == 11:
         print("You are at the West City Gates\nTo the west is a barn\nTo the east inside the gates is the Commerce District\nTo the north is an outpost\nTo the southwest is a mineshaft")
-        ava = [["west", 10],["north", 7], ["southwest",18]]
+        ava = [["west", 10],["north", 7], ["southwest",18], ["east", 12]]
         return ava
     #commerce district
     if cpos == 12:

@@ -438,6 +438,8 @@ def user_input(var_list, player_list):
         pos = get.pos(player_list)
         if pos == 22 or pos == 23 or pos == 10 and get.inventory(player_list, 3) >= 1:
             var_list = set.lock(var_list)
+            print("You blew up the mineshaft")
+            return 0
     if raw_input[0] == "buy" or raw_input[0] == "purchase":
         if at.shop(player_list) == True:
             cityorout = at.cityorout(player_list)
