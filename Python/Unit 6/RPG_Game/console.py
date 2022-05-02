@@ -70,6 +70,8 @@ def ck_fight(var_list, player_list):
                     return plr_list
                 else:
                     return 0
+            else:
+                return 0
         make_out = enemy.make(at.fight(player_list, var_list))
         plr_list = enemy.fight(make_out, player_list, var_list)
         if plr_list != 0:
@@ -402,6 +404,7 @@ def user_input(var_list, player_list):
                 else:
                     print("There is no money here.")
                     return 0
+        return 0
     if raw_input[0] == "see":
         if len(raw_input) == 1:
             print("You must provide somewhere to see.")
@@ -443,6 +446,7 @@ def user_input(var_list, player_list):
             var_list = set.lock(var_list)
             print("You blew up the mineshaft")
             return 0
+        return 0
     if raw_input[0] == "buy" or raw_input[0] == "purchase":
         if at.shop(player_list) == True:
             cityorout = at.cityorout(player_list)
