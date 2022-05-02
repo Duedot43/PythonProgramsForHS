@@ -30,7 +30,7 @@ def fight(user_list, main_list):
             return [0,1]
     if pos == 17:
         return True
-    if pos == 16 or pos == 15 or pos ==  11 or pos == 18 or pos ==29:
+    if pos == 16 or pos == 15 or pos ==  11 or pos == 18 or pos ==29 or pos == 22:
         return [0,1]
     return False
 def outpost_raw(pos):
