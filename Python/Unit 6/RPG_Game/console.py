@@ -411,6 +411,7 @@ def user_input(var_list, player_list):
             for x in range(0,15):
                 invtry_list.append(get.inventory(player_list,x))
             print("You have " + str(invtry_list[0]) + " bread(s), " + str(invtry_list[1]) + " corn(s), " + str(invtry_list[2]) + " wheat(s), " + str(invtry_list[3]) + " TNT(s), " + str(invtry_list[4]) + " water(s), " + str(invtry_list[5]) + " bow(s), " + str(invtry_list[6]) + " arrow(s), " + str(invtry_list[7]) + " binoculars, " + str(invtry_list[8]) + " sword(s), " + str(invtry_list[9]) + " spear(s), " + str(invtry_list[9]) + " mace(s) " + str(invtry_list[10]) + " dagger(s), " + str(invtry_list[11]) + " axe(s)" + str(invtry_list[12]) + " wood, " + str(invtry_list[13]) + " money.")
+            return 0
 
     if raw_input[0] == "eat":
         if len(raw_input) == 1:
