@@ -21,7 +21,7 @@ def fight(make_out, plr_list, var_list):
     print("You have encountered a " + make_out[0] + " which has " + str(make_out[1]) + " health!\nPress 'a' to attack.")
     ##wepon system here##
     if at.wepon(plr_list):
-        while make_out[1] >= 0 or get.inventory(plr_list, 14) >= 0:
+        while make_out[1] >= 0 and get.inventory(plr_list, 14) >= 0:
             usr_input = input("E> ")
             if usr_input.lower() == "a":
                 miss = randint(0,3)
