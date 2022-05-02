@@ -96,9 +96,9 @@ def user_input(var_list, player_list):
                 player_list = set.pos(player_list, place_out)
                 room.desc(player_list, var_list)
                 #hunger system
-                hunger = get.advantages(player_list,3)
+                hunger = get.advantages(player_list,2)
                 hunger = hunger - random.randint(3,7)
-                set.advantage(player_list,3,hunger)
+                set.advantage(player_list,2,hunger)
                 #death by hunger
                 if hunger <= 0:
                     print()
@@ -340,25 +340,25 @@ def user_input(var_list, player_list):
             return 0
         if raw_input[1] != "inventory":
             output = room.see(player_list, var_list, raw_input[1], ava)
+            return output
         else:
             invtry_list = []
             for x in range(0,15):
                 invtry_list.append(get.inventory(player_list,x))
-            print("You have " + str(invtry_list[0]) + " bread(s), " + str(invtry_list[1]) + " corn(s), " + str(invtry_list[2]) + " wheat(s), " + str(invtry_list[3]) + " TNT(s), " + str(invtry_list[4]) + " water(s), " + str(invtry_list[5]) + " bow(s), " + str(invtry_list[6]) + " arrow(s), " + str(invtry_list[7]) + " binoculars, " + str(invtry_list[8]) + " sword(s), " + str(invtry_list[9]) + " spear(s), " + str(invtry_list[9] + " mace(s) " + str(invtry_list[10] + " dagger(s), " + str(invtry_list[11] + " axe(s)" + str(invtry_list[12]) + " wood, " + str(invtry_list[13]) + " money."))))
+            print("You have " + str(invtry_list[0]) + " bread(s), " + str(invtry_list[1]) + " corn(s), " + str(invtry_list[2]) + " wheat(s), " + str(invtry_list[3]) + " TNT(s), " + str(invtry_list[4]) + " water(s), " + str(invtry_list[5]) + " bow(s), " + str(invtry_list[6]) + " arrow(s), " + str(invtry_list[7]) + " binoculars, " + str(invtry_list[8]) + " sword(s), " + str(invtry_list[9]) + " spear(s), " + str(invtry_list[9]) + " mace(s) " + str(invtry_list[10]) + " dagger(s), " + str(invtry_list[11]) + " axe(s)" + str(invtry_list[12]) + " wood, " + str(invtry_list[13]) + " money.")
 
-        return output
     if raw_input[0] == "eat":
         if len(raw_input) == 1:
             print("You must provide something to eat.")
             return 0
     else:
         foodnumlist = []
-        for x in 3:
+        for x in range(0,3):
             foodnumlist.append(get.inventory(player_list,x))
         cornnumber = get.inventory(player_list,1)
         breadnumber = get.inventory(player_list,0)
         wheatnumber = get.inventory(player_list,2)
-        hungernumber = get.advantages(player_list,3)
+        hungernumber = get.advantages(player_list,2)
         if raw_input[1] == "corn":
             set.item(player_list,1,cornnumber-1)
             set.advantage(player_list,hungernumber+random.randint(5,10))

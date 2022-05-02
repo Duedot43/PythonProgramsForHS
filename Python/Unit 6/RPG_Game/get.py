@@ -80,7 +80,9 @@ def lock(usr_list, main_list, usr_input, ava):
     avas = place(ava, usr_input)
     if avas[0] == 1:
         if lock_list[avas[1]] == 1:
-            output = lock_list[pos(usr_list)]
+            output = lock_list[avas[1]]
+        else:
+            output = 0
     return output
 def advantages(usr_list, advantage):
     advantages_list = usr_list[2]
