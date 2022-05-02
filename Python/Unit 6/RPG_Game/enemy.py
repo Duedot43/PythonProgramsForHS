@@ -22,7 +22,7 @@ def fight(make_out, plr_list, var_list):
     ##wepon system here##
     if at.wepon(plr_list):
         while make_out[1] <= 0 or get.inventory(plr_list, 14) <= 0:
-            usr_input = input("> ")
+            usr_input = input("E> ")
             if usr_input.lower() == "a":
                 miss = randint(0,3)
                 if miss == 0:
