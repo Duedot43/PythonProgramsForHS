@@ -34,6 +34,9 @@ def fight(make_out, plr_list, var_list):
                 enm_hit = randint(10,20)
                 plr_list = set.item(plr_list, 14, get.inventory(plr_list, 14)-enm_hit)
                 print("The enemy hit you! you now have " + str(get.inventory(plr_list, 14)) + " health left.")
+        if get.pos(plr_list) == 13:
+            print("You have your family! You win!")
+            exit()
         return plr_list
     else:
         print("You do not have a weapon! You cannot fight")
