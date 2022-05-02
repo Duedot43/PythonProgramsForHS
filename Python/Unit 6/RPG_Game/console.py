@@ -99,6 +99,12 @@ def user_input(var_list, player_list):
                 hunger = get.advantages(player_list,3)
                 hunger = hunger - random.randint(3,7)
                 set.advantage(player_list,3,hunger)
+                #death by hunger
+                if hunger <= 0:
+                    print()
+                    print("You have died of hunger!")
+                    print()
+                    exit()
             if locked == 1:
                 print("You cannot enter this room it is locked")
             return 0
@@ -149,9 +155,19 @@ def user_input(var_list, player_list):
         foodnumlist = []
         for x in 3:
             foodnumlist.append(get.inventory(player_list,x))
+        cornnumber = get.inventory(player_list,1)
+        breadnumber = get.inventory(player_list,0)
+        wheatnumber = get.inventory(player_list,2)
+        hungernumber = get.advantages(player_list,3)
         if raw_input[1] == "corn":
-            set.item()
-            set.advantage() #FINISH CODE
+            set.item(player_list,1,cornnumber-1)
+            set.advantage(player_list,hungernumber+random.randint(5,10))
+        elif raw_input[1] == "wheat":
+            set.item(player_list,2,wheatnumber-1)
+            set.advantage(player_list,hungernumber+random.randint(3,7))
+        elif raw_input[1] == "bread":
+            set.item(player_list,3,breadnumber-1)
+            set.advantage(player_list,hungernumber+random.randint(10,15))
     if raw_input[0] == "blow":
         pos = get.pos(player_list)
         if pos == 18 and get.inventory(player_list, 3) >= 1:
