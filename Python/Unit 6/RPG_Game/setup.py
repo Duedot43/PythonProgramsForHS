@@ -110,7 +110,7 @@ def load_game():
     price_city[10] = mace
     price_city[11] = dagger
     price_city[12] = axe
-    locked_rooms = [None, 0,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0]
+    locked_rooms = [None, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0]
     balked_rooms = [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]
     memory_be_gone[0] = outpost
     memory_be_gone[1] = barn
