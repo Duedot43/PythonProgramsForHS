@@ -137,133 +137,203 @@ def user_input(var_list, player_list):
             print("You must provide something to loot.")
             return 0
         if at.outpost(player_list) == True:
-            if raw_input[0] == "bread":
+            if raw_input[1] == "bread":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 0:
                     breadb4 = get.inventory(player_list,0)
                     set.item(player_list,0,breadb4+1)
                     print("You took a piece of bread.")
                 else:
                     print("There is no bread here.")
-            if raw_input[0] == "corn":
+            if raw_input[1] == "corn":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 1:
                     cornb4 = get.inventory(player_list,1)
                     set.item(player_list,0,cornb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a piece of corn.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "wheat":
+                    print("There is no corn here.")
+            if raw_input[1] == "wheat":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 2:
                     wheatb4 = get.inventory(player_list,2)
                     set.item(player_list,0,wheatb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a piece of wheat.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "tnt":
+                    print("There is no wheat here.")
+            if raw_input[1] == "tnt":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 3:
                     tntb4 = get.inventory(player_list,3)
                     set.item(player_list,0,tntb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a tnt.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "water":
+                    print("There is no tnt here.")
+            if raw_input[1] == "water":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 4:
                     waterb4 = get.inventory(player_list,4)
                     set.item(player_list,0,waterb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a glass water.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "bow":
+                    print("There is no water here.")
+            if raw_input[1] == "bow":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 5:
                     bowb4 = get.inventory(player_list,5)
                     set.item(player_list,0,bowb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a bow.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "arrow" or raw_input[0] == "arrows":
+                    print("There is no bow here.")
+            if raw_input[1] == "arrow" or raw_input[0] == "arrows":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 6:
                     arrowb4 = get.inventory(player_list,6)
                     set.item(player_list,0,arrowb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a arrow(s).")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "sword":
+                    print("There is no arrow(s) here.")
+            if raw_input[1] == "sword":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 7:
                     swordb4 = get.inventory(player_list,7)
                     set.item(player_list,0,swordb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a sword.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "spear":
+                    print("There is no sword here.")
+            if raw_input[1] == "spear":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 8:
                     spearb4 = get.inventory(player_list,8)
                     set.item(player_list,0,spearb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a spear.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "mace":
+                    print("There is no spear here.")
+            if raw_input[1] == "mace":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 9:
                     maceb4 = get.inventory(player_list,9)
                     set.item(player_list,0,maceb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a mace.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "dagger":
+                    print("There is no mace here.")
+            if raw_input[1] == "dagger":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 10:
                     daggerb4 = get.inventory(player_list,10)
                     set.item(player_list,0,daggerb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a dagger.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "axe":
+                    print("There is no dagger here.")
+            if raw_input[1] == "axe":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 11:
                     axeb4 = get.inventory(player_list,11)
                     set.item(player_list,0,axeb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a axe.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "wood":
+                    print("There is no axe here.")
+            if raw_input[1] == "wood":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 12:
                     woodb4 = get.inventory(player_list,12)
                     set.item(player_list,0,woodb4+1)
-                    print("You took a piece of bread.")
+                    print("You took a wood.")
                 else:
-                    print("There is no bread here.")
-            if raw_input[0] == "money":
+                    print("There is no wood here.")
+            if raw_input[1] == "money":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 13:
                     moneyb4 = get.inventory(player_list,13)
                     set.item(player_list,0,moneyb4+1)
+                    print("You took some money.")
+                else:
+                    print("There is no money here.")
+        elif at.barn(player_list) == True:
+            if raw_input[1] == "bread":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 0:
+                    breadb4 = get.inventory(player_list,0)
+                    set.item(player_list,0,breadb4+1)
                     print("You took a piece of bread.")
                 else:
                     print("There is no bread here.")
-        elif at.barn(player_list) == True:
-            if raw_input[0] == "bread":
-                pass
-            if raw_input[0] == "corn":
-                pass
-            if raw_input[0] == "wheat":
-                pass
-            if raw_input[0] == "tnt":
-                pass
-            if raw_input[0] == "water":
-                pass
-            if raw_input[0] == "bow":
-                pass
-            if raw_input[0] == "arrow" or raw_input[0] == "arrows":
-                pass
-            if raw_input[0] == "sword":
-                pass
-            if raw_input[0] == "spear":
-                pass
-            if raw_input[0] == "mace":
-                pass
-            if raw_input[0] == "dagger":
-                pass
-            if raw_input[0] == "axe":
-                pass
-            if raw_input[0] == "wood":
-                pass
-            if raw_input[0] == "money":
-                pass
+            if raw_input[1] == "corn":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 1:
+                    cornb4 = get.inventory(player_list,1)
+                    set.item(player_list,0,cornb4+1)
+                    print("You took a piece of corn.")
+                else:
+                    print("There is no corn here.")
+            if raw_input[1] == "wheat":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 2:
+                    wheatb4 = get.inventory(player_list,2)
+                    set.item(player_list,0,wheatb4+1)
+                    print("You took a piece of wheat.")
+                else:
+                    print("There is no wheat here.")
+            if raw_input[1] == "tnt":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 3:
+                    tntb4 = get.inventory(player_list,3)
+                    set.item(player_list,0,tntb4+1)
+                    print("You took a tnt.")
+                else:
+                    print("There is no tnt here.")
+            if raw_input[1] == "water":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 4:
+                    waterb4 = get.inventory(player_list,4)
+                    set.item(player_list,0,waterb4+1)
+                    print("You took a glass water.")
+                else:
+                    print("There is no water here.")
+            if raw_input[1] == "bow":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 5:
+                    bowb4 = get.inventory(player_list,5)
+                    set.item(player_list,0,bowb4+1)
+                    print("You took a bow.")
+                else:
+                    print("There is no bow here.")
+            if raw_input[1] == "arrow" or raw_input[0] == "arrows":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 6:
+                    arrowb4 = get.inventory(player_list,6)
+                    set.item(player_list,0,arrowb4+1)
+                    print("You took a arrow(s).")
+                else:
+                    print("There is no arrow(s) here.")
+            if raw_input[1] == "sword":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 7:
+                    swordb4 = get.inventory(player_list,7)
+                    set.item(player_list,0,swordb4+1)
+                    print("You took a sword.")
+                else:
+                    print("There is no sword here.")
+            if raw_input[1] == "spear":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 8:
+                    spearb4 = get.inventory(player_list,8)
+                    set.item(player_list,0,spearb4+1)
+                    print("You took a spear.")
+                else:
+                    print("There is no spear here.")
+            if raw_input[1] == "mace":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 9:
+                    maceb4 = get.inventory(player_list,9)
+                    set.item(player_list,0,maceb4+1)
+                    print("You took a mace.")
+                else:
+                    print("There is no mace here.")
+            if raw_input[1] == "dagger":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 10:
+                    daggerb4 = get.inventory(player_list,10)
+                    set.item(player_list,0,daggerb4+1)
+                    print("You took a dagger.")
+                else:
+                    print("There is no dagger here.")
+            if raw_input[1] == "axe":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 11:
+                    axeb4 = get.inventory(player_list,11)
+                    set.item(player_list,0,axeb4+1)
+                    print("You took a axe.")
+                else:
+                    print("There is no axe here.")
+            if raw_input[1] == "wood":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 12:
+                    woodb4 = get.inventory(player_list,12)
+                    set.item(player_list,0,woodb4+1)
+                    print("You took a wood.")
+                else:
+                    print("There is no wood here.")
+            if raw_input[1] == "money":
+                if get.barn(1,get.pos2barn(player_list), var_list) == 13:
+                    moneyb4 = get.inventory(player_list,13)
+                    set.item(player_list,0,moneyb4+1)
+                    print("You took some money.")
+                else:
+                    print("There is no money here.")
     if raw_input[0] == "see":
         if len(raw_input) == 1:
             print("You must provide somewhere to see.")
