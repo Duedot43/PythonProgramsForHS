@@ -265,7 +265,7 @@ def user_input(var_list, player_list):
                     return 0
         elif at.barn(player_list) == True:
             if raw_input[1] == "bread":
-                if get.barn(1,get.pos2barn(player_list), var_list) == 0:
+                if get.barn(get.pos2barn(player_list), var_list) == 0:
                     breadb4 = get.inventory(player_list,0)
                     player_list = set.item(player_list,0,breadb4+1)
                     print("You took a piece of bread.")
@@ -274,7 +274,7 @@ def user_input(var_list, player_list):
                     print("There is no bread here.")
                     return 0
             if raw_input[1] == "corn":
-                if get.barn(1,get.pos2barn(player_list), var_list) == 1:
+                if get.barn(get.pos2barn(player_list), var_list) == 1:
                     cornb4 = get.inventory(player_list,1)
                     player_list = set.item(player_list,1,cornb4+1)
                     print("You took a piece of corn.")
@@ -283,7 +283,7 @@ def user_input(var_list, player_list):
                     print("There is no corn here.")
                     return 0
             if raw_input[1] == "wheat":
-                if get.barn(1,get.pos2barn(player_list), var_list) == 2:
+                if get.barn(get.pos2barn(player_list), var_list) == 2:
                     wheatb4 = get.inventory(player_list,2)
                     player_list = set.item(player_list,2,wheatb4+1)
                     print("You took a piece of wheat.")
@@ -292,7 +292,7 @@ def user_input(var_list, player_list):
                     print("There is no wheat here.")
                     return 0
             if raw_input[1] == "tnt":
-                if get.barn(1,get.pos2barn(player_list), var_list) == 3:
+                if get.barn(get.pos2barn(player_list), var_list) == 3:
                     tntb4 = get.inventory(player_list,3)
                     player_list = set.item(player_list,3,tntb4+1)
                     print("You took a tnt.")
@@ -301,7 +301,7 @@ def user_input(var_list, player_list):
                     print("There is no tnt here.")
                     return 0
             if raw_input[1] == "water":
-                if get.barn(1,get.pos2barn(player_list), var_list) == 4:
+                if get.barn(get.pos2barn(player_list), var_list) == 4:
                     waterb4 = get.inventory(player_list,4)
                     player_list = set.item(player_list,4,waterb4+1)
                     print("You took a glass water.")
@@ -404,7 +404,7 @@ def user_input(var_list, player_list):
             print("You must provide somewhere to see.")
             return 0
         if raw_input[1] != "inventory":
-            output = room.see(player_list, var_list, raw_input[1], ava)
+            output = room.see(player_list, var_list, raw_input[1], ava, raw_input)
             return output
         else:
             invtry_list = []
