@@ -1,5 +1,5 @@
 from random import randint
-import get, at
+import get, at, set
 def make(at_fight):
     if at_fight == True:
         typ = randint(0,3)
