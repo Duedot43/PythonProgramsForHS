@@ -27,17 +27,15 @@ def desc(plr_list, var_list):
     if pos == 16 or pos ==  15 or pos ==11:
         gate(plr_list, var_list)
 def see(plr_list, var_list, see_what, ava, bob_input):
-    place_thing = get.place(ava, bob_input[1])
-    place_thing_list = [place_thing[1]]
-
     #binocular system
+    place_thing = get.place(ava, bob_input[1])
     num_pos = get.place(ava, see_what)
     if get.inventory(plr_list, 7) >= 1:
         if num_pos[0] == 1:
             if at.city_raw(get.pos(plr_list)) == False:
                 if at.outpost_raw(num_pos[1]):
                     print("You see an outpost in the distance")
-                    if get.outpost(0,get.pos2outpost(get.pos2outpost(place_thing_list),var_list)) == 1:
+                    if get.outpost(0,get.pos2outpost(get.pos2outpost_raw(place_thing[1]),var_list)) == 1:
                         print("The outpost is occupied by Guards.")
                 elif at.barn_raw(num_pos[1]):
                     print("You see a barn in the distance")
