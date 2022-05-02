@@ -84,6 +84,9 @@ def user_input(var_list, player_list):
         ck_fit = player_list
     raw_raw_input = input("\n\n> ").lower()
     raw_input = Convert(raw_raw_input)
+    if get.inventory(player_list, 14) <= 0:
+        print("You died!")
+        exit()
     if raw_input[0] == "walk" or raw_input[0] == "go" or raw_input[0] == "move" or raw_input[0] == "run":
         if int(len(raw_input)) == 1:
             print("You must provide somewhere to walk")
