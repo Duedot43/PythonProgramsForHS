@@ -21,9 +21,8 @@ def advantage(usr_list, advantage_int, value):
     advantage_list[advantage_int] = value
     usr_list[2] = advantage_list
     return usr_list
-def lock(usr_list, var_list, value):
+def lock(var_list):
     lock_list = var_list[5]
-    posi = get.pos(usr_list)
-    lock_list[posi] = value
+    lock_list[18] = 0
     var_list[5] = lock_list
     return var_list
