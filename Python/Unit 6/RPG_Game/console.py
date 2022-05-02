@@ -140,7 +140,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "bread":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 0:
                     breadb4 = get.inventory(player_list,0)
-                    set.item(player_list,0,breadb4+1)
+                    player_list = set.item(player_list,0,breadb4+1)
                     print("You took a piece of bread.")
                     return 0
                 else:
@@ -149,7 +149,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "corn":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 1:
                     cornb4 = get.inventory(player_list,1)
-                    set.item(player_list,0,cornb4+1)
+                    player_list = set.item(player_list,0,cornb4+1)
                     print("You took a piece of corn.")
                     return 0
                 else:
@@ -158,7 +158,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "wheat":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 2:
                     wheatb4 = get.inventory(player_list,2)
-                    set.item(player_list,0,wheatb4+1)
+                    player_list = set.item(player_list,0,wheatb4+1)
                     print("You took a piece of wheat.")
                     return 0
                 else:
@@ -167,7 +167,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "tnt":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 3:
                     tntb4 = get.inventory(player_list,3)
-                    set.item(player_list,0,tntb4+1)
+                    player_list = set.item(player_list,0,tntb4+1)
                     print("You took a tnt.")
                     return 0
                 else:
@@ -176,7 +176,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "water":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 4:
                     waterb4 = get.inventory(player_list,4)
-                    set.item(player_list,0,waterb4+1)
+                    player_list = set.item(player_list,0,waterb4+1)
                     print("You took a glass water.")
                     return 0
                 else:
@@ -185,7 +185,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "bow":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 5:
                     bowb4 = get.inventory(player_list,5)
-                    set.item(player_list,0,bowb4+1)
+                    player_list = set.item(player_list,0,bowb4+1)
                     print("You took a bow.")
                     return 0
                 else:
@@ -194,7 +194,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "arrow" or raw_input[0] == "arrows":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 6:
                     arrowb4 = get.inventory(player_list,6)
-                    set.item(player_list,0,arrowb4+1)
+                    player_list = set.item(player_list,0,arrowb4+1)
                     print("You took a arrow(s).")
                     return 0
                 else:
@@ -203,7 +203,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "sword":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 7:
                     swordb4 = get.inventory(player_list,7)
-                    set.item(player_list,0,swordb4+1)
+                    player_list = set.item(player_list,0,swordb4+1)
                     print("You took a sword.")
                     return 0
                 else:
@@ -212,7 +212,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "spear":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 8:
                     spearb4 = get.inventory(player_list,8)
-                    set.item(player_list,0,spearb4+1)
+                    player_list = set.item(player_list,0,spearb4+1)
                     print("You took a spear.")
                     return 0
                 else:
@@ -221,7 +221,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "mace":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 9:
                     maceb4 = get.inventory(player_list,9)
-                    set.item(player_list,0,maceb4+1)
+                    player_list = set.item(player_list,0,maceb4+1)
                     print("You took a mace.")
                     return 0
                 else:
@@ -230,7 +230,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "dagger":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 10:
                     daggerb4 = get.inventory(player_list,10)
-                    set.item(player_list,0,daggerb4+1)
+                    player_list = set.item(player_list,0,daggerb4+1)
                     print("You took a dagger.")
                     return 0
                 else:
@@ -239,7 +239,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "axe":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 11:
                     axeb4 = get.inventory(player_list,11)
-                    set.item(player_list,0,axeb4+1)
+                    player_list = set.item(player_list,0,axeb4+1)
                     print("You took a axe.")
                     return 0
                 else:
@@ -248,7 +248,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "wood":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 12:
                     woodb4 = get.inventory(player_list,12)
-                    set.item(player_list,0,woodb4+1)
+                    player_list = set.item(player_list,0,woodb4+1)
                     print("You took a wood.")
                     return 0
                 else:
@@ -257,7 +257,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "money":
                 if get.outpost(1,get.pos2outpost(player_list), var_list) == 13:
                     moneyb4 = get.inventory(player_list,13)
-                    set.item(player_list,0,moneyb4+1)
+                    player_list = set.item(player_list,0,moneyb4+1)
                     print("You took some money.")
                     return 0
                 else:
@@ -267,7 +267,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "bread":
                 if get.barn(1,get.pos2barn(player_list), var_list) == 0:
                     breadb4 = get.inventory(player_list,0)
-                    set.item(player_list,0,breadb4+1)
+                    player_list = set.item(player_list,0,breadb4+1)
                     print("You took a piece of bread.")
                     return 0
                 else:
@@ -276,7 +276,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "corn":
                 if get.barn(1,get.pos2barn(player_list), var_list) == 1:
                     cornb4 = get.inventory(player_list,1)
-                    set.item(player_list,0,cornb4+1)
+                    player_list = set.item(player_list,0,cornb4+1)
                     print("You took a piece of corn.")
                     return 0
                 else:
@@ -285,7 +285,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "wheat":
                 if get.barn(1,get.pos2barn(player_list), var_list) == 2:
                     wheatb4 = get.inventory(player_list,2)
-                    set.item(player_list,0,wheatb4+1)
+                    player_list = set.item(player_list,0,wheatb4+1)
                     print("You took a piece of wheat.")
                     return 0
                 else:
@@ -294,7 +294,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "tnt":
                 if get.barn(1,get.pos2barn(player_list), var_list) == 3:
                     tntb4 = get.inventory(player_list,3)
-                    set.item(player_list,0,tntb4+1)
+                    player_list = set.item(player_list,0,tntb4+1)
                     print("You took a tnt.")
                     return 0
                 else:
@@ -303,7 +303,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "water":
                 if get.barn(1,get.pos2barn(player_list), var_list) == 4:
                     waterb4 = get.inventory(player_list,4)
-                    set.item(player_list,0,waterb4+1)
+                    player_list = set.item(player_list,0,waterb4+1)
                     print("You took a glass water.")
                     return 0
                 else:
@@ -312,7 +312,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "bow":
                 if get.barn(get.pos2barn(player_list), var_list) == 5:
                     bowb4 = get.inventory(player_list,5)
-                    set.item(player_list,0,bowb4+1)
+                    player_list = set.item(player_list,0,bowb4+1)
                     print("You took a bow.")
                     return 0
                 else:
@@ -321,7 +321,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "arrow" or raw_input[0] == "arrows":
                 if get.barn(get.pos2barn(player_list), var_list) == 6:
                     arrowb4 = get.inventory(player_list,6)
-                    set.item(player_list,0,arrowb4+1)
+                    player_list = set.item(player_list,0,arrowb4+1)
                     print("You took a arrow(s).")
                     return 0
                 else:
@@ -330,7 +330,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "binoculars":
                 if get.barn(get.pos2barn(player_list), var_list) == 7:
                     arrowb4 = get.inventory(player_list,7)
-                    set.item(player_list,0,arrowb4+1)
+                    player_list = set.item(player_list,0,arrowb4+1)
                     print("You took binoculars.")
                     return 0
                 else:
@@ -339,7 +339,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "sword":
                 if get.barn(get.pos2barn(player_list), var_list) == 8:
                     swordb4 = get.inventory(player_list,8)
-                    set.item(player_list,0,swordb4+1)
+                    player_list = set.item(player_list,0,swordb4+1)
                     print("You took a sword.")
                     return 0
                 else:
@@ -348,7 +348,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "spear":
                 if get.barn(get.pos2barn(player_list), var_list) == 9:
                     spearb4 = get.inventory(player_list,8)
-                    set.item(player_list,0,spearb4+1)
+                    player_list = set.item(player_list,0,spearb4+1)
                     print("You took a spear.")
                     return 0
                 else:
@@ -357,7 +357,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "mace":
                 if get.barn(get.pos2barn(player_list), var_list) == 10:
                     maceb4 = get.inventory(player_list,10)
-                    set.item(player_list,0,maceb4+1)
+                    player_list = set.item(player_list,0,maceb4+1)
                     print("You took a mace.")
                     return 0
                 else:
@@ -366,7 +366,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "dagger":
                 if get.barn(get.pos2barn(player_list), var_list) == 11:
                     daggerb4 = get.inventory(player_list,11)
-                    set.item(player_list,0,daggerb4+1)
+                    player_list = set.item(player_list,0,daggerb4+1)
                     print("You took a dagger.")
                     return 0
                 else:
@@ -375,7 +375,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "axe":
                 if get.barn(get.pos2barn(player_list), var_list) == 12:
                     axeb4 = get.inventory(player_list,12)
-                    set.item(player_list,0,axeb4+1)
+                    player_list = set.item(player_list,0,axeb4+1)
                     print("You took a axe.")
                     return 0
                 else:
@@ -384,7 +384,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "wood":
                 if get.barn(get.pos2barn(player_list), var_list) == 13:
                     woodb4 = get.inventory(player_list,13)
-                    set.item(player_list,0,woodb4+1)
+                    player_list = set.item(player_list,0,woodb4+1)
                     print("You took a wood.")
                     return 0
                 else:
@@ -393,7 +393,7 @@ def user_input(var_list, player_list):
             if raw_input[1] == "money":
                 if get.barn(get.pos2barn(player_list), var_list) == 14:
                     moneyb4 = get.inventory(player_list,14)
-                    set.item(player_list,0,moneyb4+1)
+                    player_list = set.item(player_list,0,moneyb4+1)
                     print("You took some money.")
                     return 0
                 else:
