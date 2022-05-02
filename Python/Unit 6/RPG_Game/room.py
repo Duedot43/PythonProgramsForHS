@@ -37,24 +37,37 @@ def see(plr_list, var_list, see_what, ava, bob_input):
                     print("You see an outpost in the distance")
                     if get.outpost(0,get.pos2outpost_raw(place_thing[1]),var_list) == 1:
                         print("The outpost is occupied by Guards.")
+                        return 0
+                    else:
+                        print("There are no guards guarding the outpost.")
+                        return 0 
                 elif at.barn_raw(num_pos[1]):
                     print("You see a barn in the distance")
+                    return 0
                 elif at.mil_raw(num_pos[1]):
                     print("You see a military base in the distance")
+                    return 0
                 elif at.gate_raw(num_pos[1]) :
                     print("You cannot see into the city")
+                    return 0
                 elif at.forest_raw(num_pos[1]) :
                     print("You see a forest in the distance")
+                    return 0 
                 elif at.river_raw(num_pos[1]) :
                     print("You see a river in the distance")
+                    return 0 
                 elif at.mineshaft_raw(num_pos[1]) :
                     print("You see a mineshaft in the distance")
+                    return 0 
                 elif at.outlaw_raw(num_pos[1]) :
                     print("You see a outlaw camp in the distance")
+                    return 0 
                 elif at.vinyard_raw(num_pos[1]) :
                     print("You see a vinyard in the distance")
+                    return 0 
                 elif at.pier_raw(num_pos[1]) :
                     print("You see the pier in the distance")
+                    return 0 
             else:
                 print("You cannot use binoculars in the city.")
                 return 0
