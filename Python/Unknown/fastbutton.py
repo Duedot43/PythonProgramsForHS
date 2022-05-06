@@ -8,11 +8,11 @@ randtime = random.randint(1,5)
 
 #pin variables
 
-bton1 = 7
-bton2 = 11
-lit1 = 13
-bton1lit = 15
-bton2lit = 5
+bton1 = 37
+bton2 = 35
+lit1 = 33
+bton1lit = 31
+bton2lit = 29
 
 print ("(DEBUG) Random time is", randtime, "executing main program!")
 #Button 1 GPIO:

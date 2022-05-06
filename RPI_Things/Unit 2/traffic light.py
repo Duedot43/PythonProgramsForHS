@@ -1,20 +1,22 @@
-from gpiozero import LED,button
+from gpiozero import LED,Button
 from time import sleep
-red = LED()
-yellow = LED()
-green = LED()
-button = Button()
-buzzer = Buzzer()
+import multiprocessing
+red = LED(13)
+yellow = LED(6)
+green = LED(5)
+button = Button(19)
+buzzer = LED(26)
+buttonpending = False
 def pendbutton():
     global buttonpending
     buttonpending = True
 while True:
-    button.when_pressed = pendbutton()
-    if buttonpending == False:
+    if buttonpending:
         buzzer.on()
         sleep(3)
         buzzer.off()
-    elif buttonpending == True:
+        buttonpending = False
+    if buttonpending == False:
         red.off()
         green.on()
         sleep(3)
@@ -23,4 +25,5 @@ while True:
         sleep(1)
         yellow.off()
         red.on()
-        sleep(3)    
+        sleep(3) 
+        button.is_pressed() = pendbutton()

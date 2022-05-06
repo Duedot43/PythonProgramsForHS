@@ -2,24 +2,25 @@ from gpiozero import LED, Button
 import multiprocessing
 from time import sleep
 from random import randint
+led_start = LED(13)
+
 while True:
-    led_start = LED()
     def button1s():
         global led_start, button2m, win
-        button1 = Button(18)
+        button1 = Button(26)
         led1 = LED(6)
         button1.wait_for_press()
-        button2m.close()
+        button2m.terminate()
         led1.on()
         led_start.off()
         print("Player 1 wins!")
         win = 0
     def button2s():
         global led_start, button1m, win
-        button2 = Button(4)
+        button2 = Button(19)
         led2 = LED(5)
         button2.wait_for_press()
-        button1m.close()
+        button1m.terminate()
         led2.on()
         led_start.off()
         print("Player 2 wins!")
