@@ -7,7 +7,7 @@ green = LED(5)
 button = Button(19)
 buzzer = LED(26)
 buttonpending = False
-def pendbutton():
+def pressed():
     global buttonpending
     buttonpending = True
 while True:
@@ -26,4 +26,4 @@ while True:
         yellow.off()
         red.on()
         sleep(3) 
-        button.is_pressed() = pendbutton()
+        button.when_pressed = pressed
