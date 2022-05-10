@@ -1,28 +1,27 @@
 from gpiozero import LED, Button
-import multiprocessing
-from time import sleep
-def button1s():
-    button1 = Button(18)
-    led1 = LED(6)
-    while True:
-        print("wait 1")
-        button1.wait_for_press()
+import multiprocessing; import os
+import time, random
+startled = LED(6); startled.on()
+button1 = Button(13)
+button2 = Button(5)
+tim = time.time()
+while True:
+    print("wait 1")
+    mark = False
+    if button1.is_pressed:
         print("button1 pressed")
-        led1.toggle()
-def button2s():
-    button2 = Button(4)
-    led2 = LED(5)
-    while True:
-        print("wait2")
-        button2.wait_for_press()
+        startled.off()
+        mark = True
+    if button2.is_pressed:
         print("button2 pressed")
-        led2.on()
-        button2.wait_for_release()
-        print("button2 pressed")
-        led2.off()
-button1m = multiprocessing.Process(target=button1s)
-button2m = multiprocessing.Process(target=button2s)
-button1m.start()
-button2m.start()
-button1m.join()
-button2m.join()
+        startled.off()
+        mark = True
+    if mark:
+        print(float(time.time())-float(tim), " seconds")
+        again = input("Play again?\nY/N\n> ")
+        if again.upper() == "N":
+            break
+        else:
+            time.sleep(random.randint(1,3))
+            startled.on()
+            tim = time.time()
