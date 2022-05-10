@@ -12,9 +12,11 @@ def pressed():
     buttonpending = True
 while True:
     if buttonpending:
-        buzzer.on()
-        sleep(3)
-        buzzer.off()
+        for x in range(0, 4):
+            buzzer.on()
+            sleep(.5)
+            buzzer.off()
+            sleep(.5)
         buttonpending = False
     if buttonpending == False:
         red.off()
