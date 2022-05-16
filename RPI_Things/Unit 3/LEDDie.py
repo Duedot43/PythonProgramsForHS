@@ -1,5 +1,6 @@
 from gpiozero import LED,Button
 from random import randint
+from time import sleep
 Button() = B
 LED() = TL
 LED() = TR
