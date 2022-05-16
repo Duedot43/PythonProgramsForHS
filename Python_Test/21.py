@@ -95,3 +95,11 @@ while game == 1:
         deal_move()
     if algor(alls)[0] != 0:
         print(algor(alls)[1])
+        again = input("Play again?\n> ")
+        if again.lower() == "yes" or again.lower() == "y":
+            alls = {
+                "deal":[start_cards[random.randint(0,11)], start_cards[random.randint(0,11)]],
+                "play":[start_cards[random.randint(0,11)], start_cards[random.randint(0,11)]]
+            }
+        else:
+            exit()
