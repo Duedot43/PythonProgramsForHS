@@ -11,7 +11,7 @@ btn3 = Button(24)
 btn4 = Button(25)
 def fail():
     global seq
-    print(f"Your score was {seq['score']}")
+    print("Your score was " + str(seq['score']))
     again = input("Play again?\n> ")
     if again.lower() == 'yes' or again.lower() == 'y':
         seq = {
