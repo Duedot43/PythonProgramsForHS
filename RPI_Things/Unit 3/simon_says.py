@@ -12,7 +12,8 @@ btn4 = Button(25)
 seq = {
             "led":[],
             "btn":[],
-            "score":0
+            "score":0,
+            "round":0
         }
 def fail():
     global seq
@@ -22,13 +23,22 @@ def fail():
         seq = {
             "led":[],
             "btn":[],
-            "score":0
+            "score":0,
+            "round":0
         }
     else:
         exit()
-    
+def round():
+    global seq
+    seqa = {
+        "led":[],
+        "btn":[],
+        "score":seq['score'],
+        "round":seq['round']+1
+    }
+    seq = seqa
 while True:
-    rand = random.randint(0,3)
+    rand = random.randint(0,4)
     if rand == 0:
         seq['led'].append(led1)
         seq['btn'].append(btn1)
@@ -41,12 +51,17 @@ while True:
     elif rand == 4:
         seq['led'].append(led4)
         seq['btn'].append(btn4)
+    count = -1
     for x in seq['led']:
+        count = count+1
         x.on()
         print("on" + str(x))
         sleep(.5)
         x.off()
         print("off " + str(x))
+        sleep(.5)
+    if count == seq['round']:
+        round()
     for x in seq['btn']:
         print("wait " + str(x))
         while True:
