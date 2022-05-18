@@ -102,4 +102,4 @@ while True:
                     print("Fail!")
                     fail()
                     break
-        sleep(1)
+        sleep(.1)
