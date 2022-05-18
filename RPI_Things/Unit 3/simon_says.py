@@ -51,7 +51,7 @@ while True:
     elif rand == 4:
         seq['led'].append(led4)
         seq['btn'].append(btn4)
-    count = -1
+    count = 0
     for x in seq['led']:
         count = count+1
         x.on()
