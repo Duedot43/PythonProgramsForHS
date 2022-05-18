@@ -9,10 +9,17 @@ btn1 = Button(18)
 btn2 = Button(23)
 btn3 = Button(24)
 btn4 = Button(25)
-seq = {
-    "led":[],
-    "btn":[]
-}
+def fail():
+    global seq
+    print(f"Your score was {seq['score']}")
+    again = input("Play again?\n> ")
+    if again.lower() == 'yes' or again.lower() == 'y':
+        seq = {
+            "led":[],
+            "btn":[],
+            "score":0
+        }
+    
 while True:
     rand = random.randint(0,3)
     if rand == 0:
@@ -40,25 +47,37 @@ while True:
             if btn1.is_pressed:
                 if btn1 == x:
                     print("done")
+                    seq['score'] = seq['score']+1
                     break
                 else:
                     print("Fail!")
+                    fail()
+                    break
             if btn2.is_pressed:
                 if btn2 == x:
                     print("done")
+                    seq['score'] = seq['score']+1
                     break
                 else:
                     print("Fail!")
+                    fail()
+                    break
             if btn3.is_pressed:
                 if btn3 == x:
                     print("done")
+                    seq['score'] = seq['score']+1
                     break
                 else:
                     print("Fail!")
+                    fail()
+                    break
             if btn4.is_pressed:
                 if btn4 == x:
                     print("done")
+                    seq['score'] = seq['score']+1
                     break
                 else:
                     print("Fail!")
-        sleep(.1)
+                    fail()
+                    break
+        sleep(.5)
