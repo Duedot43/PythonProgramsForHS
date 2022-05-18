@@ -55,9 +55,9 @@ while True:
                     print("done")
                     seq['score'] = seq['score']+1
                     x.wait_for_press()
-                    x.on()
+                    led1.on()
                     x.wait_for_release()
-                    x.off()
+                    led1.off()
                     break
                 else:
                     print("Fail!")
@@ -68,9 +68,9 @@ while True:
                     print("done")
                     seq['score'] = seq['score']+1
                     x.wait_for_press()
-                    x.on()
+                    led2.on()
                     x.wait_for_release()
-                    x.off()
+                    led2.off()
                     break
                 else:
                     print("Fail!")
@@ -81,9 +81,9 @@ while True:
                     print("done")
                     seq['score'] = seq['score']+1
                     x.wait_for_press()
-                    x.on()
+                    led3.on()
                     x.wait_for_release()
-                    x.off()
+                    led3.off()
                     break
                 else:
                     print("Fail!")
@@ -94,9 +94,9 @@ while True:
                     print("done")
                     seq['score'] = seq['score']+1
                     x.wait_for_press()
-                    x.on()
+                    led4.on()
                     x.wait_for_release()
-                    x.off()
+                    led4.off()
                     break
                 else:
                     print("Fail!")
