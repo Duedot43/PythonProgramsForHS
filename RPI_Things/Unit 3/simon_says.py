@@ -51,24 +51,20 @@ while True:
     elif rand == 4:
         seq['led'].append(led4)
         seq['btn'].append(btn4)
-    count = 0
     for x in seq['led']:
-        count = count+1
         x.on()
         print("on" + str(x))
         sleep(.5)
         x.off()
         print("off " + str(x))
         sleep(.5)
-    if count == seq['round']:
-        round()
     for x in seq['btn']:
         print("wait " + str(x))
         while True:
             if btn1.is_pressed:
                 if btn1 == x:
                     print("done")
-                    seq['score'] = seq['score']+1
+                    
                     x.wait_for_press()
                     led1.on()
                     x.wait_for_release()
@@ -81,7 +77,7 @@ while True:
             if btn2.is_pressed:
                 if btn2 == x:
                     print("done")
-                    seq['score'] = seq['score']+1
+                    
                     x.wait_for_press()
                     led2.on()
                     x.wait_for_release()
@@ -94,7 +90,7 @@ while True:
             if btn3.is_pressed:
                 if btn3 == x:
                     print("done")
-                    seq['score'] = seq['score']+1
+                    
                     x.wait_for_press()
                     led3.on()
                     x.wait_for_release()
@@ -107,7 +103,7 @@ while True:
             if btn4.is_pressed:
                 if btn4 == x:
                     print("done")
-                    seq['score'] = seq['score']+1
+                    
                     x.wait_for_press()
                     led4.on()
                     x.wait_for_release()
@@ -118,3 +114,4 @@ while True:
                     fail()
                     break
         sleep(.1)
+    seq['score'] = seq['score']+1
