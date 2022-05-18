@@ -9,6 +9,11 @@ btn1 = Button(18)
 btn2 = Button(23)
 btn3 = Button(24)
 btn4 = Button(25)
+seq = {
+            "led":[],
+            "btn":[],
+            "score":0
+        }
 def fail():
     global seq
     print("Your score was " + str(seq['score']))
