@@ -54,6 +54,10 @@ while True:
                 if btn1 == x:
                     print("done")
                     seq['score'] = seq['score']+1
+                    x.wait_for_press()
+                    x.on()
+                    x.wait_for_release()
+                    x.off()
                     break
                 else:
                     print("Fail!")
@@ -63,6 +67,10 @@ while True:
                 if btn2 == x:
                     print("done")
                     seq['score'] = seq['score']+1
+                    x.wait_for_press()
+                    x.on()
+                    x.wait_for_release()
+                    x.off()
                     break
                 else:
                     print("Fail!")
@@ -72,6 +80,10 @@ while True:
                 if btn3 == x:
                     print("done")
                     seq['score'] = seq['score']+1
+                    x.wait_for_press()
+                    x.on()
+                    x.wait_for_release()
+                    x.off()
                     break
                 else:
                     print("Fail!")
@@ -81,9 +93,13 @@ while True:
                 if btn4 == x:
                     print("done")
                     seq['score'] = seq['score']+1
+                    x.wait_for_press()
+                    x.on()
+                    x.wait_for_release()
+                    x.off()
                     break
                 else:
                     print("Fail!")
                     fail()
                     break
-        sleep(.1)
+        sleep(1)
