@@ -24,6 +24,8 @@ def fail():
             "btn":[],
             "score":0
         }
+    else:
+        exit()
     
 while True:
     rand = random.randint(0,3)
