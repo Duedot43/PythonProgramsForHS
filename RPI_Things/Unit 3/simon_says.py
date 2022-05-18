@@ -49,6 +49,7 @@ while True:
         print("off " + str(x))
     for x in seq['btn']:
         print("wait " + str(x))
+        x.wait_for_release()
         while True:
             if btn1.is_pressed:
                 if btn1 == x:
