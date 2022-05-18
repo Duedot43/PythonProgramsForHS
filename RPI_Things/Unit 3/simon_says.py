@@ -87,4 +87,4 @@ while True:
                     print("Fail!")
                     fail()
                     break
-        sleep(.5)
+        sleep(.1)
