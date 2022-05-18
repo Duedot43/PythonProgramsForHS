@@ -44,10 +44,9 @@ while True:
     for x in seq['led']:
         x.on()
         print("on" + str(x))
-        sleep(1)
+        sleep(.5)
         x.off()
         print("off " + str(x))
-        sleep(1)
     for x in seq['btn']:
         print("wait " + str(x))
         while True:
@@ -87,4 +86,4 @@ while True:
                     print("Fail!")
                     fail()
                     break
-        sleep(.1)
+    sleep(.1)
