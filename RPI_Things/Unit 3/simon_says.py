@@ -4,11 +4,11 @@ import random
 led1 = LED(13)
 led2 = LED(5)
 led3 = LED(6)
-led4 = LED(6)
+led4 = LED(19)
 btn1 = Button(18)
 btn2 = Button(23)
 btn3 = Button(24)
-btn4 = Button(24)
+btn4 = Button(25)
 seq = {
     "led":[],
     "btn":[]
@@ -36,7 +36,29 @@ while True:
         sleep(1)
     for x in seq['btn']:
         print("wait " + str(x))
-        x.wait_for_press()
-        print("done")
-        x.wait_for_release()
+        while True:
+            if btn1.is_pressed:
+                if btn1 == x:
+                    print("done")
+                    break
+                else:
+                    print("Fail!")
+            if btn2.is_pressed:
+                if btn2 == x:
+                    print("done")
+                    break
+                else:
+                    print("Fail!")
+            if btn3.is_pressed:
+                if btn3 == x:
+                    print("done")
+                    break
+                else:
+                    print("Fail!")
+            if btn4.is_pressed:
+                if btn4 == x:
+                    print("done")
+                    break
+                else:
+                    print("Fail!")
         sleep(.1)
