@@ -55,9 +55,9 @@ def algor(alls):
     deal_total = 0
     for x in alls['deal']:
         deal_total = deal_total+x
-    if play_total == 21:
+    if play_total <= 21:
         return [1, "Player wins!"]
-    elif deal_total == 21:
+    elif deal_total <= 21:
         print("Dealer wins!")
         return [2, "Dealer wins!"]
     if deal_total > 21 or play_total > 21:
