@@ -1,7 +1,7 @@
 import socket, json, multiprocessing, random, re, boards, turtle
 ip = "127.0.0.1"
 port = 20001
-bufferSize = 1024
+bufferSize = 1600
 wn = turtle.Screen()
 wn.bgcolor("grey")
 wn.tracer(0)
