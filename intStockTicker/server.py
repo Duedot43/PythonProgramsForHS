@@ -3,13 +3,6 @@ import tkinter as Tk
 ip = "127.0.0.1"
 port = 20001
 bufferSize = 16000
-wn = turtle.Screen()
-wn.bgcolor("grey")
-wn.tracer(0)
-boards.drawBoard()
-boards.drawPrices()
-turtles = boards.placeMarkers()
-wn.tracer(1)
 
 def board(ip, bufferSize, port):
     global turtles
@@ -100,12 +93,11 @@ def board(ip, bufferSize, port):
         
         
     consoleTk = Tk.Text(root, height = 30,
-                    width = 25,
-                    
+                    width = 25
                     )
     #consoleTk.config(state="disabled")
     consoleBox = Tk.Text(root, height = 1,
-                    width = 25,
+                    width = 25
                     )
 
     Display = Tk.Button(root, height = 1,
@@ -117,7 +109,7 @@ def board(ip, bufferSize, port):
     consoleBox.pack()
     Display.pack()
 
-    Tk.mainloop()
+    root.mainloop()
 
 
 
@@ -163,6 +155,8 @@ def handleClient():
             UDPServerSocket.sendto(str.encode(json.dumps(globalDct)), addr1)
 
         elif (msg["method"] == "console"):
+            if (len(console) - 1 >= 55):
+                console = console[len(console) - 1:50]
             console.append({"msg": "Console requested", "category": "debug"})
             print("Console requested")
             UDPServerSocket.sendto(str.encode(json.dumps(console)), addr1)
