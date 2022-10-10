@@ -52,7 +52,7 @@ def board(ip, bufferSize, port):
         return json.loads(reciv[0].decode())
     def buy(sock, serverAddrPort, bufferSize, stock, amount):
         global uname
-        if (stock in ["gold", "silver", "bonds", "oil", "industry", "grain"] == False):
+        if (stock not in ["gold", "silver", "bonds", "oil", "industry", "grain"]):
             privateChat(sock, serverAddrPort, bufferSize, "Thats not a valid stock!", "Server")
         if (amount%500 == 0):
             msg = {"method": "buy", "uname": uname, "stock": stock, "amount": amount}
@@ -63,7 +63,7 @@ def board(ip, bufferSize, port):
             privateChat(sock, serverAddrPort, bufferSize, "You can only buy in increments of 500", "Server")
     def sell(sock, serverAddrPort, bufferSize, stock, amount):
         global uname
-        if (stock in ["gold", "silver", "bonds", "oil", "industry", "grain"] == False):
+        if (stock not in ["gold", "silver", "bonds", "oil", "industry", "grain"] == False):
             privateChat(sock, serverAddrPort, bufferSize, "Thats not a valid stock!", "Server")
         if (amount%500 == 0):
             msg = {"method": "sell", "uname": uname, "stock": stock, "amount": amount}
