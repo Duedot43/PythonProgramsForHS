@@ -1,11 +1,14 @@
 import socket, json, multiprocessing, random, re, boards, turtle, time
+
+from injector import private
 import tkinter as Tk
 ip = "127.0.0.1"
 port = 20001
 bufferSize = 16000
-
+# NOTE: I realise how insecure this is, but its just to teach people
 def board(ip, bufferSize, port):
     global turtles
+    uname = "Master Console"
     time.sleep(1)
     # connecting to hosts
     sock = socket.socket(family = socket.AF_INET, type = socket.SOCK_DGRAM)
@@ -41,19 +44,38 @@ def board(ip, bufferSize, port):
         reciv = sock.recvfrom(bufferSize)
         print(reciv[0].decode())
         return json.loads(reciv[0].decode())
-    def sendChat(sock, serverAddrPort, bufferSize, msg, uname):
+    def sendChat(sock, serverAddrPort, bufferSize, msg):
+        global uname
         sock.sendto(str.encode(json.dumps({"method": "chat", "msg" : msg, "uname": uname})), serverAddrPort)
         reciv = sock.recvfrom(bufferSize)
         return json.loads(reciv[0].decode())
-    def privateChat(sock, serverAddrPort, bufferSize, msg, uname, sendTo):
+    def privateChat(sock, serverAddrPort, bufferSize, msg, sendTo):
+        global uname
         sock.sendto(str.encode(json.dumps({"method": "private_chat", "msg" : msg, "uname": uname, "user": sendTo})), serverAddrPort)
         reciv = sock.recvfrom(bufferSize)
         return json.loads(reciv[0].decode())
-    def buy(sock, serverAddrPort, bufferSize, uname, stock, amount):
-        msg = {"method": "buy", "uname": uname, "stock": uname, "amount": amount}
-        sock.sendto(str.encode(json.dumps(msg)), serverAddrPort)
-        reciv = sock.recvfrom(bufferSize)
-        return json.loads(reciv[0].decode())
+    def buy(sock, serverAddrPort, bufferSize, stock, amount):
+        global uname
+        if (stock in ["gold", "silver", "bonds", "oil", "industry", "grain"] == False):
+            privateChat(sock, serverAddrPort, bufferSize, "Thats not a valid stock!", "Server")
+        if (amount%500 == 0):
+            msg = {"method": "buy", "uname": uname, "stock": stock, "amount": amount}
+            sock.sendto(str.encode(json.dumps(msg)), serverAddrPort)
+            reciv = sock.recvfrom(bufferSize)
+            return json.loads(reciv[0].decode())
+        else:
+            privateChat(sock, serverAddrPort, bufferSize, "You can only buy in increments of 500", "Server")
+    def sell(sock, serverAddrPort, bufferSize, stock, amount):
+        global uname
+        if (stock in ["gold", "silver", "bonds", "oil", "industry", "grain"] == False):
+            privateChat(sock, serverAddrPort, bufferSize, "Thats not a valid stock!", "Server")
+        if (amount%500 == 0):
+            msg = {"method": "sell", "uname": uname, "stock": stock, "amount": amount}
+            sock.sendto(str.encode(json.dumps(msg)), serverAddrPort)
+            reciv = sock.recvfrom(bufferSize)
+            return json.loads(reciv[0].decode())
+        else:
+            privateChat(sock, serverAddrPort, bufferSize, "You can only sell in increments of 500", "Server")
     def decodeConsole(sock, serverAddrPort, bufferSize, allowedCat):
         console = getConsole(sock, serverAddrPort, bufferSize)
         realConsole = ""
@@ -61,39 +83,64 @@ def board(ip, bufferSize, port):
             if (x["category"] in allowedCat):
                 realConsole += x["msg"] + "\n"
         return realConsole
-    def readLocalConsole(inpt, sock, serverAddrPort, bufferSize, uname):
-        inputLst = inpt.split(" ")
+    def help(sock, serverAddrPort, bufferSize):
+        global uname
+        msg = {"method": "private_chat", "msg" : "\n'chat'\nArgs:\n    <message> Message you with to send in double quotes.\n\n'roll_dice'\nArgs:\n     <rolls> Times to roll the dice.\n\n'buy'\nArgs:\n     <stock> Can be 1 of 6 gold, silver, bonds, oil, industry, or grain.\n     <ammount> Must be a multipul of 500.\n\n'sell'\nArgs:\n     <stock> Can be 1 of 6 gold, silver, bonds, oil, industry, or grain.\n     <ammount> Must be a multipul of 500.\n\n<refresh>\n     Refreshes the console window", "uname": "Server", "user": uname}
+        sock.sendto(str.encode(json.dumps(msg)), serverAddrPort)
+        reciv = sock.recvfrom(bufferSize)
+        return json.loads(reciv[0].decode())
+    def getUserStocks(sock, serverAddrPort, bufferSize):
+        global uname
+        user = getBoard(sock, serverAddrPort, bufferSize)['users'][uname]
+        privateChat(sock, serverAddrPort, bufferSize, "Money: " + str(user['money']) + "\nGold: " + str(user['gold']) + "\nSilver: " + str(user['silver']) + "\nBonds: " + str(user['bonds']) + "\nOil: " + str(user['oil']) + "\nIndustry: " + str(user['industry']) + "\nGrain: " + str(user['grain']), "Server")
+    def login(sock, serverAddrPort, bufferSize, uname):
+        msg = {"method": "login", "uname": uname}
+        sock.sendto(str.encode(json.dumps(msg)), serverAddrPort)
+        reciv = sock.recvfrom(bufferSize)
+        return json.loads(reciv[0].decode())
+    def readLocalConsole(inpt, sock, serverAddrPort, bufferSize):
+        global uname
+        inputLst = inpt.strip("\n").lower().split(" ")
         command = inputLst[0]
-        args = re.findall('(?:[^\s,"]|"(?:\\.|[^"])*")+', inpt.strip(command + " "))
+        args = re.findall('(?:[^\s,"]|"(?:\\.|[^"])*")+', inpt.strip(command + " ").strip("\n"))
         if (command == "chat"):
             try:
-                sendChat(sock, serverAddrPort, bufferSize, args[0].strip('"'), uname)
+                sendChat(sock, serverAddrPort, bufferSize, args[0].strip('"'))
             except:
-                privateChat(sock, serverAddrPort, bufferSize, "Invalid chat message!", "Server", uname)
+                privateChat(sock, serverAddrPort, bufferSize, "Invalid chat message!", "Server")
         elif (command == "roll_dice"):
             try:
                 rollDice(sock, serverAddrPort, bufferSize, int(args[0]))
             except:
                 rollDice(sock, serverAddrPort, bufferSize)
         elif (command == "buy"):
-            buy(sock, serverAddrPort, bufferSize, uname, args[0], int(args[1]))
+            buy(sock, serverAddrPort, bufferSize, args[0], int(args[1]))
+        elif (command == "sell"):
+            sell(sock, serverAddrPort, bufferSize, args[0], int(args[1]))
         elif (command == "refresh"):
             pass
+        elif (command == "help"):
+            help(sock, serverAddrPort, bufferSize)
+        elif (command == "view_stocks"):
+            getUserStocks(sock, serverAddrPort, bufferSize)
+        elif (command == "login"):
+            login(sock, serverAddrPort, bufferSize, args[0])
+            uname = args[0]
     root = Tk.Tk()
-    root.geometry("250x600")
+    root.geometry("800x600")
     root.title("Console")
 
     def Take_input():
         INPUT = consoleBox.get("1.0", "end-1c")
-        readLocalConsole(INPUT, sock, serverAddrPort, bufferSize, "Master Console")
-        console = decodeConsole(sock, serverAddrPort, bufferSize, ['debug', 'chat', "Master Console"])
+        readLocalConsole(INPUT, sock, serverAddrPort, bufferSize)
+        console = decodeConsole(sock, serverAddrPort, bufferSize, ['debug', 'chat'])
         consoleTk.replace('1.0', 'end', console)
         consoleBox.delete("1.0", "end")
         
         
         
     consoleTk = Tk.Text(root, height = 30,
-                    width = 25
+                    width = 100
                     )
     #consoleTk.config(state="disabled")
     consoleBox = Tk.Text(root, height = 1,
@@ -104,7 +151,7 @@ def board(ip, bufferSize, port):
                     width = 5,
                     text ="Show",
                     command = lambda:Take_input())
-
+    root.bind('<Return>', lambda event: Take_input())
     consoleTk.pack()
     consoleBox.pack()
     Display.pack()
@@ -137,7 +184,7 @@ def handleClient():
         msg = msg.decode()
         msg = json.loads(msg)
         if (msg["method"] == "login"):
-            globalDct['users'][msg['uname']] = {"money": 5000, "shares": {}}
+            globalDct['users'][msg['uname']] = {"money": 5000, "shares": {"gold": 0, 'silver': 0, 'bonds': 0, 'oil': 0, 'industry': 0, 'grain': 0}}
             console.append({"msg": msg['uname'] + " has logged in!", "category": "login"})
             print(msg['uname'] + " has logged in!")
             UDPServerSocket.sendto(str.encode(json.dumps(globalDct['users'][msg['uname']])), addr1)
@@ -169,7 +216,7 @@ def handleClient():
         elif (msg["method"] == "buy"):
             #buying a stock
             globalDct['users'][msg['uname']]['shares'][msg['stock']] = msg['amount']
-            globalDct['users'][msg['uname']]['money'] -= msg['amount']
+            globalDct['users'][msg['uname']]['money'] -= globalDct['stocks'][msg['stock']] * msg['amount']
             console.append({"msg": msg['uname'] + " has bought " + str(msg['amount']) + " shares of " + msg['stock'], "category": "activity"})
             print(msg['uname'] + " has bought " + str(msg['amount']) + " shares of " + msg['stock'])
             UDPServerSocket.sendto(str.encode(json.dumps(globalDct)), addr1)
@@ -177,7 +224,7 @@ def handleClient():
         elif (msg["method"] == "sell"):
             #selling a stock
             globalDct['users'][msg['uname']]['shares'][msg['stock']] = 0
-            globalDct['users'][msg['uname']]['money'] += msg['amount']
+            globalDct['users'][msg['uname']]['money'] += globalDct['stocks'][msg['stock']] * msg['amount']
             console.append({"msg": msg['uname'] + " has sold " + str(msg['amount']) + " shares of " + msg['stock'], "category": "activity"})
             print(msg['uname'] + " has sold " + str(msg['amount']) + " shares of " + msg['stock'])
             UDPServerSocket.sendto(str.encode(json.dumps(globalDct)), addr1)
