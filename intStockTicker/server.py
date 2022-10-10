@@ -1,14 +1,11 @@
 import socket, json, multiprocessing, random, re, boards, turtle, time
 
-from injector import private
 import tkinter as Tk
 ip = "127.0.0.1"
 port = 20001
 bufferSize = 16000
 # NOTE: I realise how insecure this is, but its just to teach people
 def board(ip, bufferSize, port):
-    global turtles
-    uname = "Master Console"
     time.sleep(1)
     # connecting to hosts
     sock = socket.socket(family = socket.AF_INET, type = socket.SOCK_DGRAM)
@@ -42,7 +39,6 @@ def board(ip, bufferSize, port):
         msg = {"method": "console"}
         sock.sendto(str.encode(json.dumps(msg)), serverAddrPort)
         reciv = sock.recvfrom(bufferSize)
-        print(reciv[0].decode())
         return json.loads(reciv[0].decode())
     def sendChat(sock, serverAddrPort, bufferSize, msg):
         global uname
@@ -85,14 +81,52 @@ def board(ip, bufferSize, port):
         return realConsole
     def help(sock, serverAddrPort, bufferSize):
         global uname
-        msg = {"method": "private_chat", "msg" : "\n'chat'\nArgs:\n    <message> Message you with to send in double quotes.\n\n'roll_dice'\nArgs:\n     <rolls> Times to roll the dice.\n\n'buy'\nArgs:\n     <stock> Can be 1 of 6 gold, silver, bonds, oil, industry, or grain.\n     <ammount> Must be a multipul of 500.\n\n'sell'\nArgs:\n     <stock> Can be 1 of 6 gold, silver, bonds, oil, industry, or grain.\n     <ammount> Must be a multipul of 500.\n\n<refresh>\n     Refreshes the console window", "uname": "Server", "user": uname}
+        msg = {"method": "private_chat", "msg" : """
+        'chat'
+        Args:
+            <message> Message you with to send in double quotes.
+            
+        'roll_dice' Rolls the dice and moves the board.
+        Args:
+            <rolls> Times to roll the dice.
+
+        'buy' Buys a stock.
+        Args:
+            <stock> Can be 1 of 6 gold, silver, bonds, oil, industry, or grain.
+            <ammount> Must be a multipul of 500.
+            
+        'sell' Sells a stock.
+        Args:
+            <stock> Can be 1 of 6 gold, silver, bonds, oil, industry, or grain.
+            <ammount> Must be a multipul of 500.
+            
+        'refresh'
+            Refreshes the console window
+            
+        'view_stocks '
+            Views your money and stocks.
+
+        'help'
+            Shows this message.
+        
+        'login' Logs you in to the server.
+        Args:
+            <username> Username you wish to use.
+
+        'private_chat' Sends a private message to a user.
+        Args:
+            <msg> Message you wish to send in double quotes.
+            <user> Username of the user you wish to send the message to in double quotes.
+        """, 
+                
+        "uname": "Server", "user": uname}
         sock.sendto(str.encode(json.dumps(msg)), serverAddrPort)
         reciv = sock.recvfrom(bufferSize)
         return json.loads(reciv[0].decode())
     def getUserStocks(sock, serverAddrPort, bufferSize):
         global uname
         user = getBoard(sock, serverAddrPort, bufferSize)['users'][uname]
-        privateChat(sock, serverAddrPort, bufferSize, "Money: " + str(user['money']) + "\nGold: " + str(user['gold']) + "\nSilver: " + str(user['silver']) + "\nBonds: " + str(user['bonds']) + "\nOil: " + str(user['oil']) + "\nIndustry: " + str(user['industry']) + "\nGrain: " + str(user['grain']), "Server")
+        privateChat(sock, serverAddrPort, bufferSize, "Money: " + str(user['money']) + "\nGold: " + str(user['shares']['gold']) + "\nSilver: " + str(user['shares']['silver']) + "\nBonds: " + str(user['shares']['bonds']) + "\nOil: " + str(user['shares']['oil']) + "\nIndustry: " + str(user['shares']['industry']) + "\nGrain: " + str(user['shares']['grain']), uname)
     def login(sock, serverAddrPort, bufferSize, uname):
         msg = {"method": "login", "uname": uname}
         sock.sendto(str.encode(json.dumps(msg)), serverAddrPort)
@@ -108,32 +142,52 @@ def board(ip, bufferSize, port):
                 sendChat(sock, serverAddrPort, bufferSize, args[0].strip('"'))
             except:
                 privateChat(sock, serverAddrPort, bufferSize, "Invalid chat message!", "Server")
+        elif (command == "private_chat"):
+            try:
+                privateChat(sock, serverAddrPort, bufferSize, args[1].strip('"'), args[0].strip('"'))
+            except:
+                privateChat(sock, serverAddrPort, bufferSize, "Invalid private chat message!", "Server")
         elif (command == "roll_dice"):
             try:
                 rollDice(sock, serverAddrPort, bufferSize, int(args[0]))
             except:
                 rollDice(sock, serverAddrPort, bufferSize)
         elif (command == "buy"):
-            buy(sock, serverAddrPort, bufferSize, args[0], int(args[1]))
+            try:
+                buy(sock, serverAddrPort, bufferSize, args[0], int(args[1]))
+            except:
+                print("You are not logged in!")
         elif (command == "sell"):
-            sell(sock, serverAddrPort, bufferSize, args[0], int(args[1]))
+            try:
+                sell(sock, serverAddrPort, bufferSize, args[0], int(args[1]))
+            except:
+                print("You are not logged in!")
         elif (command == "refresh"):
             pass
         elif (command == "help"):
             help(sock, serverAddrPort, bufferSize)
         elif (command == "view_stocks"):
-            getUserStocks(sock, serverAddrPort, bufferSize)
+            try:
+                getUserStocks(sock, serverAddrPort, bufferSize)
+            except:
+                print("You are not logged in!")
         elif (command == "login"):
-            login(sock, serverAddrPort, bufferSize, args[0])
-            uname = args[0]
+            try:
+                login(sock, serverAddrPort, bufferSize, args[0])
+                uname = args[0]
+            except:
+                print("Invalid username!")
+        else:
+            print("Invalid command!")
     root = Tk.Tk()
     root.geometry("800x600")
     root.title("Console")
 
     def Take_input():
         INPUT = consoleBox.get("1.0", "end-1c")
+        
         readLocalConsole(INPUT, sock, serverAddrPort, bufferSize)
-        console = decodeConsole(sock, serverAddrPort, bufferSize, ['debug', 'chat'])
+        console = decodeConsole(sock, serverAddrPort, bufferSize, ['chat', "activity", uname, "login"])
         consoleTk.replace('1.0', 'end', console)
         consoleBox.delete("1.0", "end")
         
@@ -233,10 +287,23 @@ def handleClient():
             #moving a turtle
             #boards.movePiece(int(msg['amount']), turtles[msg['stock']], int(msg['direction']))
             if int(msg['direction']) == 1:
+                english = "up"
                 turtles[msg['stock']].forward(20 * (int(msg['amount'] * 100)/5))
-            else:
+                globalDct['stocks'][msg['stock']] += int(msg['amount'])
+            elif int(msg['direction'] == 2):
+                english = "down"
                 turtles[msg['stock']].backward(20 * (int(msg['amount'] * 100)/5))
-            console.append({"msg": msg['stock'] + " has moved " + str(msg['amount']), "category": "debug"})
+                globalDct['stocks'][msg['stock']] -= int(msg['amount'])
+            elif int(msg['direction'] == 3 and globalDct['stocks'][msg['stock']] >= 1):
+                english = "dividend"
+                console.append({"msg": msg['stock'] + " paid a divitend", "category": "activity"})
+                for x in globalDct['users']:
+                    globalDct['users'][x]['money'] += globalDct['users'][x]['shares'][msg['stock']] * msg['amount']
+            if (globalDct['stocks'][msg['stock']] <= 0):
+                console.append({"msg": msg['stock'] + " has gone bankrupt!", "category": "activity"})
+                for x in globalDct['users']:
+                    globalDct['users'][x]['shares'][msg['stock']] = 0
+            console.append({"msg": msg['stock'] + " has moved " + str(msg['amount']) + " " + english, "category": "activity"})
             print(msg['stock'] + " has moved " + str(msg['direction']) + " " + str(msg['amount']))
             UDPServerSocket.sendto(str.encode(json.dumps(globalDct)), addr1)
 
