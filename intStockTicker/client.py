@@ -1,10 +1,10 @@
-import socket, json, multiprocessing, random, re, boards, turtle, time
+import socket, json, multiprocessing, random, re, time
 
 import tkinter as Tk
 
 
-ip = "127.0.0.1"
-port = 20001
+ip = str(input("IP: "))
+port = int(input("Port: "))
 bufferSize = 16000
 
 

@@ -312,9 +312,10 @@ def handleClient():
             print(msg['uname'] + "> " + msg['msg'])
             UDPServerSocket.sendto(str.encode(json.dumps(console)), addr1)
 
-p = multiprocessing.Process(target=handleClient)
-brd = multiprocessing.Process(target=board, args=(ip, bufferSize, port))
-p.start()
-brd.start()
-p.join()
-brd.join()
+if __name__ == "__main__":
+    p = multiprocessing.Process(target=handleClient)
+    brd = multiprocessing.Process(target=board, args=(ip, bufferSize, port))
+    p.start()
+    brd.start()
+    p.join()
+    brd.join()
